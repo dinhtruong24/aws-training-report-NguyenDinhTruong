@@ -32,7 +32,7 @@ chapter: false
 &emsp; **Internship Duration:** From 04/05/2026 to 25/07/2026
 
 <p align="center">
-    <img src="/aws-training-report-NguyenDinhTruong/images/avatar.png" width="450" alt="Avatar">
+    <img src="{{< relref "/" >}}images/avatar.png" width="450" alt="Avatar">
 </p>
 
 ### Report Content
