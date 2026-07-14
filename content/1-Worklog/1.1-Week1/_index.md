@@ -12,46 +12,28 @@ pre: " <b> 1.1. </b> "
 
 ### Week 1 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Successfully complete the FCAJ orientation session, thoroughly understand internship regulations, and set up a secure AWS account.
+* Master fundamental cloud computing concepts, implement secure access control with AWS IAM, and design a basic Amazon VPC network topology.
+* Gain hands-on proficiency in launching and configuring remote connections for Amazon EC2 virtual servers, and managing Amazon EBS storage volumes.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Completed the FCAJ orientation, reviewed internship regulations, and set up a secure personal AWS account with MFA and AWS Budgets alerts. | 05/04/2026 | 05/04/2026 | https://000001.awsstudygroup.com/ |
+| 3   | - Learned how to design cloud architecture diagrams using draw.io and successfully built and deployed a personal workshop website to GitHub Pages using Hugo. | 05/05/2026 | 05/05/2026      | https://www.youtube.com/watch?v=mXRqgMr_97U https://www.youtube.com/watch?v=l8isyDe-GwY |
+| 4   | - Researched core cloud computing theories, practiced identity and access management with AWS IAM, and manually designed and configured a basic Amazon VPC network. | 05/06/2026 | 05/06/2026      | https://000002.awsstudygroup.com/ https://000003.awsstudygroup.com/ https://000004.awsstudygroup.com/ |
+| 5   | - Handled the deployment of Amazon EC2 virtual servers, established remote connections using SSH/RDP, and learned to manage Amazon EBS storage volumes. | 05/07/2026 | 05/07/2026      | https://000048.awsstudygroup.com/ https://000057.awsstudygroup.com/ |
+| 6   | - Continued optimizing EC2 instances with static IPs, expanded EBS volumes, and summarized the foundational knowledge gained throughout the week. | 05/08/2026 | 05/08/2026      | https://000048.awsstudygroup.com/ https://000057.awsstudygroup.com/ |
 
 
 ### Week 1 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Secure Infrastructure Baseline: Successfully completed the configuration of the personal AWS account on schedule, enabled Multi-Factor Authentication (MFA), and configured cost threshold alerts via AWS Budgets.
 
-* Successfully created and configured an AWS Free Tier account.
+* Personal Portfolio Deployment: Standardized the design of cloud architecture diagrams using draw.io and published a fully operational personal workshop site on GitHub Pages using Hugo.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Core Infrastructure Mastery: Successfully initialized an Amazon VPC network, configured secure IAM user policies, and deployed connected Amazon EC2 virtual servers equipped with Amazon EBS storage volumes.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+### Week 1 Evaluation:
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* During the hands-on practice, I occasionally encountered difficulties when configuring security rules (Inbound/Outbound rules) within Security Groups, which temporarily disrupted SSH/RDP connections. This serves as an important lesson and practical experience to keep in mind for optimizing server access management in the upcoming weeks.

@@ -12,48 +12,29 @@ pre: " <b> 1.1. </b> "
 
 ### Mục tiêu tuần 1:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Thiết lập tài khoản AWS, kích hoạt gói miễn phí (Free Tier) và cấu hình công cụ quản lý chi phí nhằm kiểm soát tài chính hiệu quả ngay từ đầu.
+* Làm quen với các dịch vụ cốt lõi của AWS về bảo mật (IAM), hạ tầng mạng (VPC) và tài nguyên tính toán (EC2).
+* Làm chủ các công cụ quản trị hệ thống của AWS thông qua cả giao diện đồ họa (Console) và giao diện dòng lệnh (CLI/Cloud9).
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Hoàn thành buổi định hướng FCAJ, đọc kỹ các quy định thực tập và thiết lập tài khoản AWS cá nhân an toàn với MFA và AWS Budgets.| 04/05/2026   | 04/05/2026      | https://000001.awsstudygroup.com/ |
+| 3   | - Tìm hiểu cách vẽ sơ đồ kiến trúc bằng draw.io và thực hành xây dựng, triển khai trang web cá nhân bằng Hugo lên GitHub Pages.| 05/05/2026   | 05/05/2026      | https://www.youtube.com/watch?v=mXRqgMr_97U https://www.youtube.com/watch?v=l8isyDe-GwY |
+| 4   | - Nghiên cứu lý thuyết Cloud cốt lõi, thực hành phân quyền bảo mật với AWS IAM và tự tay quy hoạch, cấu hình hệ thống mạng Amazon VPC cơ bản. | 06/05/2026   | 06/05/2026      | https://000002.awsstudygroup.com/ https://000003.awsstudygroup.com/ https://000004.awsstudygroup.com/ |
+| 5   | - Thực hành khởi tạo máy chủ ảo Amazon EC2, thực hiện kết nối từ xa bằng SSH/RDP và tìm hiểu cách quản lý ổ đĩa lưu trữ Amazon EBS. | 07/05/2026   | 07/05/2026      | https://000048.awsstudygroup.com/ https://000057.awsstudygroup.com/ |
+| 6   | - Tiếp tục tối ưu hóa cấu hình EC2 với IP tĩnh, mở rộng ổ đĩa EBS và tổng hợp lại toàn bộ các kiến thức nền tảng đã tiếp thu trong tuần. | 08/05/2026   | 08/05/2026      | https://000048.awsstudygroup.com/ https://000057.awsstudygroup.com/ |
 
 
 ### Kết quả đạt được tuần 1:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Thiết lập hạ tầng an toàn: Hoàn thành đúng hạn việc cấu hình tài khoản AWS cá nhân, kích hoạt bảo mật MFA và thiết lập cảnh báo hạn mức chi phí tự động qua AWS Budgets.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Triển khai trang Portfolio cá nhân: Thiết kế sơ đồ kiến trúc bằng draw.io và đưa trang web Workshop cá nhân hoạt động ổn định trên GitHub Pages bằng công cụ Hugo.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Làm chủ hạ tầng cốt lõi: Khởi tạo thành công hệ thống mạng Amazon VPC, phân quyền IAM chuẩn bảo mật và vận hành trơn tru máy chủ ảo Amazon EC2 kết hợp ổ đĩa lưu trữ Amazon EBS.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+### Đánh giá tuần 1:
+* Trong quá trình thực hành, đôi lúc còn gặp khó khăn khi cấu hình các quy tắc bảo mật (Inbound/Outbound rules) của Security Group dẫn đến việc kết nối SSH/RDP bị gián đoạn. Đây là bài học kinh nghiệm quan trọng cần lưu ý để tối ưu hóa việc quản lý truy cập máy chủ trong các tuần tiếp theo.
 
 
