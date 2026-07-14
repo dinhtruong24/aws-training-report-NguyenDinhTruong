@@ -12,46 +12,27 @@ pre: " <b> 1.2. </b> "
 
 ### Week 2 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Install, configure, and master AWS resource management utilizing the Command Line Interface (AWS CLI).
+* Research, initialize, and practice establishing database connections and queries on both relational (Amazon RDS) and non-relational (Amazon DynamoDB) systems.
+* Explore rapid application deployment with Amazon Lightsail and design a highly available, auto-scaling, and load-balanced infrastructure (Auto Scaling & ELB) on Amazon EC2.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Monday   | - Installed and configured the AWS CLI on a personal computer using Access Keys/Secret Access Keys, and practiced basic CLI commands to manage EC2, S3, and Key Pair resources. | 11/05/2026 | 11/05/2026      | https://000011.awsstudygroup.com/ |
+| Tuesday  | - Researched the Amazon RDS (MySQL) managed database service, configured Security Groups, Endpoints, and successfully connected via a client tool to perform database queries. | 12/05/2026 | 12/05/2026      | https://000005.awsstudygroup.com/ |
+| Wednesday   | - Explored the Amazon DynamoDB NoSQL database model, designed table schemas utilizing Partition Keys and Sort Keys, and successfully executed basic CRUD operations. | 13/05/2026 | 13/05/2026      | https://000060.awsstudygroup.com/ https://000039.awsstudygroup.com/ https://0000133.awsstudygroup.com/ |
+| Thursday   | - Discovered Amazon Lightsail, deployed a WordPress instance quickly, configured basic DNS settings, and compared Lightsail with Amazon EC2 for lightweight applications.  | 14/05/2026 | 14/05/2026      | https://000045.awsstudygroup.com/ https://000046.awsstudygroup.com/ |
+| Friday   | - Researched high scalability and availability architectures by creating a Launch Template, configuring an Auto Scaling Group (with CPU-based Scale-In/Scale-Out policies), and integrating it with an Elastic Load Balancer (ELB).  | 15/05/2026 | 15/05/2026      | https://000006.awsstudygroup.com/ |
 
 
 ### Week 2 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Flexible System Administration: Successfully configured the AWS CLI on a local machine and efficiently managed AWS resources through command-line inputs instead of the web Console.
 
-* Successfully created and configured an AWS Free Tier account.
+* Dual Database Architecture Mastery: Deployed and connected to both relational Amazon RDS (MySQL) and non-relational Amazon DynamoDB databases, performing seamless query connections and CRUD operations.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Highly Scalable Infrastructure Deployment: Deployed a fully functional WordPress website on Amazon Lightsail and successfully built an Auto Scaling Group combined with a Load Balancer, validating automatic scaling behaviors under simulated workloads.web interface.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Week 2 Evaluation:
+* During the hands-on configuration of the Auto Scaling Group combined with the Elastic Load Balancer, I initially faced difficulties setting up appropriate threshold policies for CPU-based Scale-Out and Scale-In, which caused sub-optimal scaling responses during the first trial. After adjusting the cooldown periods and refining the CPU metric thresholds, the system successfully provisioned and terminated instances in exact accordance with the real workload demands.

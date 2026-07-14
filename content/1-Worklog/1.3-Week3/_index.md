@@ -12,46 +12,28 @@ pre: " <b> 1.3. </b> "
 
 ### Week 3 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Strengthen end-to-end system security by implementing security solutions across multiple layers, from identity and access management to application-layer protection.
+* Improve risk management and proactive threat detection by configuring firewalls, evaluating security compliance, and establishing automated rules to detect and prevent unauthorized access.
+* Secure sensitive data through encryption and optimize application deployment by standardizing large-scale containerized workloads.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Monday  | - Deployed a large-scale container architecture using Amazon ECS; created and configured an Amazon ECS Cluster, defined standardized Task Definitions, and deployed an Amazon ECS Service integrated with an Application Load Balancer (ALB) to ensure high availability.  | 18/05/2026 | 18/05/2026     | https://000016.awsstudygroup.com/ https://0000118.awsstudygroup.com/ |
+| Tuesday  | - Integrated centralized monitoring with Amazon CloudWatch; configured metrics and log collection from Amazon ECS, built CloudWatch Dashboards to visualize system performance, and configured CloudWatch Alarms to send notifications through Email or Slack when CPU or memory usage exceeds the defined threshold.  | 19/05/2026 | 19/05/2026      | https://000008.awsstudygroup.com/ |
+| Wednesday  | - Standardized identity management with AWS IAM Identity Center (SSO); configured centralized AWS Single Sign-On, created Permission Sets, and managed user access across Development, Staging, and Production environments.. | 20/05/2026 | 20/05/2026      | https://000028.awsstudygroup.com/ https://000031.awsstudygroup.com/ https://000044.awsstudygroup.com/ https://000058.awsstudygroup.com/ |
+| Thursday | - Enabled AWS Security Hub and performed security compliance assessments; configured AWS Security Hub, ran automated security scans, and evaluated compliance based on the CIS AWS Foundations Benchmark to identify security misconfigurations. | 21/05/2026 | 21/05/2026     | https://000018.awsstudygroup.com/ https://000069.awsstudygroup.com/ |
+| Friday  | - Configured AWS WAF to protect web applications; associated AWS WAF with an Application Load Balancer, created Web ACLs, and configured security rules to detect and block common attacks such as SQL Injection (SQLi), Cross-Site Scripting (XSS), and malicious bot traffic.  | 22/05/2026 | 22/05/2026      | https://000026.awsstudygroup.com/ |
 
 
 ### Week 3 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Standardized Container Operations: Successfully deployed containerized workloads on Amazon ECS integrated with an Application Load Balancer (ALB), optimizing routing, traffic distribution, and service fault tolerance.
 
-* Successfully created and configured an AWS Free Tier account.
+* Comprehensive Automated Monitoring: Established a centralized visualization dashboard and configured automated alarms using Amazon CloudWatch to proactively track the metrics and operational health of ECS tasks.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Multi-Layered Security Baseline: Completed centralized user access governance with AWS IAM Identity Center (SSO), achieved compliance standardizations with AWS Security Hub (CIS Benchmarks), and built a robust firewall defense using AWS WAF.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
+### Week 3 Evaluation:
 
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* During the hands-on configuration of associating AWS WAF with the Application Load Balancer, I initially faced some issues with over-restrictive SQL Injection and bot-blocking rules, which accidentally blocked several legitimate API requests from client applications (false positives). After analyzing access logs via CloudWatch Logs and refining the rule exclusion patterns within the Web ACL, the firewall operated smoothly, ensuring security without disrupting the application's regular user traffic.

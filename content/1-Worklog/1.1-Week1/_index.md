@@ -19,11 +19,11 @@ pre: " <b> 1.1. </b> "
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Completed the FCAJ orientation, reviewed internship regulations, and set up a secure personal AWS account with MFA and AWS Budgets alerts. | 05/04/2026 | 05/04/2026 | https://000001.awsstudygroup.com/ |
-| 3   | - Learned how to design cloud architecture diagrams using draw.io and successfully built and deployed a personal workshop website to GitHub Pages using Hugo. | 05/05/2026 | 05/05/2026      | https://www.youtube.com/watch?v=mXRqgMr_97U https://www.youtube.com/watch?v=l8isyDe-GwY |
-| 4   | - Researched core cloud computing theories, practiced identity and access management with AWS IAM, and manually designed and configured a basic Amazon VPC network. | 05/06/2026 | 05/06/2026      | https://000002.awsstudygroup.com/ https://000003.awsstudygroup.com/ https://000004.awsstudygroup.com/ |
-| 5   | - Handled the deployment of Amazon EC2 virtual servers, established remote connections using SSH/RDP, and learned to manage Amazon EBS storage volumes. | 05/07/2026 | 05/07/2026      | https://000048.awsstudygroup.com/ https://000057.awsstudygroup.com/ |
-| 6   | - Continued optimizing EC2 instances with static IPs, expanded EBS volumes, and summarized the foundational knowledge gained throughout the week. | 05/08/2026 | 05/08/2026      | https://000048.awsstudygroup.com/ https://000057.awsstudygroup.com/ |
+| Monday  | - Completed the FCAJ orientation, reviewed internship regulations, and set up a secure personal AWS account with MFA and AWS Budgets alerts. | 04/05/2026 | 04/05/2026 | https://000001.awsstudygroup.com/ |
+| Tuesday  | - Learned how to design cloud architecture diagrams using draw.io and successfully built and deployed a personal workshop website to GitHub Pages using Hugo. | 05/05/2026 | 05/05/2026      | https://www.youtube.com/watch?v=mXRqgMr_97U https://www.youtube.com/watch?v=l8isyDe-GwY |
+| Wednesday  | - Researched core cloud computing theories, practiced identity and access management with AWS IAM, and manually designed and configured a basic Amazon VPC network. | 06/05/2026 | 06/05/2026      | https://000002.awsstudygroup.com/ https://000003.awsstudygroup.com/ https://000004.awsstudygroup.com/ |
+| Thursday  | - Handled the deployment of Amazon EC2 virtual servers, established remote connections using SSH/RDP, and learned to manage Amazon EBS storage volumes. | 07/05/2026 | 07/05/2026      | https://000048.awsstudygroup.com/ https://000057.awsstudygroup.com/ |
+| Friday  | - Continued optimizing EC2 instances with static IPs, expanded EBS volumes, and summarized the foundational knowledge gained throughout the week. | 08/05/2026 | 08/05/2026      | https://000048.awsstudygroup.com/ https://000057.awsstudygroup.com/ |
 
 
 ### Week 1 Achievements:

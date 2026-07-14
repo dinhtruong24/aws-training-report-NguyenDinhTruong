@@ -12,48 +12,28 @@ pre: " <b> 1.2. </b> "
 
 ### Mục tiêu tuần 2:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Làm quen và thực hành cấu hình các dịch vụ cơ sở dữ liệu quan hệ (Amazon RDS) và phi quan hệ (Amazon DynamoDB) trên AWS.
+* Triển khai ứng dụng web đơn giản lên Amazon Lightsail và cấu hình hệ thống có khả năng tự động co giãn, cân bằng tải (Auto Scaling Group & Elastic Load Balancer).
+* Tiếp cận công nghệ container, thực hành viết Dockerfile để đóng gói ứng dụng và chạy thử nghiệm trên máy chủ ảo Amazon EC2.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Cài đặt và cấu hình AWS CLI trên máy tính cá nhân bằng Access Key/Secret Access Key, thực hành các lệnh CLI cơ bản để quản lý các tài nguyên EC2, S3, và Key Pair.  | 11/05/2026   | 11/05/2026      | https://000011.awsstudygroup.com/ |
+| 3   | - Nghiên cứu dịch vụ cơ sở dữ liệu quản lý Amazon RDS (MySQL), cấu hình Nhóm bảo mật, Điểm cuối (Endpoint) và kết nối thành công từ ứng dụng phụ trợ để truy vấn dữ liệu. | 12/05/2026   | 12/05/2026      | https://000005.awsstudygroup.com/ |
+| 4   | - Tìm hiểu cơ sở dữ liệu NoSQL Amazon DynamoDB, thiết kế lược đồ bảng với Phím phân vùng (Partition Key) / Khóa sắp xếp (Sort Key) và thực hiện các thao tác CRUD dữ liệu cơ bản. | 13/05/2026   | 13/05/2026      | https://000060.awsstudygroup.com/ https://000039.awsstudygroup.com/ https://0000133.awsstudygroup.com/ |
+| 5   | - Khám phá Amazon Lightsail, thực hiện triển khai nhanh một phiên bản WordPress, cấu hình DNS cơ bản và so sánh hiệu quả giữa Lightsail và EC2 cho các ứng dụng nhỏ. | 14/05/2026   | 114/05/2026      | https://000045.awsstudygroup.com/ https://000046.awsstudygroup.com/ |
+| 6   | - Nghiên cứu kiến trúc mở rộng và tính khả dụng cao bằng cách cấu hình Launch Template, Nhóm Auto Scaling (chính sách Scale In/Scale Out theo CPU) tích hợp với Elastic Load Balancer (ELB). | 15/05/2026   | 15/05/2026      | https://000006.awsstudygroup.com/ |
 
 
 ### Kết quả đạt được tuần 2:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Quản trị hệ thống linh hoạt: Cấu hình thành công AWS CLI trên máy tính cá nhân, thực hiện trơn tru các lệnh quản trị tài nguyên trực tiếp bằng dòng lệnh thay vì giao diện Console.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Làm chủ hai mô hình cơ sở dữ liệu: Triển khai và kết nối thành công cơ sở dữ liệu quan hệ Amazon RDS (MySQL) và phi quan hệ Amazon DynamoDB, thực hiện mượt mà các truy vấn và thao tác CRUD dữ liệu.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Tối ưu hóa khả năng co giãn: Triển khai nhanh website WordPress trên Amazon Lightsail và xây dựng thành công hệ thống tự động co giãn Auto Scaling Group kết hợp Load Balancer giúp tối ưu hóa hiệu năng hệ thống dưới khối lượng công việc giả lập.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
+### Đánh giá tuần 2:
+* Trong quá trình cấu hình kiểm tra quy mô tự động (Auto Scaling) kết hợp Elastic Load Balancer, tôi từng gặp khó khăn khi thiết lập các ngưỡng kích hoạt chính sách Scale Out và Scale In dựa trên CPU, dẫn đến việc hệ thống phản hồi co giãn chưa thực sự tối ưu trong lần kiểm thử đầu tiên. Sau khi hiệu chỉnh lại thông số thời gian chờ (cooldown period) và ngưỡng CPU, hệ thống đã tự động tăng giảm số lượng máy chủ chính xác theo đúng kịch bản tải thực tế.
 

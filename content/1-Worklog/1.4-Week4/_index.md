@@ -12,46 +12,29 @@ pre: " <b> 1.4. </b> "
 
 ### Week 4 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Shift system design thinking from monolithic architecture to Microservices and Serverless architectures to improve scalability and flexibility.
+
+* Understand DevOps principles by learning Continuous Integration and Continuous Delivery (CI/CD), infrastructure automation, and modern software delivery methodologies.
+
+* Strengthen data security and privilege management by mastering encryption services, implementing strict permission boundaries, and exploring AI-powered threat detection solutions.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Monday | - Researched advanced access control using IAM Permission Boundaries; studied how Permission Boundaries limit the maximum permissions that can be granted to IAM Users and Roles, and configured policies to prevent privilege escalation by delegated administrators.  | 25/05/2026 | 25/05/2026      | https://000030.awsstudygroup.com/ |
+| Tuesday  | - Deployed Amazon GuardDuty and performed security incident simulations; enabled Amazon GuardDuty, simulated attacks such as SSH brute-force attempts, malicious IP access, and port scanning, and analyzed the generated security findings.   | 26/05/2026 | 26/05/2026     | https://000098.awsstudygroup.com/ |
+| Wednesday  | - Managed encryption keys with AWS KMS and secured data at rest; created Customer Managed Keys (CMK), configured key lifecycle management, defined key policies, and enabled automatic encryption for sensitive data stored in Amazon S3. | 27/05/2026 | 27/05/2026    | https://000033.awsstudygroup.com/ |
+| Thursday  | - Studied the AWS Well-Architected Framework, focusing deeply on the Security Pillar; explored core principles including identity management, infrastructure protection, data protection, and incident response strategies.  | 28/05/2026 | 28/05/2026    | https://000097.awsstudygroup.com/ |
+| Friday  | - Researched the fundamentals of Serverless architecture; learned how event-driven systems operate using AWS Lambda and Amazon API Gateway, and compared Serverless with traditional EC2-based architectures regarding cost optimization, auto-scaling, and cold start limitations.   | 29/05/2026 | 29/05/2026     | https://000054.awsstudygroup.com/ https://000078.awsstudygroup.com/ https://000079.awsstudygroup.com/ https://000082.awsstudygroup.com/ https://000084.awsstudygroup.com/ https://000085.awsstudygroup.com/ |
 
 
 ### Week 4 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Privilege Control & Threat Detection: Successfully established IAM Permission Boundaries to prevent privilege escalation and deployed Amazon GuardDuty to intelligently detect and flag simulated security threats.
 
-* Successfully created and configured an AWS Free Tier account.
+* Optimal Data Protection: Mastered AWS KMS by provisioning and managing the lifecycle of Customer Managed Keys (CMKs), successfully enforcing automatic encryption on sensitive data resting in Amazon S3 buckets.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Standardized Serverless Thinking: Acquired a solid understanding of event-driven system designs using AWS Lambda and API Gateway, while aligning security practices with the AWS Well-Architected Framework.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Week 4 Evaluation:
+* During the security incident simulation to test Amazon GuardDuty, I initially faced issues getting the external scanning tools to register because of pre-existing network security layers blocking the traffic. After setting up a temporary isolated sandbox VPC and adjusting the Security Groups, GuardDuty captured and analyzed the threats correctly. This provided me with a profound, hands-on understanding of how proactive security monitoring systems operate in real-world environments.
