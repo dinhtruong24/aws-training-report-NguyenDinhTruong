@@ -12,46 +12,27 @@ pre: " <b> 1.8. </b> "
 
 ### Week 8 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Master the data engineering lifecycle by exploring automated ETL (Extract, Transform, Load) pipelines and constructing highly-responsive real-time log aggregation infrastructures.
+* Acquire core structural principles for engineering scalable Cloud Data Lakes to facilitate central data consolidation and prepare for predictive future analytics.
+* Venture into applied AI/ML operations by embedding native AWS cognitive computing services directly into existing architectures without training custom neural network models.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Monday  | - Conducted a deep dive into AWS Data Pipeline and foundational ETL architectures; analyzed backend pipeline components to construct an automated ETL process designed to securely transfer and reshape datasets across heterogeneous storage layers.     | 22/06/2026 | 22/06/2026      | https://000113.awsstudygroup.com/ https://00012.awsstudygroup.com/ |
+| Tuesday  | - Developed a live telemetry ingestion platform utilizing Amazon Kinesis; provisioned Kinesis Data Streams instances and programmed a prototype web application that constantly emits mock system logs to test real-time event stream processing.   | 23/06/2026 | 23/06/2026      | https://000040.awsstudygroup.com/ https://000053.awsstudygroup.com/ |
+| Wednesday  | - Implemented automated data replication from Amazon DynamoDB over to Amazon S3; leveraged AWS Data Pipeline to orchestrate scheduled table exports, securing historical NoSQL snapshots in S3 buckets for robust disaster recovery and analytics readiness. | 24/06/2026 | 24/06/2026      | https://000060.awsstudygroup.com/ |
+| Thursday  | - Investigated cloud-native centralized repository designs through Cloud Data Lake architectures; learned how to mount a unified Data Lake on Amazon S3, managing metadata mapping and categorizing stored data into Raw, Cleaned, and Curated structural layers.   | 25/06/2026 | 25/06/2026      | https://000035.awsstudygroup.com/ https://000070.awsstudygroup.com/ |
+| Friday  | - Explored advanced computer vision applications powered by Amazon Rekognition; experimented with managed APIs to implement face validation, human emotion analysis, object detection boundaries, and image-based text extraction (OCR).     | 26/06/2026 | 26/06/2026      | https://000135.awsstudygroup.com/ https://000066.awsstudygroup.com/ |
 
 
 ### Week 8 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Automated Data Flows & ETL Integration: Successfully engineered automated ETL workflows via AWS Data Pipeline and deployed a responsive real-time event-driven logging layer combining a simulated web app with Kinesis Data Streams.
 
-* Successfully created and configured an AWS Free Tier account.
+* Unified Data Lake Storage Architecture: Attained practical skills in staging multi-layered object storage inside Amazon S3 and effectively configured automated scheduler jobs to dump NoSQL DynamoDB backups securely.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Cognitive AI Service Implementation: Mastered production-ready APIs within the Amazon Rekognition engine, establishing immediate capabilities for programmatic computer vision (OCR and object parsing) without infrastructure overhead.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Week 8 Evaluation:
+* During Wednesday's operational task of backing up high-volume tables from DynamoDB to Amazon S3 using AWS Data Pipeline, the system initially spiked the database Read Capacity Units (RCU), degrading live application response latency. This provided an invaluable architectural lesson on data engineering resource throttling. I successfully mitigated the production bottleneck by adjusting the read throughput ratio parameter inside the pipeline settings, ensuring consistent background data transfers without starving the operational database layer.

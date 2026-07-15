@@ -12,48 +12,28 @@ pre: " <b> 1.11. </b> "
 
 ### Mục tiêu tuần 11:
 
-* Kết nối, làm quen với các thành viên trong First Cloud AI Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tăng cường an ninh mạng bằng cách rà soát kiến trúc Amazon VPC và áp dụng chiến lược tường lửa phân lớp nhằm bảo vệ tối đa hạ tầng đám mây của doanh nghiệp.
+* Nâng cao hiệu quả quản trị ngân sách và cơ chế tự động co giãn (Auto Scaling) thông qua việc tìm hiểu phương pháp phân bổ chi phí đa tài khoản, đồng thời thiết lập các chính sách mở rộng nâng cao dựa trên các chỉ số hiệu năng thực tế.
 
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCAJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| 2   | - Thực hành cấu hình ủy quyền chéo tài khoản (Cross-Account Access) sử dụng cơ chế AWS STS Assume Role; thiết lập dịch vụ mã token an toàn (AWS Security Token Service) để cấp quyền cho các IAM Users và Roles từ tài khoản gốc (Management Account) truy cập tạm thời vào tài nguyên thuộc tài khoản Phát triển (Dev) và Sản xuất (Prod) mà không cần dùng đến các khóa truy cập dài hạn (Access Keys).  | 13/07/2026   | 13/07/2026      | https://000018.awsstudygroup.com/ |
+| 3   | - Tiếp tục đào sâu thực hành giải pháp ủy quyền chéo tài khoản bằng AWS STS Assume Role; tối ưu hóa quy trình kiểm soát và thắt chặt cơ chế quản lý truy cập an toàn giữa hệ sinh thái gồm nhiều tài khoản AWS độc lập.                                   | 14/07/2026   | 14/07/2026      | https://000097.awsstudygroup.com/ |
+| 4   | - Tối ưu hóa sơ đồ phân bổ chi phí trong môi trường đa tài khoản; phân tích chuyên sâu tính năng Hợp nhất hóa đơn (Consolidated Billing) của AWS Organizations, đánh giá lợi ích thực tế của mô hình quản trị đa tài khoản, đồng thời vận dụng công cụ AWS Cost Explorer kết hợp thẻ phân bổ chi phí (Cost Allocation Tags) để bóc tách, theo dõi ngân sách chi tiết theo từng phòng ban và dự án cụ thể. | 15/07/2026   | 15/07/2026      | https://000075.awsstudygroup.com/ |
+| 5   | - Rà soát tổng thể kiến trúc mạng nội bộ Amazon VPC và cấu hình các lớp tường lửa nâng cao; phân tích sâu sơ đồ thiết lập các phân vùng mạng con (Subnets), bảng định tuyến (Route Tables), cổng kết nối Internet Gateway và NAT Gateway; thực hành cấu hình đồng bộ bộ lọc Security Groups cùng Network ACLs (NACLs) để thiết lập rào chắn bảo mật đa tầng.     | 16/07/2026   | 16/07/2026     | https://000019.awsstudygroup.com/ https://000074.awsstudygroup.com/ https://000111.awsstudygroup.com/ |
+| 6   | - Triển khai hệ thống tự động co giãn nâng cao dựa trên mức độ tiêu thụ bộ nhớ (Memory Utilization); phối hợp cấu hình bộ cân bằng tải Application Load Balancer (ALB) cùng nhóm tự động co giãn Auto Scaling Group (ASG), sau đó tạo một chỉ số tùy chỉnh (custom metric) trên CloudWatch để kích hoạt tăng/giảm số lượng máy chủ EC2 theo dung lượng RAM thay vì dựa vào CPU như mặc định.    | 17/07/2026   | 17/07/2026      | https://000061.awsstudygroup.com/ https://000006.awsstudygroup.com/ |
 
 
 ### Kết quả đạt được tuần 11:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Chuẩn hóa truy cập đa tài khoản an toàn: Triển khai thành công giải pháp Cross-Account thông qua AWS STS Assume Role, loại bỏ hoàn toàn rủi ro bảo mật từ việc sử dụng Access Keys dài hạn bằng cách áp dụng cơ chế cấp phát token tạm thời.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* Minh bạch hóa chi phí vận hành: Vận dụng thành thạo AWS Cost Explorer và hệ thống thẻ Cost Allocation Tags để thiết lập biểu đồ theo dõi tài chính trực quan cho từng dự án trong mô hình đa tài khoản.
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* Tối ưu kiến trúc mạng & Tự động co giãn thông minh: Kiên cố hóa an ninh VPC với sự kết hợp chặt chẽ giữa Security Groups và NACLs, đồng thời cấu hình thành công luồng giám sát CloudWatch Custom Metric giúp Auto Scaling Group co giãn máy chủ EC2 chính xác theo lượng RAM tiêu thụ.
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+### Đánh giá tuần 11:
+* Trong ngày Thứ Sáu, khi triển khai chỉ số tùy chỉnh CloudWatch (Custom Metric) để đo lượng RAM trên máy chủ EC2 nhằm kích hoạt Auto Scaling, hệ thống ASG ban đầu không nhận được dữ liệu chỉ số và không thể tự động co giãn. Đây là bài học thực tế đắt giá về cơ chế giám sát trên Cloud: mặc định AWS chỉ thu thập chỉ số phần cứng lớp ảo hóa (như CPU, Network), còn RAM thuộc về tài nguyên hệ điều hành bên trong (OS level). Tôi đã xử lý triệt để bằng cách cài đặt và phân quyền cho bộ chạy ngầm CloudWatch Agent (Unified CloudWatch Agent) trực tiếp trên hệ điều hành của máy chủ EC2 để đẩy dữ liệu Memory Utilization về CloudWatch một cách đều đặn, giúp chu trình Auto Scaling vận hành hoàn hảo.
 
 

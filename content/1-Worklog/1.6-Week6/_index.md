@@ -12,46 +12,25 @@ pre: " <b> 1.6. </b> "
 
 ### Week 6 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Streamline and reinforce container security by advancing container build methods and establishing isolated network environments for production setups.
+* Master advanced container management solutions by diving deep into Kubernetes and Amazon EKS, and evaluating strategic infrastructure choices (ECS vs EKS) based on project budgets and system scales.
+* Embrace the DevOps philosophy by exploring AWS specialized developer suites to construct automated delivery pipelines, minimizing manual deployment errors.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
-
+| Monday  | - Implemented advanced Docker optimization; integrated Multi-stage Build techniques into the Dockerfile structure to split build environments from runtimes, discarding redundant dependencies to dramatically shrink the container image footprint.  | 08/06/2026 | 08/06/2026      | https://000015.awsstudygroup.com/ |
+| Tuesday  | - Engineered advanced network topologies and access control on Amazon ECS; utilized the awsvpc network mode to assign an independent Elastic Network Interface (ENI) and private IP to each Task, while enforcing the least-privilege principle across Task Roles.  | 09/06/2026 | 09/06/2026      | https://000016.awsstudygroup.com/ https://000067.awsstudygroup.com/ https://000118.awsstudygroup.com/ https://000152.awsstudygroup.com/ |
+| Wednesday  | - Explored the Kubernetes landscape and Amazon EKS capabilities; broke down the operational mechanics of the Control Plane, Worker Nodes, Pods, and Services, evaluating how EKS abstracts away cluster management complexities in the cloud. | 10/06/2026 | 10/06/2026      | https://000126.awsstudygroup.com/ |
+| Thursday  | - Conducted a comprehensive architectural review comparing Amazon ECS against Amazon EKS; structured a comparative evaluation matrix assessing operational complexity, built-in features, and AWS integration to determine the optimal solution for specific production requirements.  | 11/06/2026 | 11/06/2026      | https://000065.awsstudygroup.com/ https://000126.awsstudygroup.com/ |
+| Friday  | - Analyzed automation execution paths via the AWS Developer Tools suite; surveyed the end-to-end orchestration flow between AWS CodePipeline, CodeBuild, and CodeDeploy, covering source control tracking, automated testing, and release delivery.   | 12/06/2026 | 12/06/2026      | https://000017.awsstudygroup.com/ https://000023.awsstudygroup.com/ https://000080.awsstudygroup.com/ https://000136.awsstudygroup.com/ https://000112.awsstudygroup.com/ |
+| Saturday  | - Devoted the entire session to programming the server-side (Backend) logic for the project's core multi-tenancy architecture module | 13/06/2026 | 13/06/2026      | https://cloudjourney.awsstudygroup.com/ |
 ### Week 6 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Slim & Secure Container Architecture: Successfully minimized Docker image sizes via Multi-stage builds and hardened microservices security perimeters by deploying the isolated awsvpc network mode for ECS tasks.
 
-* Successfully created and configured an AWS Free Tier account.
+* Advanced Orchestration Blueprinting: Acquired a solid foundation in Kubernetes runtime concepts and successfully generated a strategic infrastructure analysis guide between ECS and EKS for corporate application modeling.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+* Pipeline Automation & Core Delivery: Modeled an automated CI/CD blueprint utilizing native AWS developer tools and successfully finalized the core backend features for the project's Tenant-service on schedule.
+ ### Week 6 Evaluation:
+* While deploying the awsvpc network mode for ECS tasks on Tuesday, the system encountered a critical infrastructure bottleneck due to subnet IP address exhaustion, triggered by a rapid automatic scale-out of active tasks. This served as an incredibly valuable real-world lesson on the necessity of thorough initial CIDR block planning. I successfully mitigated the incident by re-architecting and routing dedicated secondary subnets tailored exclusively for ECS workloads, ensuring uninterrupted and safe elastic scaling capacities.

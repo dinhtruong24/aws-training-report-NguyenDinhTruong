@@ -12,46 +12,26 @@ pre: " <b> 1.11. </b> "
 
 ### Week 11 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Reinforce cloud network perimeters by auditing the Amazon VPC topology and engineering a multi-layered firewall defense framework to safeguard enterprise infrastructure.
+* Optimize cloud financial management and dynamic architecture scaling by exploring multi-account budget allocation methods and building advanced Auto Scaling triggers driven by live runtime metrics.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Monday  | - Implemented secure cross-environment delegation profiles using AWS STS Assume Role configurations; leveraged AWS Security Token Service (STS) to grant IAM Users and Roles inside the Management Account short-lived, encrypted credentials to perform operations in Development and Production accounts without exposing long-term access keys.      | 13/07/2026 | 13/07/2026      | https://000018.awsstudygroup.com/ |
+| Tuesday  | - Extended programmatic testing for cross-environment trust relationships with AWS STS Assume Role pipelines; consolidated identity control models and refined centralized access policies across the multi-account AWS organization.      | 14/07/2026 | 14/07/2026      | https://000097.awsstudygroup.com/ |
+| Wednesday  | - Optimized cost breakdown metrics within a multi-tenant cloud organization; evaluated the structural advantages of Consolidated Billing features inside AWS Organizations and integrated AWS Cost Explorer alongside custom Cost Allocation Tags to map cloud expenditure directly to internal teams and project initiatives. | 15/07/2026 | 15/07/2026      | https://000075.awsstudygroup.com/ |
+| Thursday  | - Conducted a comprehensive structural review of Amazon VPC networking layouts and advanced firewall settings; audited Subnet distribution paths, Route Tables logic, Internet Gateways, and NAT Gateways, while configuring strict Security Groups and Network ACLs (NACLs) to establish a multi-layered security boundary.      | 16/07/2026 | 16/07/2026     | https://000019.awsstudygroup.com/ https://000074.awsstudygroup.com/ https://000111.awsstudygroup.com/ |
+| Friday  | - Engineered an advanced Auto Scaling framework triggered by dynamic Memory Utilization; integrated an Application Load Balancer (ALB) deployment backed by an Auto Scaling Group (ASG), and established a custom Amazon CloudWatch metric pipeline to scale EC2 fleet capacities based on RAM consumption instead of standard CPU thresholds.      | 17/07/2026 | 17/07/2026      | https://000061.awsstudygroup.com/ https://000006.awsstudygroup.com/ |
 
 
 ### Week 11 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Hardened Cross-Account Trust Federation: Successfully deployed production-grade Cross-Account access infrastructure via AWS STS Assume Role, entirely mitigating identity exposure risks by replacing persistent access keys with ephemeral security tokens.
 
-* Successfully created and configured an AWS Free Tier account.
+* Granular Financial Cost Tracking: Mastered the utilization of AWS Cost Explorer integrated with Cost Allocation Tags, delivering transparent financial cost reporting across isolated environments in a multi-tenant topology.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Resilient Networking & Intelligent Architecture Scaling: Solidified VPC traffic patterns through synchronized Security Groups and stateless NACL logic, while successfully deploying a CloudWatch Custom Metric workflow to scale the ASG cluster efficiently based on real-time RAM usage.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Week 11 Evaluation:
+* On Friday, when deploying the custom CloudWatch metric to track RAM usage for dynamic Auto Scaling triggers, the ASG failed to scale out because the custom metric stream appeared blank in the console. This provided an essential architectural lesson on cloud monitoring boundaries: standard AWS virtualization metrics do not possess visibility into internal OS-level metrics like RAM. I successfully mitigated the issue by installing and configuring the Unified CloudWatch Agent daemon directly within the EC2 instances' operating systems, authorizing it to stream Memory Utilization metrics to CloudWatch consistently and enabling a fully responsive Auto Scaling cycle.

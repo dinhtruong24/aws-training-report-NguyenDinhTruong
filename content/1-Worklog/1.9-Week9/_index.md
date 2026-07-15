@@ -12,46 +12,27 @@ pre: " <b> 1.9. </b> "
 
 ### Week 9 Objectives:
 
-* Connect and get acquainted with members of First Cloud AI Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Master applied AI systems by gathering deep hands-on expertise with AWS cognitive speech services (comprising Text-to-Speech and Speech-to-Text capabilities) alongside managed computer vision engines.
+* Investigate Generative AI concepts and Large Language Models (LLMs), acquiring structural frameworks for deploying and embedding LLM components within production enterprise software.
+* Explore the end-to-end cloud machine learning platform Amazon SageMaker, navigating the managed Jupyter Notebook infrastructure to build, clean, and orchestrate ML models.
 
 ### Tasks to be carried out this week:
 | Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCAJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
+| Monday  | - Surveyed speech processing architecture blueprints leveraging Amazon Polly and Amazon Transcribe; tested Polly capabilities to convert textual data into realistic vocal outputs across diverse languages, and integrated Transcribe to decode spoken audio resources back into accurate text documents.    | 29/06/2026 | 29/06/2026      | 	https://000072.awsstudygroup.com/ https://000073.awsstudygroup.com/ |
+| Tuesday  | - Analyzed corporate LLM implementation architectures; studied engineering patterns required to integrate Large Language Models into enterprise production systems, focusing heavily on Retrieval-Augmented Generation (RAG) concepts to safely read proprietary internal knowledge repositories.  | 30/06/2026 | 30/06/2026      | https://000105.awsstudygroup.com/ https://000106.awsstudygroup.com/ |
+| Wednesday  | - Explored the infrastructure layout of the Amazon SageMaker ecosystem; analyzed this comprehensive E2E ML platform by examining its structural building blocks, including SageMaker Studio workspace configurations, managed Notebook Instances, built-in cloud algorithms, and real-time model Endpoint serving. | 01/07/2026 | 01/07/2026      | https://000200.awsstudygroup.com/ |
+| Thursday  | - Automated image categorization workflows utilizing custom Python scripts and Amazon Rekognition; coded a programmatic interface that mounts to Amazon S3 buckets, invoking Rekognition APIs to analyze batches of graphic media and generate metadata tags automatically.   | 02/07/2026 | 02/07/2026      | https://000200.awsstudygroup.com/ |
+| Friday  | - Completed Technical Blog 1 & Blog 2 write-ups, and tested interactive model training cycles using a SageMaker Notebook Instance; launched a managed Jupyter environment, processed and normalized training datasets, and executed the final pipeline to train a baseline classification model.    | 08/15/2025 | 08/15/2025      | https://000200.awsstudygroup.com/ |
 
 
 ### Week 9 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* Managed Audio & Computer Vision Mastery: Designed operational text-to-speech and speech-to-text workflows using Polly and Transcribe, while deploying a functional Python architecture that automates high-volume image ingestion and tag processing via Amazon Rekognition.
 
-* Successfully created and configured an AWS Free Tier account.
+* GenAI Infrastructure & RAG Strategy Comprehension: Acquired the architectural foundations needed to dock LLMs within real-world application pipelines, mastering RAG data-fetching designs to protect proprietary company information.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+* Production ML Pipeline Implementation: Gained intermediate proficiency in managing Amazon SageMaker environments, successfully executing remote dataset preprocessing and classification algorithm training while delivering the technical documentation for both structural Blogs.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+### Week 9 Evaluation:
+* On Friday, while performing intensive matrix transformations and data cleaning routines over a large validation dataset directly inside the SageMaker Notebook environment, the runtime instance crashed due to an Out-of-Memory (OOM) error from undersized default compute provisions. This offered a critical real-world lesson regarding data science hardware scoping. I successfully resolved the bottleneck by stopping the instance to upscale its underlying hardware classification, while simultaneously refactoring the ingestion scripts to stream and transform the data matrix in smaller iterative batches.
