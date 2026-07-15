@@ -105,5 +105,16 @@ Giải pháp này giúp loại bỏ mật khẩu hardcode, hỗ trợ tự độ
     <em>Hình 3.1. Kiến trúc sử dụng AWS Secrets Manager để bảo vệ thông tin xác thực cơ sở dữ liệu.</em>
 </p>
 
-**Bài viết tham khảo:** [AWS Security Blog](https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/)
-**Bài đăng cộng đồng:** [AWS Study Group – Facebook](https://www.facebook.com/groups/awsstudygroupfcj/posts/2187144322050528)
+<p align="center">
+  <strong>Bài viết tham khảo:</strong>
+  <a href="https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/">
+    AWS Security Blog
+  </a>
+</p>
+
+<p align="center">
+  <strong>Bài đăng cộng đồng:</strong>
+  <a href="https://www.facebook.com/groups/awsstudygroupfcj/posts/2187144322050528">
+    AWS Study Group – Facebook
+  </a>
+</p>

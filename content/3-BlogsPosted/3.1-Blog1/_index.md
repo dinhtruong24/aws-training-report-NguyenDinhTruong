@@ -104,3 +104,17 @@ This approach eliminates hardcoded passwords, supports automatic rotation, and i
 <p align="center">
     <em>Figure 1. Architecture for securing Amazon RDS credentials using AWS Secrets Manager.</em>
 </p>
+
+<p align="center">
+  <strong>Reference Article:</strong>
+  <a href="https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/">
+    AWS Security Blog
+  </a>
+</p>
+
+<p align="center">
+  <strong>Community Post:</strong>
+  <a href="https://www.facebook.com/groups/awsstudygroupfcj/posts/2187144322050528">
+    AWS Study Group – Facebook
+  </a>
+</p>
