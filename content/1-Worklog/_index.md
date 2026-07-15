@@ -6,10 +6,6 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
 # Work Log
 Throughout the internship program "The First Cloud AI Journey", I have successfully completed the 12-week AWS learning path (from May 4, 2026, to July 25, 2026). This learning roadmap systematically combines theoretical knowledge, hands-on labs, and real-world project implementation with the detailed weekly log below:
 

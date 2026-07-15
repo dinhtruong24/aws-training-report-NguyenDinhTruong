@@ -6,9 +6,6 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}} ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-# Nhật ký công việc
 Trong suốt chương trình thực tập The First Cloud AI Journey, tôi đã hoàn thành thành công hành trình học tập AWS kéo dài 12 tuần (từ 04/05/2026 đến 25/07/2026). Lộ trình này kết hợp lý thuyết, thực hành và triển khai dự án thực tế một cách hệ thống với nhật ký chi tiết như sau:
 
 **Tuần 1:** [Hướng dẫn bắt đầu với AWS và các dịch vụ cốt lõi của AWS:](1.1-week1/) Tôi tập trung tạo tài khoản AWS, kích hoạt Free Tier và cấu hình AWS Budgets để quản lý chi phí. Sau đó, tôi thực hành phân quyền với AWS IAM, xây dựng Amazon VPC, khởi chạy các máy chủ ảo Amazon EC2 và sử dụng AWS Cloud9 cùng AWS CLI để làm quen với giao diện dòng lệnh.
