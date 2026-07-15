@@ -98,11 +98,14 @@ Combining AWS Lambda, AWS Secrets Manager, and Amazon RDS provides a safer way f
 This approach eliminates hardcoded passwords, supports automatic rotation, and improves access control across the AWS environment.
 
 <p align="center">
-    <img src="/images/3-BlogsPosted/blog1-architecture.png" width="700">
+  <img
+    src="/images/3-BlogsPosted/blog1-architecture.png"
+    width="700"
+    alt="AWS Secrets Manager Architecture">
 </p>
 
 <p align="center">
-    <em>Figure 1. Architecture for securing Amazon RDS credentials using AWS Secrets Manager.</em>
+  <em>Figure 1. Architecture for securely managing Amazon RDS database credentials with AWS Secrets Manager.</em>
 </p>
 
 <p align="center">
