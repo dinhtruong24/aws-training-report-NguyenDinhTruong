@@ -6,7 +6,6 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-# Work Log
 Throughout the internship program "The First Cloud AI Journey", I have successfully completed the 12-week AWS learning path (from May 4, 2026, to July 25, 2026). This learning roadmap systematically combines theoretical knowledge, hands-on labs, and real-world project implementation with the detailed weekly log below:
 
 **Week 1:** [Getting Started with AWS and Core AWS Services:](1.1-week1/) I focused on building a solid foundation by creating an AWS account, activating the Free Tier, and configuring AWS Budgets for cost management. I then practiced access control with AWS IAM, built an Amazon VPC, launched Amazon EC2 virtual servers, and used AWS Cloud9 and the AWS CLI to get familiar with the command-line interface.
