@@ -99,7 +99,7 @@ Giải pháp này giúp loại bỏ mật khẩu hardcode, hỗ trợ tự độ
 
 <p align="center">
   <img
-    src="/images/3-BlogsPosted/blog1-architecture.png"
+    src="https://dinhtruong24.github.io/aws-training-report-NguyenDinhTruong/images/3-BlogsPosted/blog1-architecture.png"
     width="700"
     alt="Kiến trúc AWS Secrets Manager">
 </p>
