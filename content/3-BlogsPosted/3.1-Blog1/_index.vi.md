@@ -7,117 +7,78 @@ pre: " <b> 3.1. </b> "
 ---
 
 
-# Bảo vệ thông tin đăng nhập Amazon RDS cho AWS Lambda bằng AWS Secrets Manager
+# BẢO MẬT THÔNG TIN XÁC THỰC CƠ SỞ DỮ LIỆU CHO AWS LAMBDA BẰNG AWS SECRETS MANAGER
 
-Trong các ứng dụng Serverless, AWS Lambda thường cần truy cập cơ sở dữ liệu để đọc hoặc xử lý dữ liệu. Một cách triển khai không an toàn là lưu trực tiếp tên đăng nhập và mật khẩu trong mã nguồn hoặc biến môi trường của Lambda. Cách làm này có thể khiến thông tin nhạy cảm bị lộ khi mã nguồn được chia sẻ, nhật ký được kiểm tra hoặc cấu hình ứng dụng bị truy cập trái phép.
+Trong các ứng dụng Serverless, việc lưu trực tiếp tài khoản và mật khẩu cơ sở dữ liệu trong mã nguồn tiềm ẩn nhiều rủi ro về bảo mật. AWS Secrets Manager cung cấp giải pháp lưu trữ, quản lý và tự động xoay vòng thông tin xác thực, giúp ứng dụng AWS Lambda truy cập cơ sở dữ liệu an toàn hơn.
 
-Giải pháp phù hợp hơn là lưu trữ thông tin đăng nhập trong **AWS Secrets Manager**. Khi Lambda cần kết nối đến Amazon RDS, hàm sẽ gọi API của Secrets Manager để lấy bí mật tại thời điểm thực thi. Nhờ đó, mật khẩu không cần xuất hiện trực tiếp trong mã nguồn.
+## Tổng quan
+
+AWS Secrets Manager cho phép ứng dụng lấy thông tin xác thực chỉ khi cần sử dụng. Thay vì lưu mật khẩu trong mã nguồn hoặc biến môi trường, AWS Lambda sẽ truy xuất Secret trong quá trình thực thi, giúp giảm nguy cơ rò rỉ dữ liệu.
 
 ## Kiến trúc giải pháp
 
-Luồng xử lý của hệ thống được thực hiện như sau:
+Giải pháp sử dụng các dịch vụ AWS sau:
 
-1. Người dùng gửi yêu cầu đến REST API được triển khai bằng Amazon API Gateway.
-2. API Gateway kích hoạt hàm AWS Lambda.
-3. Lambda sử dụng IAM Role để yêu cầu thông tin đăng nhập từ AWS Secrets Manager.
-4. Secrets Manager trả về tên người dùng và mật khẩu đã được bảo vệ.
-5. Lambda sử dụng thông tin này để kết nối đến Amazon RDS for MySQL.
-6. Kết quả truy vấn được gửi ngược lại cho người dùng thông qua API Gateway.
+- Amazon API Gateway tiếp nhận yêu cầu từ người dùng.
+- AWS Lambda xử lý nghiệp vụ.
+- AWS Secrets Manager lưu trữ thông tin xác thực.
+- Amazon RDS lưu trữ dữ liệu.
 
-## Các thành phần chính
-### Amazon API Gateway
+Kiến trúc này giúp bảo vệ thông tin nhạy cảm và tách biệt dữ liệu xác thực khỏi mã nguồn ứng dụng.
 
-Amazon API Gateway cung cấp REST API để nhận yêu cầu từ người dùng và chuyển yêu cầu đến Lambda. Dịch vụ này đóng vai trò là điểm truy cập của ứng dụng nhưng không trực tiếp lưu trữ thông tin đăng nhập cơ sở dữ liệu.
+## Quy trình triển khai
 
-### AWS Lambda
+Quy trình gồm bốn bước chính.
 
-Lambda chứa logic xử lý của ứng dụng. Trước khi truy vấn cơ sở dữ liệu, Lambda gọi API GetSecretValue của Secrets Manager để lấy thông tin xác thực.
-IAM Role của Lambda chỉ nên được cấp quyền truy cập đúng bí mật cần sử dụng theo nguyên tắc đặc quyền tối thiểu.
+### Bước 1 – Lưu thông tin xác thực
 
-### AWS Secrets Manager
+Tạo Secret trong AWS Secrets Manager chứa tên đăng nhập và mật khẩu của Amazon RDS.
 
-Secrets Manager lưu trữ tên đăng nhập và mật khẩu của cơ sở dữ liệu dưới dạng bí mật được mã hóa. Lambda chỉ lấy bí mật trong thời gian chạy, thay vì lưu mật khẩu trong mã nguồn hoặc biến môi trường.
+### Bước 2 – Cấu hình Lambda
 
-### Amazon RDS
+Cấp quyền cho AWS Lambda thông qua IAM Role để truy cập Secret.
 
-Amazon RDS for MySQL lưu trữ dữ liệu của ứng dụng. Cơ sở dữ liệu được cấu hình không cho phép truy cập công khai và chỉ chấp nhận kết nối từ các tài nguyên được cấp quyền.
+### Bước 3 – Truy xuất Secret
 
-### AWS CloudFormation
+Khi Lambda được thực thi, hàm sẽ lấy thông tin xác thực từ AWS Secrets Manager và kết nối đến Amazon RDS.
 
-CloudFormation được sử dụng để triển khai tự động các tài nguyên như:
+### Bước 4 – Tự động xoay vòng mật khẩu
 
-- Amazon RDS.
-- AWS Secrets Manager.
-- AWS Lambda.
-- Amazon API Gateway.
-- IAM Roles và IAM Policies.
+AWS Secrets Manager hỗ trợ Automatic Rotation giúp thay đổi mật khẩu định kỳ mà không ảnh hưởng đến ứng dụng.
 
-CloudFormation sử dụng dynamic reference để lấy mật khẩu từ Secrets Manager khi tạo cơ sở dữ liệu. Giá trị mật khẩu không bị ghi trực tiếp vào template hoặc nhật ký triển khai.
+## Lợi ích
 
-### Quản lý và xoay vòng bí mật
+Giải pháp mang lại nhiều lợi ích:
 
-Một lợi ích quan trọng của AWS Secrets Manager là khả năng tự động xoay vòng mật khẩu.
+- Loại bỏ mật khẩu hardcode trong mã nguồn.
+- Bảo vệ thông tin xác thực an toàn.
+- Hỗ trợ tự động xoay vòng mật khẩu.
+- Đơn giản hóa việc quản lý Secret.
+- Tăng cường bảo mật cho ứng dụng Serverless.
+- Tích hợp dễ dàng với các dịch vụ AWS.
 
-Trong giải pháp này, lịch xoay vòng có thể được cấu hình theo chu kỳ, ví dụ 30 ngày. Khi đến thời điểm xoay vòng, một Lambda rotation function sẽ:
+## Kết luận
 
-1. Tạo mật khẩu mới.
-2. Cập nhật mật khẩu trong Amazon RDS.
-3. Cập nhật giá trị mới trong Secrets Manager.
-4. Kiểm tra thông tin đăng nhập mới.
-5. Đánh dấu phiên bản bí mật mới là phiên bản hiện tại.
-
-Ứng dụng không cần chỉnh sửa mã nguồn sau khi mật khẩu thay đổi, vì Lambda luôn lấy giá trị mới nhất từ Secrets Manager.
-
-### Kiểm tra giải pháp
-
-Sau khi triển khai CloudFormation stack, có thể kiểm tra bằng cách mở API endpoint được tạo trong phần Outputs.
-
-Khi gửi yêu cầu đến endpoint:
-
-- API Gateway kích hoạt Lambda.
-- Lambda lấy bí mật từ Secrets Manager.
-- Lambda kết nối đến RDS MySQL.
-- Câu truy vấn được thực hiện.
-- Kết quả được trả về trình duyệt.
-
-Ngoài ra, trong phần biến môi trường của Lambda sẽ không xuất hiện mật khẩu cơ sở dữ liệu. Lambda chỉ lưu các thông tin không nhạy cảm như tên secret, địa chỉ RDS, tên database và tên người dùng.
-
-### Lợi ích của giải pháp
-- Không lưu mật khẩu trực tiếp trong mã nguồn.
-- Hạn chế lộ thông tin qua biến môi trường.
-- Tự động xoay vòng thông tin xác thực.
-- Quản lý quyền truy cập bằng IAM.
-- Tự động triển khai hạ tầng bằng CloudFormation.
-- Phù hợp với các ứng dụng Serverless cần truy cập cơ sở dữ liệu.
-- Giảm khối lượng công việc quản lý mật khẩu thủ công.
-
-### Kết luận
-
-Việc kết hợp AWS Lambda, AWS Secrets Manager và Amazon RDS giúp ứng dụng truy cập cơ sở dữ liệu an toàn hơn. Secrets Manager quản lý vòng đời của thông tin xác thực, trong khi Lambda chỉ lấy bí mật khi cần sử dụng.
-
-Giải pháp này giúp loại bỏ mật khẩu hardcode, hỗ trợ tự động xoay vòng và tăng khả năng kiểm soát quyền truy cập trong hệ thống AWS.
+AWS Secrets Manager là giải pháp hiệu quả để quản lý thông tin xác thực trong các ứng dụng Serverless. Việc kết hợp Amazon API Gateway, AWS Lambda, AWS Secrets Manager và Amazon RDS giúp tăng cường bảo mật, giảm công việc quản trị và đơn giản hóa việc quản lý thông tin xác thực.
 
 <p align="center">
-  <img
-    src="https://dinhtruong24.github.io/aws-training-report-NguyenDinhTruong/images/3-BlogsPosted/blog1-architecture.png"
-    width="700"
-    alt="Kiến trúc AWS Secrets Manager">
+<img src="https://dinhtruong24.github.io/aws-training-report-NguyenDinhTruong/images/3-BlogsPosted/blog1-architecture.png" width="700" alt="Kiến trúc AWS Secrets Manager">
 </p>
 
 <p align="center">
-  <em>Hình 1. Kiến trúc quản lý an toàn thông tin xác thực cơ sở dữ liệu Amazon RDS bằng AWS Secrets Manager.</em>
+<i>Hình 1. Kiến trúc quản lý an toàn thông tin xác thực cơ sở dữ liệu bằng AWS Secrets Manager.</i>
 </p>
 
 <p align="center">
-  <strong>Bài viết tham khảo:</strong>
-  <a href="https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/">
-    AWS Security Blog
-  </a>
+<strong>Bài viết tham khảo:</strong>
+<a href="https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/">
+AWS Security Blog
+</a>
 </p>
 
 <p align="center">
-  <strong>Bài đăng cộng đồng:</strong>
-  <a href="https://www.facebook.com/groups/awsstudygroupfcj/posts/2187144322050528">
-    AWS Study Group – Facebook
-  </a>
+<strong>Bài đăng cộng đồng:</strong>
+<a href="https://www.facebook.com/groups/awsstudygroupfcj/posts/2187144322050528">
+AWS Study Group – Facebook
+</a>
 </p>
