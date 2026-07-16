@@ -34,4 +34,4 @@ Bài viết giải thích cơ chế hoạt động của VPC Link trong Amazon A
 - Kết nối API Gateway với Network Load Balancer (NLB) hoặc Application Load Balancer (ALB).
 - Xây dựng kiến trúc API bảo mật, linh hoạt và dễ mở rộng trên AWS.
 
-**Nguồn:** [AWS Compute Blog](https://aws.amazon.com/blogs/compute/understanding-vpc-links-in-amazon-api-gateway-private-integrations/)
+**Nguồn:** [AWS Compute Blog](https://aws.amazon.com/blogs/compute/understanding-vpc-links-in-amazon-api-gateway-private-integrations/) 

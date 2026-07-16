@@ -13,7 +13,7 @@ The following articles focus on practical topics, including securing database cr
 This article explains how to securely manage database credentials for AWS Lambda by using AWS Secrets Manager instead of storing hardcoded passwords in source code.
 - Architecture flow: API Gateway → Lambda → AWS Secrets Manager → Amazon RDS.
 - Securely store credentials with AWS Secrets Manager.
-- Enable automatic secret rotation.
+- Enable automatic secret rotation. 
 - Improve security for Serverless applications.
 
 **Source:** [AWS Security Blog](https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/)
