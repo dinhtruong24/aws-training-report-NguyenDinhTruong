@@ -19,13 +19,10 @@ During my internship, I participated in three events. Each one was a memorable e
 ---
 
 ### [Event 2](4.2-Event2/)  
-&emsp;**Event Name:** GenAI-powered App-DB Modernization workshop  
-
-&emsp;**Date & Time:** 09:00, August 13, 2025  
-
-&emsp;**Location:** 26th Floor, Bitexco Tower, 02 Hai Trieu Street, Saigon Ward, Ho Chi Minh City  
-
-&emsp;**Role:** Attendee  
+- **Event Name:** FCAJ Community Day 2026
+- **Date:** May 30, 2026
+- **Location:** AWS Vietnam Office
+- **Role:** Participant
 
 ---
 

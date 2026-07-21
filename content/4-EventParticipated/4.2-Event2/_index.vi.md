@@ -1,5 +1,5 @@
 ---
-title: "Event 2"
+title: "Ngày cộng đồng FCAJ 2026"
 date: 2024-01-01
 weight: 1
 chapter: false

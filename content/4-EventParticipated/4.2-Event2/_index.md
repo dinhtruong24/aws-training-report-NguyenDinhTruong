@@ -1,126 +1,139 @@
 ---
-title: "Event 2"
+title: "FCAJ Community Day 2026"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+## Purpose of the Event
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+The FCAJ Community Day was organized to provide participants with practical knowledge about AWS, DevOps, Artificial Intelligence (AI), product development, and essential soft skills for careers in Information Technology. Through presentations delivered by experienced speakers, the event offered valuable insights into AWS learning paths, real-world software development practices, and the skills required to succeed in the technology industry.
 
-### Event Objectives
+In addition to technical sessions, the program encouraged continuous learning, teamwork, innovation, and personal development, helping participants prepare for the rapidly evolving Cloud and AI era.
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+---
 
-### Speakers
+## Speakers
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+- **Huynh Thu Linh** – Shared an effective AWS learning roadmap using Cloud Quest and Floci.
+- **FCJ Challenger Team** – Presented their Hackathon experience and AI product development journey.
+- **Nguyen The Duy** – Spoke about confidence, personal growth, and self-development.
+- **Nghia Tran** – Introduced the AI project "Tu Vi Dai Viet" and its AWS-based architecture.
+- **Tran Minh Quan** – Shared practical experience in DevOps and software development workflows.
+- **FCAJ Speaker** – Discussed the causes of procrastination and strategies for improving productivity.
 
-### Key Highlights
+---
 
-#### Identifying the drawbacks of legacy application architecture
+# Key Highlights
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+## Learning AWS Through Hands-on Practice
 
-#### Transitioning to modern application architecture – Microservices
+- Introduced AWS Cloud Quest and Floci as practical AWS learning platforms.
+- Shared a step-by-step AWS learning roadmap from beginner to real-world deployment.
+- Demonstrated how beginners can practice AWS without incurring unnecessary costs.
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+---
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+## AI Product Development and Hackathon Experience
 
-#### Domain-Driven Design (DDD)
+- Explained the complete process of building an AI product during a Hackathon.
+- Covered MVP development, teamwork, task management, and collaboration.
+- Shared project architecture, pitching experience, and lessons learned throughout the competition.
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+---
 
-#### Event-Driven Architecture
+## Personal Growth and Soft Skills
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+- Highlighted the importance of confidence in both academic and professional environments.
+- Discussed methods for overcoming self-doubt and Imposter Syndrome.
+- Encouraged participants to improve communication, networking, and teamwork skills.
 
-#### Compute Evolution
+---
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+## Building AI Applications on AWS
 
-#### Amazon Q Developer
+- Introduced the AI project "Tu Vi Dai Viet."
+- Explained the journey from idea validation to product implementation.
+- Demonstrated how AWS services and AI technologies were integrated into a real-world application.
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+---
 
-### Key Takeaways
+## DevOps and Software Development
 
-#### Design Mindset
+- Explained common challenges that often cause software projects to fail.
+- Highlighted the importance of DevOps in modern software development.
+- Emphasized communication, workflow optimization, and automation throughout the development lifecycle.
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+---
 
-#### Technical Architecture
+## Time Management and Self-Improvement
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+- Analyzed the root causes of procrastination.
+- Shared practical methods for building productive habits.
+- Encouraged participants to develop discipline, consistency, and lifelong learning.
 
-#### Modernization Strategy
+---
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+# What I Learned
 
-### Applying to Work
+## Technical Knowledge
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+- Gained a clearer understanding of AWS learning strategies through practical experience.
+- Expanded my knowledge of AI, DevOps, and software development processes.
+- Learned how cloud systems are designed and deployed using AWS services.
 
-### Event Experience
+---
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+## Soft Skills
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+- Improved my communication, teamwork, and presentation skills.
+- Strengthened my problem-solving abilities and adaptability.
+- Better understood the importance of confidence, self-discipline, and continuous learning.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+---
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+## Career Development
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+- Gained a broader understanding of career opportunities in Cloud Computing, AI, and DevOps.
+- Learned how software products are developed from concept to deployment.
+- Felt more motivated to continue building personal projects and improving my AWS skills.
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+---
 
-#### Some event photos
-*Add your event photos here*  
+# Applying the Knowledge
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+After attending the event, I identified several ways to apply what I learned:
+
+- Continue practicing AWS services through hands-on labs and personal projects.
+- Apply teamwork and project management techniques in future academic and personal projects.
+- Improve my communication, presentation, and technical documentation skills.
+- Maintain a habit of continuous learning and stay updated with emerging cloud technologies.
+
+---
+
+# Event Experience
+
+The event delivered valuable technical knowledge together with inspiring experiences shared by professionals working in Cloud Computing, AI, and Software Engineering. The presentations were practical, engaging, and closely related to real industry challenges, giving me a clearer understanding of future career opportunities.
+
+Besides learning new technical concepts, I also had the opportunity to interact with the AWS community, expand my professional network, and learn from experienced speakers and fellow participants.
+
+---
+
+# Key Takeaways
+
+- Hands-on practice is the most effective way to learn AWS.
+- Successful software products require both technical knowledge and effective teamwork.
+- Confidence, discipline, and continuous learning are essential qualities for IT professionals.
+- Keeping up with new technologies creates more opportunities for future career growth.
+
+---
+
+# Event Photos
+
+<p align="center">
+  <img
+    src="/aws-training-report-NguyenDinhTruong/images/4-Event/event-aws-2.jpg"
+    width="800"
+    alt="FCAJ Community Day 2026">
+</p>
