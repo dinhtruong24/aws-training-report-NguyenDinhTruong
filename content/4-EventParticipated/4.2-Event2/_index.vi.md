@@ -5,7 +5,7 @@ weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
-
+ 
 ## Mục đích của sự kiện
 
 Ngày Cộng đồng FCAJ được tổ chức nhằm mang đến cho người tham gia những kiến thức thực tế về AWS, DevOps, Trí tuệ nhân tạo (AI), phát triển sản phẩm và các kỹ năng mềm cần thiết trong lĩnh vực Công nghệ thông tin. Thông qua các bài chia sẻ từ nhiều diễn giả có kinh nghiệm, chương trình giúp người tham dự hiểu rõ hơn về lộ trình học AWS, quy trình xây dựng sản phẩm thực tế, cũng như phát triển tư duy và kỹ năng cần thiết để làm việc trong môi trường công nghệ.

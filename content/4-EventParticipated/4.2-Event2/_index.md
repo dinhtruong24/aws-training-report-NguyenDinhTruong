@@ -136,4 +136,4 @@ Besides learning new technical concepts, I also had the opportunity to interact 
     src="/aws-training-report-NguyenDinhTruong/images/4-Event/event-aws-2.jpg"
     width="800"
     alt="FCAJ Community Day 2026">
-</p>
+</p> 
