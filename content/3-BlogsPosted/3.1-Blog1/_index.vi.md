@@ -6,16 +6,7 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
-
----
-title: "Blog 1"
-date: 2026-07-20
-weight: 1
-chapter: false
-pre: " <b> 3.1. </b> "
----
-
-# AWS DEEPRACER GIỜ ĐÂY ĐÃ CÓ THỂ CÀI ĐẶT HỆ ĐIỀU HÀNH TÙY CHỈNH
+# Hiện đã có tính năng cài đặt hệ điều hành tùy chỉnh trên các thiết bị AWS DeepRacer.
 
 Trong quá trình tìm hiểu các bài viết mới trên AWS Blog, tôi đọc được một cập nhật khá thú vị liên quan đến **AWS DeepRacer**.
 

@@ -6,114 +6,94 @@ chapter: false
 pre: " <b> 3.1. </b> "
 ---
 
+# Custom OS installation now available on AWS DeepRacer devices
 
----
-title: "Blog 1"
-date: 2026-07-20
-weight: 1
-chapter: false
-pre: " <b> 3.1. </b> "
----
+While exploring recent AWS Blog articles, I found an interesting update about **AWS DeepRacer**.
 
-# AWS DEEPRACER GIỜ ĐÂY ĐÃ CÓ THỂ CÀI ĐẶT HỆ ĐIỀU HÀNH TÙY CHỈNH
+Previously, I mainly knew AWS DeepRacer as a 1/18-scale autonomous race car used to learn Machine Learning and Reinforcement Learning. Developers can train models in a cloud environment and deploy them to the physical vehicle for testing.
 
-Trong quá trình tìm hiểu các bài viết mới trên AWS Blog, tôi đọc được một cập nhật khá thú vị liên quan đến **AWS DeepRacer**.
-
-Trước đây, tôi chỉ biết AWS DeepRacer là một chiếc xe tự hành có tỷ lệ 1/18, được sử dụng để học Machine Learning và Reinforcement Learning. Người dùng có thể huấn luyện mô hình trên môi trường đám mây, sau đó đưa mô hình xuống thiết bị để thử nghiệm trên đường đua.
-
-Tuy nhiên, sau khi đọc bài viết này, tôi mới biết rằng các thiết bị DeepRacer trước đây chủ yếu khởi động những hệ điều hành được AWS ký xác thực, bao gồm Ubuntu 16.04 và Ubuntu 20.04. Khi những phiên bản này không còn được hỗ trợ, việc cài đặt phần mềm mới và tiếp tục nghiên cứu trên thiết bị sẽ gặp nhiều hạn chế.
+After reading this article, I learned that DeepRacer devices originally booted AWS-signed operating systems, including Ubuntu 16.04 and Ubuntu 20.04. As these operating system versions are no longer supported, continuing experimentation and installing modern software has become more difficult.
 
 ## Developer Bootloader
 
-Điểm tôi thấy đáng chú ý nhất là AWS đã phát hành **Developer Bootloader**, cho phép nhà phát triển cài đặt hệ điều hành tùy chỉnh hoặc bản phân phối Linux của bên thứ ba trên thiết bị AWS DeepRacer.
+The most interesting update is the release of the **Developer Bootloader**, which allows developers to install custom operating systems or third-party Linux distributions on AWS DeepRacer devices.
 
-Developer Bootloader được xây dựng dựa trên dự án mã nguồn mở `shim`. Khi chữ ký mặc định không được xác thực, Bootloader sẽ kiểm tra chứng chỉ do nhà phát triển cung cấp trong thư mục:
+The Developer Bootloader is based on the open-source `shim` project. When the built-in signature verification fails, it checks developer certificates stored in:
 
 ```text
 /EFI/DEVELOPER/certs/
 ```
 
-Nhờ đó, người dùng có thể tự quản lý chứng chỉ bằng các công cụ như OpenSSL và `sbsign`, đồng thời vẫn duy trì cơ chế kiểm tra tính toàn vẹn trong quá trình khởi động.
+Developers can manage their own certificates using standard tools such as OpenSSL and `sbsign` while maintaining cryptographic verification during the boot process.
 
-## Dấu hiệu nhận biết Developer Mode
+## Developer Mode Indicators
 
-Khi thiết bị sử dụng chứng chỉ của nhà phát triển, hệ thống sẽ hiển thị những cảnh báo rõ ràng:
+When developer certificates are being used, the device provides several clear indicators:
 
-- Hiển thị thông báo Developer Mode qua màn hình HDMI.
-- Đèn trên xe nhấp nháy thông điệp “DEVELOPER MODE” bằng mã Morse.
-- Thêm thời gian chờ trong quá trình khởi động để người dùng nhận biết chế độ đang hoạt động.
+- A Developer Mode warning appears through an HDMI display.
+- The device lights blink “DEVELOPER MODE” in Morse code.
+- A boot delay gives the user time to recognize that Developer Mode is active.
 
-Theo tôi, đây là một thiết kế hợp lý vì người dùng có quyền tùy chỉnh thiết bị nhưng vẫn biết rõ trạng thái bảo mật hiện tại.
+I think this is a useful design because developers gain more control over the device while remaining aware of its current security state.
 
-## Các phương án cài đặt
+## Installation Options
 
-AWS giới thiệu ba phương án chính để sử dụng Developer Bootloader.
+AWS introduces three main ways to use the Developer Bootloader.
 
-### 1. Sử dụng bản phân phối của cộng đồng
+### 1. Install a Community Distribution
 
-Cộng đồng AWS DeepRacer đã xây dựng một bản phân phối mới dựa trên Ubuntu 24.04 và ROS2 Jazzy. Bản phân phối này đã tích hợp sẵn Developer Bootloader, giúp người dùng bắt đầu nhanh hơn mà không cần tự cấu hình toàn bộ quá trình khởi động Linux.
+The AWS DeepRacer community has created a distribution based on Ubuntu 24.04 and ROS2 Jazzy. The Developer Bootloader is already included, allowing users to get started without manually configuring the entire Linux boot process.
 
-### 2. Cài đặt bản Linux của bên thứ ba
+### 2. Install a Third-Party Linux Distribution
 
-Người dùng có thể cài đặt Ubuntu hoặc một bản Linux khác, sau đó thay tệp `BOOTX64.EFI` bằng Developer Shim và bổ sung chứng chỉ phù hợp.
+Developers can install Ubuntu or another Linux distribution, replace the `BOOTX64.EFI` file with the Developer Shim, and add the required certificates.
 
-Phương án này phù hợp với những người muốn kiểm soát phiên bản hệ điều hành, thư viện, Driver và các công cụ được cài đặt trên thiết bị.
+This option is suitable for users who want more control over the operating system version, software packages, hardware drivers, and development tools.
 
-### 3. Tự xây dựng hệ điều hành
+### 3. Build a Custom Operating System
 
-Đối với những nhà phát triển muốn tùy chỉnh sâu hơn, AWS cũng cho phép tự xây dựng hệ điều hành dành cho DeepRacer.
+Advanced developers can also build their own operating system for AWS DeepRacer.
 
-Developer Shim được đặt tại:
+The Developer Shim is placed at:
 
 ```text
 EFI/BOOT/BOOTX64.EFI
 ```
 
-Kernel hoặc Bootloader của hệ điều hành được đặt tại:
+The operating system kernel or bootloader is placed at:
 
 ```text
 EFI/BOOT/GRUBX64.EFI
 ```
 
-Chứng chỉ công khai được lưu trong thư mục `DEVELOPER/certs` để xác thực trước khi khởi động.
+The public certificate is stored under the `DEVELOPER/certs` directory for verification during startup.
 
-## Điều tôi rút ra
+## What I Learned
 
-Sau khi tìm hiểu bài viết, tôi nhận thấy cập nhật này không chỉ giúp cài một phiên bản Ubuntu mới hơn mà còn mở rộng đáng kể khả năng sử dụng của AWS DeepRacer.
+After researching this update, I realized that the new bootloader provides much more than the ability to install a newer Ubuntu version.
 
-Người dùng có thể:
+Developers can now:
 
-- Cài đặt các hệ điều hành Linux hiện đại.
-- Thử nghiệm các gói ROS2 mới.
-- Bổ sung Driver cho phần cứng tùy chỉnh.
-- Phát triển thuật toán điều khiển xe.
-- Xây dựng các dự án Machine Learning và Robotics.
-- Kéo dài thời gian sử dụng của thiết bị DeepRacer.
+- Install modern Linux operating systems.
+- Experiment with newer ROS2 packages.
+- Add custom hardware drivers.
+- Develop new vehicle-control algorithms.
+- Build Machine Learning and Robotics projects.
+- Extend the useful life of existing DeepRacer hardware.
 
-Một điểm quan trọng khác là quá trình này có thể đảo ngược. Khi cần thiết, người dùng vẫn có thể khôi phục thiết bị về cấu hình ban đầu của AWS.
+The process is also reversible. Users can restore their devices to the original AWS configuration when necessary.
 
-## Kết luận
+## Conclusion
 
-Qua bài viết này, tôi hiểu rõ hơn cách AWS mở rộng khả năng phát triển trên thiết bị DeepRacer bằng Developer Bootloader.
+This article helped me understand how AWS is expanding the development capabilities of AWS DeepRacer through the new Developer Bootloader.
 
-Thay vì chỉ sử dụng DeepRacer để học Reinforcement Learning và tham gia các cuộc đua, nhà phát triển giờ đây có thể kiểm soát hệ điều hành, phần mềm và môi trường phát triển trên thiết bị.
+Instead of using DeepRacer only for Reinforcement Learning and racing, developers can now control the operating system, software stack, and development environment of the device.
 
-Theo tôi, đây là một cập nhật hữu ích đối với cộng đồng AWS DeepRacer vì vừa kéo dài vòng đời phần cứng, vừa tạo thêm nhiều cơ hội nghiên cứu về Machine Learning, ROS2 và Robotics.
-
-<p align="center">
-  <img
-    src="https://dinhtruong24.github.io/aws-training-report-NguyenDinhTruong/images/3-BlogsPosted/blog1-deepracer.png"
-    width="700"
-    alt="AWS DeepRacer Custom OS">
-</p>
+In my opinion, this update is valuable to the AWS DeepRacer community because it extends the lifecycle of the hardware and creates more opportunities for Machine Learning, ROS2, and Robotics experimentation.
 
 <p align="center">
-  <em>Hình 1. Cài đặt hệ điều hành tùy chỉnh trên thiết bị AWS DeepRacer.</em>
-</p>
-
-<p align="center">
-  <strong>Bài viết tham khảo:</strong>
-  <a href="https://aws.amazon.com/vi/blogs/machine-learning/custom-os-installation-now-available-on-aws-deepracer-devices/" target="_blank">
+  <strong>Reference Article:</strong>
+  <a href="https://aws.amazon.com/blogs/machine-learning/custom-os-installation-now-available-on-aws-deepracer-devices/" target="_blank">
     AWS Artificial Intelligence Blog
   </a>
 </p>
