@@ -10,11 +10,11 @@ Trong quá trình thực tập, em đã tham gia 3 events, với mỗi event là
 
 ## [Sự kiện 1](4.1-Event1)
 
-**Tên sự kiện:** Ngày cộng đồng FCAJ 2026
-**Ngày:** 09 Tháng Năm 2026
-**Vị trí:** Sự kiện trực tiếp dành cho cộng đồng AWS Study Group và sinh viên Công nghệ thông tin.
-**Vai trò:** Đối tượng tham gia
-**Chủ đề chính:** Năng suất, Kỹ thuật nhắc nhở (Prompt Engineering), Phương pháp BMX, phát triển phần mềm với AI và định hướng nghề nghiệp trong kỷ nguyên AI.
+- **Tên sự kiện:** Ngày cộng đồng FCAJ 2026
+- **Ngày:** 09 Tháng Năm 2026
+- **Vị trí:** Sự kiện trực tiếp dành cho cộng đồng AWS Study Group và sinh viên Công nghệ thông tin.
+- **Vai trò:** Đối tượng tham gia
+- **Chủ đề chính:** Năng suất, Kỹ thuật nhắc nhở (Prompt Engineering), Phương pháp BMX, phát triển phần mềm với AI và định hướng nghề nghiệp trong kỷ nguyên AI.
 
 ---
 
@@ -31,8 +31,8 @@ Trong quá trình thực tập, em đã tham gia 3 events, với mỗi event là
 
 ## [Sự kiện 3](4.3-Event3)
 
-**Tên sự kiện:** Chuyến tham quan học tập AWS: Kiến trúc đám mây và xu hướng nghề nghiệp
-**Ngày:** 04 Tháng Bảy 2026
-**Vị trí:** Văn phòng AWS Việt Nam
-**Vai trò:** Đối tượng tham gia
-**Chủ đề chính:** Kiến trúc đám mây, xu hướng nghề nghiệp Cloud, AI trong doanh nghiệp, kết nối mạng và định hướng phát triển cho các chuyên gia điện toán đám mây.
+- **Tên sự kiện:** Chuyến tham quan học tập AWS: Kiến trúc đám mây và xu hướng nghề nghiệp
+- **Ngày:** 04 Tháng Bảy 2026
+- **Vị trí:** Văn phòng AWS Việt Nam
+- **Vai trò:** Đối tượng tham gia
+- **Chủ đề chính:** Kiến trúc đám mây, xu hướng nghề nghiệp Cloud, AI trong doanh nghiệp, kết nối mạng và định hướng phát triển cho các chuyên gia điện toán đám mây.
