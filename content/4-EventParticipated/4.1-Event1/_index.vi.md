@@ -6,120 +6,128 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+# Sự Kiện 1
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# BÁO CÁO CẢM NHẬN: "NGÀY HỘI CỘNG ĐỒNG FCAJ 2026" – 09/05/2026
 
-### Mục Đích Của Sự Kiện
+## Mục đích của sự kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+Ngày hội cộng đồng FCAJ 2026 được tổ chức nhằm kết nối các học viên đang tham gia chương trình First Cloud AI Journey với các diễn giả và cộng đồng AWS. Sự kiện hướng đến việc chia sẻ kinh nghiệm học tập, giới thiệu các xu hướng mới về Trí tuệ nhân tạo và Điện toán đám mây, đồng thời tạo cơ hội để người tham gia trao đổi kiến thức và mở rộng mạng lưới kết nối.
 
-### Danh Sách Diễn Giả
+Ngoài các nội dung kỹ thuật, chương trình còn nhấn mạnh phương pháp học tập hiệu quả, kỹ năng tự học và cách ứng dụng AI để nâng cao năng suất trong quá trình học tập cũng như phát triển nghề nghiệp.
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+## Diễn giả
 
-### Nội Dung Nổi Bật
+Buổi chia sẻ có sự tham gia của nhiều diễn giả đến từ cộng đồng AWS và lĩnh vực Công nghệ thông tin, mang đến những góc nhìn thực tế về:
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+- Anh Long – chia sẻ về phương pháp học Cloud và AI hiệu quả.
+- Anh Thịnh – trình bày chủ đề Prompt Engineering và ứng dụng AI.
+- Anh Khang – chia sẻ kinh nghiệm học tập, định hướng nghề nghiệp Cloud và AI.
+- Chị Thảo – giới thiệu quy trình phát triển phần mềm với AI và kinh nghiệm thực tế.
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+## Nội dung nổi bật
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+### Phương pháp học AWS hiệu quả
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+Diễn giả chia sẻ rằng việc học AWS nên bắt đầu từ những kiến thức nền tảng, sau đó từng bước thực hành thông qua các bài Lab và dự án thực tế.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+Một số kinh nghiệm được chia sẻ:
 
-#### Domain-Driven Design (DDD)
+- Xây dựng lộ trình học tập rõ ràng.
+- Kết hợp tài liệu chính thức với Hands-on Lab.
+- Học theo dự án thay vì ghi nhớ từng dịch vụ riêng lẻ.
+- Tham gia cộng đồng để trao đổi và cập nhật kiến thức.
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+### Prompt Engineering
 
-#### Event-Driven Architecture
+Một nội dung được nhiều người quan tâm là Prompt Engineering.
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+Buổi chia sẻ giới thiệu cách xây dựng Prompt rõ ràng, đầy đủ ngữ cảnh và có mục tiêu cụ thể nhằm giúp các mô hình AI tạo ra kết quả chính xác hơn.
 
-#### Compute Evolution
+Qua các ví dụ minh họa, tôi nhận thấy chỉ cần thay đổi cách đặt câu hỏi cũng có thể tạo ra sự khác biệt lớn trong chất lượng câu trả lời của AI.
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+### Ứng dụng AI trong phát triển phần mềm
 
-#### Amazon Q Developer
+Các diễn giả cũng trình bày cách AI được sử dụng để hỗ trợ quá trình phát triển phần mềm.
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+Một số nội dung được giới thiệu gồm:
 
-### Những Gì Học Được
+- Hỗ trợ viết và tối ưu mã nguồn.
+- Tóm tắt tài liệu kỹ thuật.
+- Hỗ trợ xây dựng ý tưởng và thiết kế hệ thống.
+- Tăng năng suất trong quá trình phát triển ứng dụng.
 
-#### Tư Duy Thiết Kế
+Tuy nhiên, AI chỉ đóng vai trò hỗ trợ, còn việc kiểm tra và đánh giá kết quả vẫn cần được thực hiện bởi người phát triển.
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+## Những kiến thức đạt được
 
-#### Kiến Trúc Kỹ Thuật
+### Phương pháp học tập
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+Sau sự kiện, tôi rút ra được nhiều kinh nghiệm hữu ích:
 
-#### Chiến Lược Hiện Đại Hóa
+- Chia nhỏ mục tiêu học tập theo từng giai đoạn.
+- Ưu tiên thực hành sau khi học lý thuyết.
+- Tận dụng tài liệu chính thức của AWS.
+- Duy trì việc học đều đặn để nâng cao kỹ năng.
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+### Làm việc cùng AI
 
-### Ứng Dụng Vào Công Việc
+Tôi hiểu rõ hơn cách sử dụng AI như một công cụ hỗ trợ thay vì phụ thuộc hoàn toàn vào các câu trả lời được tạo ra.
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+Điều quan trọng là cần:
 
-### Trải nghiệm trong event
+- Đặt Prompt rõ ràng.
+- Kiểm tra lại kết quả.
+- Kết hợp kiến thức chuyên môn với AI để đạt hiệu quả cao hơn.
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+### Định hướng nghề nghiệp
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
+Buổi chia sẻ giúp tôi hiểu rằng ngoài kiến thức kỹ thuật, một Cloud Engineer còn cần:
 
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
+- Khả năng tự học.
+- Kỹ năng giao tiếp.
+- Tinh thần làm việc nhóm.
+- Thói quen cập nhật công nghệ mới.
 
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
+## Áp dụng vào quá trình học tập
 
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+Sau sự kiện, tôi đã áp dụng một số phương pháp vào quá trình học:
 
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+- Lập kế hoạch học AWS theo từng chủ đề.
+- Thực hành ngay sau mỗi bài học.
+- Sử dụng AI để hỗ trợ tìm hiểu tài liệu và giải thích các khái niệm mới.
+- Chủ động ghi chú và tổng hợp kiến thức sau mỗi buổi học.
+- Tham gia nhiều hoạt động của cộng đồng AWS hơn để học hỏi kinh nghiệm thực tế.
 
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+## Cảm nhận về sự kiện
+
+Đây là một trong những sự kiện đầu tiên tôi tham gia trong chương trình First Cloud AI Journey.
+
+Không khí chương trình rất sôi nổi và cởi mở. Các diễn giả chia sẻ nhiều kinh nghiệm thực tế thay vì chỉ trình bày lý thuyết, giúp tôi dễ dàng tiếp cận và hiểu rõ hơn về AWS cũng như các ứng dụng AI trong thực tế.
+
+Tôi cũng có cơ hội giao lưu với các học viên khác, trao đổi phương pháp học tập và định hướng phát triển trong lĩnh vực Cloud Computing.
+
+## Bài học rút ra
+
+Qua sự kiện này, tôi nhận thấy:
+
+- Học AWS cần kết hợp giữa lý thuyết và thực hành.
+- AI là công cụ hỗ trợ rất hiệu quả nếu biết sử dụng đúng cách.
+- Chủ động tham gia cộng đồng giúp mở rộng kiến thức và kỹ năng.
+- Việc xây dựng nền tảng vững chắc quan trọng hơn việc học quá nhiều dịch vụ trong thời gian ngắn.
+- Duy trì tinh thần học tập liên tục là yếu tố giúp phát triển lâu dài trong lĩnh vực công nghệ.
+
+## Kết luận
+
+Ngày hội cộng đồng FCAJ 2026 đã mang đến cho tôi nhiều kiến thức và kinh nghiệm bổ ích về AWS, Trí tuệ nhân tạo và phương pháp học tập hiệu quả.
+
+Những chia sẻ của các diễn giả giúp tôi có định hướng rõ ràng hơn trong quá trình học tập, đồng thời tạo thêm động lực để tiếp tục hoàn thành chương trình First Cloud AI Journey và phát triển kỹ năng trong lĩnh vực Điện toán đám mây.
+
+## Hình ảnh sự kiện
+
+<p align="center">
+  <img
+    src="/aws-training-report-NguyenDinhTruong/images/4-Event/event-aws-1.jpg"
+    width="800"
+    alt="FCAJ Community Day 2026">
+</p>

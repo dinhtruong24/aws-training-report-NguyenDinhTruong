@@ -6,121 +6,191 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
+# EVENT 1
 
-# Summary Report: “GenAI-powered App-DB Modernization workshop”
+# REFLECTION REPORT: "EFFECTIVE LEARNING METHODS, AI PROMPTING, AND AI APPLICATIONS ON AWS" – 09/05/2026
+## Purpose of the Event
 
-### Event Objectives
+FCAJ Community Day 2026 was organized to connect participants in the First Cloud AI Journey program with speakers, administrators, and members of the AWS learning community.
 
-- Share best practices in modern application design
-- Introduce Domain-Driven Design (DDD) and event-driven architecture
-- Provide guidance on selecting the right compute services
-- Present AI tools to support the development lifecycle
+The event provided an open environment where participants could exchange learning experiences, explore effective study methods, and gain practical knowledge about Cloud Computing and Artificial Intelligence.
 
-### Speakers
+In addition to technical topics, the program emphasized productivity, self-learning, career development, and the responsible use of AI tools in software engineering.
 
-- **Jignesh Shah** – Director, Open Source Databases
-- **Erica Liu** – Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** – Assc. Specialist SA, Serverless Amazon Web Services
+## Speakers
 
-### Key Highlights
+The event featured speakers and administrators with experience in Cloud Computing, Artificial Intelligence, software development, and career development:
 
-#### Identifying the drawbacks of legacy application architecture
+- Mr. Long – shared effective methods for learning Cloud Computing and AI.
+- Mr. Thinh – presented Prompt Engineering and AI applications.
+- Mr. Khang – shared learning experiences and career orientation in Cloud Computing and AI.
+- Ms. Thao – introduced the AI-assisted software development process and shared practical experience.
 
-- Long product release cycles → Lost revenue/missed opportunities  
-- Inefficient operations → Reduced productivity, higher costs  
-- Non-compliance with security regulations → Security breaches, loss of reputation  
+## Key Highlights
 
-#### Transitioning to modern application architecture – Microservices
+### Learning Productivity and Effective Study Methods
 
-Migrating to a modular system — each function is an **independent service** communicating via **events**, built on three core pillars:
+The first topic focused on how learners can maintain motivation and make consistent progress during a long technical-learning journey.
 
-- **Queue Management**: Handle asynchronous tasks  
-- **Caching Strategy**: Optimize performance  
-- **Message Handling**: Flexible inter-service communication  
+The speaker explained that productivity does not come only from studying for many hours. It also depends on how learning tasks are organized and how progress is measured.
 
-#### Domain-Driven Design (DDD)
+Important ideas included:
 
-- **Four-step method**: Identify domain events → arrange timeline → identify actors → define bounded contexts  
-- **Bookstore case study**: Demonstrates real-world DDD application  
-- **Context mapping**: 7 patterns for integrating bounded contexts  
+- Breaking large learning goals into smaller tasks.
+- Creating a weekly study plan with clear objectives.
+- Practicing immediately after learning a new concept.
+- Maintaining consistent learning habits instead of studying irregularly.
+- Reviewing completed lessons to reinforce long-term memory.
+- Using positive feedback to maintain motivation.
 
-#### Event-Driven Architecture
+This session helped me understand that an effective learning roadmap should be realistic, measurable, and connected to practical activities.
 
-- **3 integration patterns**: Publish/Subscribe, Point-to-point, Streaming  
-- **Benefits**: Loose coupling, scalability, resilience  
-- **Sync vs async comparison**: Understanding the trade-offs  
+### Prompt Engineering
 
-#### Compute Evolution
+The Prompt Engineering session introduced methods for communicating more effectively with Large Language Models.
 
-- **Shared Responsibility Model**: EC2 → ECS → Fargate → Lambda  
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value  
-- **Functions vs Containers**: Criteria for appropriate choice  
+Instead of asking AI a short and unclear question, users should provide sufficient context, define the expected result, and specify any important constraints.
 
-#### Amazon Q Developer
+A useful prompt can include:
 
-- **SDLC automation**: From planning to maintenance  
-- **Code transformation**: Java upgrade, .NET modernization  
-- **AWS Transform agents**: VMware, Mainframe, .NET migration  
+- **Role:** The role that the AI should perform.
+- **Instruction:** The task that needs to be completed.
+- **Context:** Background information required to understand the request.
+- **Input:** The information that the AI must process.
+- **Output format:** The expected structure of the answer.
+- **Constraints:** Requirements or limitations that the response must follow.
 
-### Key Takeaways
+The speaker also emphasized that AI-generated results should always be reviewed. Artificial Intelligence can support research, idea generation, documentation, and programming, but users remain responsible for validating accuracy and making final decisions.
 
-#### Design Mindset
+### Foundation-First Learning Mindset
 
-- **Business-first approach**: Always start from the business domain, not the technology  
-- **Ubiquitous language**: Importance of a shared vocabulary between business and tech teams  
-- **Bounded contexts**: Identifying and managing complexity in large systems  
+Another important lesson was the need to build a strong technical foundation before focusing on advanced tools.
 
-#### Technical Architecture
+When learning AWS, it is easy to concentrate on service names and deployment procedures. However, understanding the reason behind each architectural decision is more valuable than memorizing individual steps.
 
-- **Event storming technique**: Practical method for modeling business processes  
-- Use **event-driven communication** instead of synchronous calls  
-- **Integration patterns**: When to use sync, async, pub/sub, streaming  
-- **Compute spectrum**: Criteria for choosing between VM, containers, and serverless  
+Before selecting a service, learners should ask questions such as:
 
-#### Modernization Strategy
+- What problem does the application need to solve?
+- Where should the data be stored?
+- How will users access the system?
+- What security controls are required?
+- How should the application scale?
+- How will the system be monitored?
 
-- **Phased approach**: No rushing — follow a clear roadmap  
-- **7Rs framework**: Multiple modernization paths depending on the application  
-- **ROI measurement**: Cost reduction + business agility  
+This approach helps learners understand how AWS services work together as components of a complete architecture.
 
-### Applying to Work
+### BMX Method for AI-Assisted Software Development
 
-- **Apply DDD** to current projects: Event storming sessions with business teams  
-- **Refactor microservices**: Use bounded contexts to define service boundaries  
-- **Implement event-driven patterns**: Replace some sync calls with async messaging  
-- **Adopt serverless**: Pilot AWS Lambda for suitable use cases  
-- **Try Amazon Q Developer**: Integrate into the dev workflow to boost productivity  
+The event also introduced the BMX Method as a structured approach to software development with AI assistance.
 
-### Event Experience
+The session emphasized documentation before implementation. Clear requirements, system design, task descriptions, and validation criteria help AI tools provide more useful development support.
 
-Attending the **“GenAI-powered App-DB Modernization”** workshop was extremely valuable, giving me a comprehensive view of modernizing applications and databases using advanced methods and tools. Key experiences included:
+The method encourages developers to:
 
-#### Learning from highly skilled speakers
-- Experts from AWS and major tech organizations shared **best practices** in modern application design.  
-- Through real-world case studies, I gained a deeper understanding of applying **DDD** and **Event-Driven Architecture** to large projects.  
+- Define the problem before generating code.
+- Document requirements and expected results.
+- Divide the project into manageable tasks.
+- Use AI to support implementation and research.
+- Review, test, and improve all generated output.
+- Maintain human responsibility for technical decisions.
 
-#### Hands-on technical exposure
-- Participating in **event storming** sessions helped me visualize how to **model business processes** into domain events.  
-- Learned how to **split microservices** and define **bounded contexts** to manage large-system complexity.  
-- Understood trade-offs between **synchronous and asynchronous communication** and integration patterns like **pub/sub, point-to-point, streaming**.  
+This topic helped me understand that AI-assisted coding is more effective when the project is well organized and clearly documented.
 
-#### Leveraging modern tools
-- Explored **Amazon Q Developer**, an AI tool for SDLC support from planning to maintenance.  
-- Learned to **automate code transformation** and pilot serverless with **AWS Lambda** to improve productivity.  
+## Knowledge and Skills Gained
 
-#### Networking and discussions
-- The workshop offered opportunities to exchange ideas with experts, peers, and business teams, enhancing the **ubiquitous language** between business and tech.  
-- Real-world examples reinforced the importance of the **business-first approach** rather than focusing solely on technology.  
+### Self-Management Skills
 
-#### Lessons learned
-- Applying DDD and event-driven patterns reduces **coupling** while improving **scalability** and **resilience**.  
-- Modernization requires a **phased approach** with **ROI measurement**; rushing the process can be risky.  
-- AI tools like Amazon Q Developer can significantly **boost productivity** when integrated into the current workflow.  
+After attending the event, I learned several ways to improve my learning process:
 
-#### Some event photos
-*Add your event photos here*  
+- Create specific weekly goals.
+- Divide complex topics into smaller tasks.
+- Practice consistently rather than waiting until the end of a course.
+- Record completed work to track progress.
+- Maintain discipline during long-term technical study.
 
-> Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and cross-team collaboration.
+### Working Effectively with AI
+
+The event also improved my understanding of how AI should be used:
+
+- AI is useful for brainstorming and explaining unfamiliar concepts.
+- Clear prompts produce more relevant results.
+- Context and output requirements should be included in technical prompts.
+- AI-generated code and information must be reviewed and tested.
+- Critical thinking should not be replaced by automated tools.
+
+### Professional Responsibility
+
+A software engineer should not focus only on producing a result that appears to work.
+
+Professional responsibility also includes:
+
+- Considering security and reliability.
+- Testing edge cases and unexpected scenarios.
+- Writing maintainable documentation.
+- Reviewing AI-generated content carefully.
+- Delivering solutions that meet both technical and user requirements.
+
+### Career Development
+
+The career-sharing session helped me recognize that technical knowledge is only one part of professional growth.
+
+Cloud and AI professionals also need:
+
+- Communication skills.
+- Teamwork experience.
+- Practical projects.
+- Continuous learning habits.
+- Community participation.
+- Adaptability to new technologies.
+
+## Applying the Knowledge
+
+After the event, I applied several ideas to my learning process:
+
+- Divided AWS topics into smaller weekly objectives.
+- Practiced each service through hands-on exercises.
+- Used structured prompts when working with ChatGPT and Amazon Q.
+- Read official AWS documentation before applying technical solutions.
+- Documented project requirements before writing code.
+- Reviewed and tested AI-generated suggestions.
+- Participated more actively in AWS community activities.
+- Continued developing practical projects alongside theoretical study.
+
+These changes helped me study more efficiently and understand AWS services through practical use instead of memorization.
+
+## Event Experience
+
+Participating in FCAJ Community Day 2026 was a valuable experience.
+
+The atmosphere was open and interactive, allowing participants to ask questions and learn from the speakers’ real-world experiences. The sessions combined technical knowledge, learning strategies, AI practices, and career guidance.
+
+I particularly appreciated the sessions on Prompt Engineering and AI-assisted software development because they showed that AI is most useful when users provide clear instructions, maintain critical thinking, and follow a structured workflow.
+
+The event also gave me an opportunity to connect with other participants who were studying Cloud Computing and Artificial Intelligence.
+
+## Lessons Learned
+
+The main lessons I gained from the event were:
+
+- Effective learning requires both planning and consistent practice.
+- A strong technical foundation is more important than memorizing many tools.
+- Prompt Engineering is an important skill when working with Large Language Models.
+- AI should support developers rather than replace technical judgment.
+- Documentation improves both traditional and AI-assisted software development.
+- Community participation provides knowledge, motivation, and professional connections.
+- Continuous learning is essential in Cloud Computing and Artificial Intelligence.
+
+## Conclusion
+
+FCAJ Community Day 2026 provided useful knowledge about learning productivity, Prompt Engineering, AI-assisted development, Cloud Computing, and career preparation.
+
+The event helped me improve my learning method and understand how Artificial Intelligence can be applied responsibly in software development. It also encouraged me to continue building practical AWS projects, participate in technical communities, and strengthen the foundational skills required for a future career in Cloud Computing and Artificial Intelligence.
+
+## Event Photo
+
+<p align="center">
+  <img
+    src="/aws-training-report-NguyenDinhTruong/images/4-Event/event-aws-1.jpg"
+    width="800"
+    alt="FCAJ Community Day 2026">
+</p>
