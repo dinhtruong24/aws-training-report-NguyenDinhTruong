@@ -1,12 +1,10 @@
 ---
-title: "Event 1"
+title: "Ngày cộng đồng FCAJ 2026"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
-
-# BÁO CÁO CẢM NHẬN: "NGÀY HỘI CỘNG ĐỒNG FCAJ 2026" – 09/05/2026
 
 ## Mục đích của sự kiện
 

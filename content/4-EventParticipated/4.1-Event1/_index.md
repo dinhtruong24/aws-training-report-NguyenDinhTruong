@@ -1,12 +1,11 @@
 ---
-title: "Event 1"
+title: "FCAJ Community Day 2026"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# REFLECTION REPORT: "EFFECTIVE LEARNING METHODS, AI PROMPTING, AND AI APPLICATIONS ON AWS" – 09/05/2026
 ## Purpose of the Event
 
 FCAJ Community Day 2026 was organized to connect participants in the First Cloud AI Journey program with speakers, administrators, and members of the AWS learning community.

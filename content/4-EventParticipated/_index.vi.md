@@ -8,12 +8,13 @@ pre: " <b> 4. </b> "
 
 Trong quá trình thực tập, em đã tham gia 3 events, với mỗi event là một trải nghiệm đáng nhớ với những kiến thức mới, hay và bổ ích, cùng với đó là nhứng món quà và những khoảnh khắc rất tuyệt vời.
 
-# Sự kiện 1: Ngày hội cộng đồng FCAJ – 09/05/2026
+## [Sự kiện 1](4.1-Event1)
 
-- **Thời gian:** 09:00 – 12:00, 09/05/2026
-- **Vai trò:** Đối tượng tham gia
-- **Chủ đề:** Phương pháp học tập hiệu quả, kỹ thuật nhắc nhở AI và triển khai các ứng dụng AI trên AWS.
-- **Kết quả:** Cải thiện kỹ năng kỹ thuật nhanh chóng và hiểu rõ hơn về triển khai AWS.
+**Tên sự kiện:** Ngày cộng đồng FCAJ 2026
+**Ngày:** 09 Tháng Năm 2026
+**Vị trí:** Sự kiện trực tiếp dành cho cộng đồng AWS Study Group và sinh viên Công nghệ thông tin.
+**Vai trò:** Đối tượng tham gia
+**Chủ đề chính:** Năng suất, Kỹ thuật nhắc nhở (Prompt Engineering), Phương pháp BMX, phát triển phần mềm với AI và định hướng nghề nghiệp trong kỷ nguyên AI.
 
 ---
 
@@ -28,10 +29,10 @@ Trong quá trình thực tập, em đã tham gia 3 events, với mỗi event là
 
 ---
 
-# Sự kiện 3: Chuyến tham quan học tập AWS – 04/07/2026
+## [Sự kiện 3](4.3-Event3)
 
-- **Thời gian:** 04/07/2026
-- **Địa điểm:** Văn phòng AWS Việt Nam
-- **Vai trò:** Đối tượng tham gia
-- **Chủ đề:** Kiến trúc đám mây, xu hướng nghề nghiệp đám mây, AI trong doanh nghiệp, mạng và phát triển nghề nghiệp cho các chuyên gia đám mây tương lai.
-- **Kết quả:** Hiểu rõ hơn về kiến trúc đám mây trên AWS, định hướng nghề nghiệp trong lĩnh vực Cloud Computing và cập nhật các xu hướng công nghệ mới.
+**Tên sự kiện:** Chuyến tham quan học tập AWS: Kiến trúc đám mây và xu hướng nghề nghiệp
+**Ngày:** 04 Tháng Bảy 2026
+**Vị trí:** Văn phòng AWS Việt Nam
+**Vai trò:** Đối tượng tham gia
+**Chủ đề chính:** Kiến trúc đám mây, xu hướng nghề nghiệp Cloud, AI trong doanh nghiệp, kết nối mạng và định hướng phát triển cho các chuyên gia điện toán đám mây.

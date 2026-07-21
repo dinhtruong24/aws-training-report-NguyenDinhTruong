@@ -1,12 +1,10 @@
 ---
-title: "Event 3"
+title: "FCAJ Community Day 2026"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
-
-# AWS EDUCATIONAL VISIT: CLOUD ARCHITECTURE AND CAREER TRENDS – JULY 4, 2026
 
 ## Purpose of the Event
 

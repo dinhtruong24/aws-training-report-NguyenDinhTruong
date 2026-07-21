@@ -1,12 +1,10 @@
 ---
-title: "Event 3"
+title: "Ngày cộng đồng FCAJ 2026"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
-
-# CHUYẾN THAM QUAN HỌC TẬP AWS: KIẾN TRÚC ĐÁM MÂY VÀ XU HƯỚNG NGHỀ NGHIỆP – 04/07/2026
 
 ## Mục đích của sự kiện
 
