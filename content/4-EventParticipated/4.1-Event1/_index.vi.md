@@ -16,10 +16,10 @@ Ngoài các nội dung kỹ thuật, chương trình còn nhấn mạnh phương
 
 Buổi chia sẻ có sự tham gia của nhiều diễn giả đến từ cộng đồng AWS và lĩnh vực Công nghệ thông tin, mang đến những góc nhìn thực tế về:
 
-- Anh Long – chia sẻ về phương pháp học Cloud và AI hiệu quả.
-- Anh Thịnh – trình bày chủ đề Prompt Engineering và ứng dụng AI.
-- Anh Khang – chia sẻ kinh nghiệm học tập, định hướng nghề nghiệp Cloud và AI.
-- Chị Thảo – giới thiệu quy trình phát triển phần mềm với AI và kinh nghiệm thực tế.
+- **Anh Long** – chia sẻ về phương pháp học Cloud và AI hiệu quả.
+- **Anh Thịnh** – trình bày chủ đề Prompt Engineering và ứng dụng AI.
+- **Anh Khang** – chia sẻ kinh nghiệm học tập, định hướng nghề nghiệp Cloud và AI.
+- **Chị Thảo** – giới thiệu quy trình phát triển phần mềm với AI và kinh nghiệm thực tế.
 
 ## Nội dung nổi bật
 

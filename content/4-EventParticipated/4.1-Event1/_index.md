@@ -18,10 +18,10 @@ In addition to technical topics, the program emphasized productivity, self-learn
 
 The event featured speakers and administrators with experience in Cloud Computing, Artificial Intelligence, software development, and career development:
 
-- Mr. Long – shared effective methods for learning Cloud Computing and AI.
-- Mr. Thinh – presented Prompt Engineering and AI applications.
-- Mr. Khang – shared learning experiences and career orientation in Cloud Computing and AI.
-- Ms. Thao – introduced the AI-assisted software development process and shared practical experience.
+- **Mr. Long** – shared effective methods for learning Cloud Computing and AI.
+- **Mr. Thinh** – presented Prompt Engineering and AI applications.
+- **Mr. Khang** – shared learning experiences and career orientation in Cloud Computing and AI.
+- **Ms. Thao** – introduced the AI-assisted software development process and shared practical experience.
 
 ## Key Highlights
 
