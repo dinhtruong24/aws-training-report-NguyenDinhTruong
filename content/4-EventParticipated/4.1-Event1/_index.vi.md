@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Sự Kiện 1
-
 # BÁO CÁO CẢM NHẬN: "NGÀY HỘI CỘNG ĐỒNG FCAJ 2026" – 09/05/2026
 
 ## Mục đích của sự kiện

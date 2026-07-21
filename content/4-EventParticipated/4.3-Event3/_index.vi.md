@@ -1,12 +1,10 @@
 ---
-title: "Event 2"
+title: "Event 3"
 date: 2024-01-01
 weight: 1
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
-
-# SỰ KIỆN 3
 
 # CHUYẾN THAM QUAN HỌC TẬP AWS: KIẾN TRÚC ĐÁM MÂY VÀ XU HƯỚNG NGHỀ NGHIỆP – 04/07/2026
 

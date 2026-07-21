@@ -6,8 +6,6 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# EVENT 1
-
 # REFLECTION REPORT: "EFFECTIVE LEARNING METHODS, AI PROMPTING, AND AI APPLICATIONS ON AWS" – 09/05/2026
 ## Purpose of the Event
 
