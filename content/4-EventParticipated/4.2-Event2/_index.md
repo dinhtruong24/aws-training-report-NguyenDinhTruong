@@ -25,9 +25,9 @@ In addition to technical sessions, the program encouraged continuous learning, t
 
 ---
 
-# Key Highlights
+## Key Highlights
 
-## Learning AWS Through Hands-on Practice
+### Learning AWS Through Hands-on Practice
 
 - Introduced AWS Cloud Quest and Floci as practical AWS learning platforms.
 - Shared a step-by-step AWS learning roadmap from beginner to real-world deployment.
@@ -35,7 +35,7 @@ In addition to technical sessions, the program encouraged continuous learning, t
 
 ---
 
-## AI Product Development and Hackathon Experience
+### AI Product Development and Hackathon Experience
 
 - Explained the complete process of building an AI product during a Hackathon.
 - Covered MVP development, teamwork, task management, and collaboration.
@@ -43,7 +43,7 @@ In addition to technical sessions, the program encouraged continuous learning, t
 
 ---
 
-## Personal Growth and Soft Skills
+### Personal Growth and Soft Skills
 
 - Highlighted the importance of confidence in both academic and professional environments.
 - Discussed methods for overcoming self-doubt and Imposter Syndrome.
@@ -51,7 +51,7 @@ In addition to technical sessions, the program encouraged continuous learning, t
 
 ---
 
-## Building AI Applications on AWS
+### Building AI Applications on AWS
 
 - Introduced the AI project "Tu Vi Dai Viet."
 - Explained the journey from idea validation to product implementation.
@@ -59,7 +59,7 @@ In addition to technical sessions, the program encouraged continuous learning, t
 
 ---
 
-## DevOps and Software Development
+### DevOps and Software Development
 
 - Explained common challenges that often cause software projects to fail.
 - Highlighted the importance of DevOps in modern software development.
@@ -67,7 +67,7 @@ In addition to technical sessions, the program encouraged continuous learning, t
 
 ---
 
-## Time Management and Self-Improvement
+### Time Management and Self-Improvement
 
 - Analyzed the root causes of procrastination.
 - Shared practical methods for building productive habits.
@@ -75,9 +75,9 @@ In addition to technical sessions, the program encouraged continuous learning, t
 
 ---
 
-# What I Learned
+## What I Learned
 
-## Technical Knowledge
+### Technical Knowledge
 
 - Gained a clearer understanding of AWS learning strategies through practical experience.
 - Expanded my knowledge of AI, DevOps, and software development processes.
@@ -85,7 +85,7 @@ In addition to technical sessions, the program encouraged continuous learning, t
 
 ---
 
-## Soft Skills
+### Soft Skills
 
 - Improved my communication, teamwork, and presentation skills.
 - Strengthened my problem-solving abilities and adaptability.
@@ -93,7 +93,7 @@ In addition to technical sessions, the program encouraged continuous learning, t
 
 ---
 
-## Career Development
+### Career Development
 
 - Gained a broader understanding of career opportunities in Cloud Computing, AI, and DevOps.
 - Learned how software products are developed from concept to deployment.
@@ -101,7 +101,7 @@ In addition to technical sessions, the program encouraged continuous learning, t
 
 ---
 
-# Applying the Knowledge
+## Applying the Knowledge
 
 After attending the event, I identified several ways to apply what I learned:
 
@@ -112,7 +112,7 @@ After attending the event, I identified several ways to apply what I learned:
 
 ---
 
-# Event Experience
+## Event Experience
 
 The event delivered valuable technical knowledge together with inspiring experiences shared by professionals working in Cloud Computing, AI, and Software Engineering. The presentations were practical, engaging, and closely related to real industry challenges, giving me a clearer understanding of future career opportunities.
 
@@ -120,7 +120,7 @@ Besides learning new technical concepts, I also had the opportunity to interact 
 
 ---
 
-# Key Takeaways
+## Key Takeaways
 
 - Hands-on practice is the most effective way to learn AWS.
 - Successful software products require both technical knowledge and effective teamwork.
@@ -129,7 +129,7 @@ Besides learning new technical concepts, I also had the opportunity to interact 
 
 ---
 
-# Event Photos
+## Event Photos
 
 <p align="center">
   <img

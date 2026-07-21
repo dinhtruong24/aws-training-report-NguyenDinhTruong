@@ -25,9 +25,9 @@ Ngoài các nội dung kỹ thuật, sự kiện còn truyền cảm hứng về
 
 ---
 
-# Điểm nổi bật chính
+## Điểm nổi bật chính
 
-## Học AWS thông qua thực hành
+### Học AWS thông qua thực hành
 
 - Giới thiệu AWS Cloud Quest và Floci giúp học AWS theo hình thức thực hành.
 - Chia sẻ lộ trình học AWS từ cơ bản đến triển khai trên môi trường thực tế.
@@ -35,7 +35,7 @@ Ngoài các nội dung kỹ thuật, sự kiện còn truyền cảm hứng về
 
 ---
 
-## Phát triển sản phẩm AI và Hackathon
+### Phát triển sản phẩm AI và Hackathon
 
 - Chia sẻ quá trình xây dựng sản phẩm AI trong cuộc thi Hackathon.
 - Thiết kế MVP, phân chia công việc và phối hợp giữa các thành viên.
@@ -43,7 +43,7 @@ Ngoài các nội dung kỹ thuật, sự kiện còn truyền cảm hứng về
 
 ---
 
-## Phát triển kỹ năng mềm
+### Phát triển kỹ năng mềm
 
 - Chia sẻ vai trò của sự tự tin trong học tập và công việc.
 - Hướng dẫn cách vượt qua sự tự ti và hội chứng Imposter Syndrome.
@@ -51,7 +51,7 @@ Ngoài các nội dung kỹ thuật, sự kiện còn truyền cảm hứng về
 
 ---
 
-## Xây dựng sản phẩm AI trên AWS
+### Xây dựng sản phẩm AI trên AWS
 
 - Giới thiệu dự án AI "Tử vi Đại Việt".
 - Chia sẻ quy trình từ ý tưởng đến triển khai sản phẩm.
@@ -59,7 +59,7 @@ Ngoài các nội dung kỹ thuật, sự kiện còn truyền cảm hứng về
 
 ---
 
-## DevOps và quy trình phát triển phần mềm
+### DevOps và quy trình phát triển phần mềm
 
 - Phân tích những nguyên nhân khiến dự án gặp khó khăn.
 - Chia sẻ vai trò của DevOps trong phát triển phần mềm.
@@ -67,7 +67,7 @@ Ngoài các nội dung kỹ thuật, sự kiện còn truyền cảm hứng về
 
 ---
 
-## Quản lý thời gian và phát triển bản thân
+### Quản lý thời gian và phát triển bản thân
 
 - Phân tích nguyên nhân dẫn đến sự trì hoãn.
 - Chia sẻ phương pháp hình thành thói quen học tập và làm việc hiệu quả.
@@ -75,9 +75,9 @@ Ngoài các nội dung kỹ thuật, sự kiện còn truyền cảm hứng về
 
 ---
 
-# Những gì tôi học được
+## Những gì tôi học được
 
-## Kiến thức chuyên môn
+### Kiến thức chuyên môn
 
 - Hiểu rõ hơn về lộ trình học AWS và phương pháp thực hành hiệu quả.
 - Có thêm kiến thức về AI, DevOps và quy trình phát triển sản phẩm.
@@ -85,7 +85,7 @@ Ngoài các nội dung kỹ thuật, sự kiện còn truyền cảm hứng về
 
 ---
 
-## Kỹ năng mềm
+### Kỹ năng mềm
 
 - Nâng cao kỹ năng giao tiếp, làm việc nhóm và thuyết trình.
 - Phát triển tư duy giải quyết vấn đề và khả năng thích nghi.
@@ -93,7 +93,7 @@ Ngoài các nội dung kỹ thuật, sự kiện còn truyền cảm hứng về
 
 ---
 
-## Định hướng nghề nghiệp
+### Định hướng nghề nghiệp
 
 - Có cái nhìn rõ hơn về các vị trí trong lĩnh vực Cloud Computing, AI và DevOps.
 - Hiểu quy trình phát triển sản phẩm từ ý tưởng đến triển khai thực tế.
@@ -101,7 +101,7 @@ Ngoài các nội dung kỹ thuật, sự kiện còn truyền cảm hứng về
 
 ---
 
-# Áp dụng kiến thức
+## Áp dụng kiến thức
 
 Sau khi tham gia sự kiện, tôi đã xác định một số định hướng để áp dụng những kiến thức đã học:
 
@@ -112,7 +112,7 @@ Sau khi tham gia sự kiện, tôi đã xác định một số định hướng
 
 ---
 
-# Trải nghiệm sự kiện
+## Trải nghiệm sự kiện
 
 Sự kiện mang đến nhiều kiến thức thực tế cùng những chia sẻ giá trị từ các diễn giả đang làm việc trong lĩnh vực Cloud Computing, AI và phát triển phần mềm. Các nội dung được trình bày sinh động, gần gũi với thực tế và giúp tôi có cái nhìn rõ ràng hơn về con đường phát triển nghề nghiệp trong tương lai.
 
@@ -120,14 +120,14 @@ Bên cạnh việc tiếp thu kiến thức chuyên môn, tôi còn có cơ hộ
 
 ---
 
-# Bài học chính
+## Bài học chính
 
 - Thực hành là phương pháp học AWS hiệu quả nhất.
 - Một sản phẩm thành công cần sự kết hợp giữa kiến thức kỹ thuật, quy trình làm việc và tinh thần hợp tác.
 - Sự tự tin, tính kỷ luật và tinh thần học hỏi liên tục là những yếu tố quan trọng để phát triển trong ngành Công nghệ thông tin.
 - Không ngừng cập nhật công nghệ mới sẽ tạo nhiều cơ hội phát triển trong tương lai.
 
-# Hình ảnh sự kiện
+## Hình ảnh sự kiện
 
 <p align="center">
   <img
