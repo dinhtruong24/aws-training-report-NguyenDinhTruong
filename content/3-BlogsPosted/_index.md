@@ -5,33 +5,43 @@ weight: 3
 chapter: false
 pre: " <b> 3. </b> "
 ---
-During **The First Cloud AI Journey** program, I researched, summarized, and shared technical articles from AWS Blogs to improve my knowledge of cloud computing, security, artificial intelligence, and system architecture on AWS.
+During The First Cloud Journey program, I researched, summarized, and shared technical articles from AWS Blogs to improve my knowledge of cloud computing, networking, databases, and artificial intelligence.
 
-The following articles focus on practical topics, including securing database credentials for AWS Lambda, proactively monitoring AWS infrastructure with AI agents, and connecting Amazon API Gateway to private resources within an Amazon VPC. Through researching and summarizing these articles, I strengthened my technical documentation reading, AWS architecture analysis, and knowledge-sharing skills.
+The following articles introduce newly released AWS technologies and best practices. Through researching and summarizing these articles, I strengthened my understanding of AWS services and learned how they can be applied in real-world cloud environments.
 
-###  [Blog 1 - Securing Database Credentials for AWS Lambda with AWS Secrets Manager](3.1-Blog1/)
-This article explains how to securely manage database credentials for AWS Lambda by using AWS Secrets Manager instead of storing hardcoded passwords in source code.
-- Architecture flow: API Gateway → Lambda → AWS Secrets Manager → Amazon RDS.
-- Securely store credentials with AWS Secrets Manager.
-- Enable automatic secret rotation. 
-- Improve security for Serverless applications.
+### [Blog 1 - Custom OS Installation Now Available on AWS DeepRacer](3.1-Blog1/)
 
-**Source:** [AWS Security Blog](https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/)
+This article introduces AWS Developer Bootloader, which allows developers to install custom operating systems on AWS DeepRacer devices and extend their lifecycle.
 
-###  [Blog 2 - AgentWatch: Proactive AWS Monitoring with Ambient Agents](3.2-Blog2/)
-This article introduces AgentWatch, an AI-powered monitoring solution that proactively analyzes AWS infrastructure, detects issues, and assists DevOps teams in maintaining system reliability.
-- Monitor CloudWatch Metrics, Logs, and Alarms.
-- Analyze infrastructure data using Amazon Bedrock AgentCore.
-- Send reports and alerts directly to Slack.
-- Automate infrastructure monitoring with AI Agents.
+- Install custom Linux operating systems on AWS DeepRacer.
+- Support AI, Robotics, and ROS2 development.
+- Improve flexibility for embedded AI projects.
+- Extend the usability of DeepRacer hardware.
 
-**Source:** [AWS Machine Learning Blog](https://aws.amazon.com/blogs/machine-learning/agentwatch-proactive-aws-monitoring-with-ambient-agents/)
+**Source:** [AWS Artificial Intelligence Blog](https://aws.amazon.com/blogs/machine-learning/custom-os-installation-now-available-on-aws-deepracer-devices/)
 
-###  [Blog 3 - Understanding VPC Links in Amazon API Gateway Private Integrations](3.3-Blog3/)
-This article explains how VPC Links enable Amazon API Gateway to securely connect with private resources inside an Amazon VPC without exposing backend services to the public internet.
-- Learn the difference between Private APIs and Private Integrations.
-- Understand AWS Hyperplane and AWS PrivateLink.
-- Connect API Gateway with Network Load Balancers (NLB) or Application Load Balancers (ALB).
-- Build secure, scalable, and highly available API architectures on AWS.
+---
 
-**Source:** [AWS Compute Blog](https://aws.amazon.com/blogs/compute/understanding-vpc-links-in-amazon-api-gateway-private-integrations/)
+### [Blog 2 - Introducing the LBC Ingress-to-Gateway API Migration Toolkit](3.2-Blog2/)
+
+This article introduces the new migration toolkit that helps Kubernetes users migrate AWS Load Balancer Controller Ingress resources to the Gateway API more efficiently.
+
+- Simplify migration from Ingress to Gateway API.
+- Reduce manual configuration.
+- Improve Kubernetes networking management.
+- Minimize deployment risks during migration.
+
+**Source:** [AWS Networking & Content Delivery Blog](https://aws.amazon.com/blogs/networking-and-content-delivery/introducing-the-lbc-ingress-to-gateway-api-migration-toolkit/)
+
+---
+
+### [Blog 3 - Connection Pooling Strategies in Amazon Aurora DSQL](3.3-Blog3/)
+
+This article explains connection pooling strategies for Amazon Aurora DSQL and shares best practices for building scalable and reliable database applications.
+
+- Understand connection pooling in Aurora DSQL.
+- Improve database performance.
+- Reduce connection overhead.
+- Learn AWS best practices for production environments.
+
+**Source:** [AWS Database Blog](https://aws.amazon.com/blogs/database/connection-pooling-strategies-in-amazon-aurora-dsql/)

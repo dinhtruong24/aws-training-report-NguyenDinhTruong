@@ -7,78 +7,113 @@ pre: " <b> 3.1. </b> "
 ---
 
 
-# SECURING DATABASE CREDENTIALS FOR AWS LAMBDA WITH AWS SECRETS MANAGER
+---
+title: "Blog 1"
+date: 2026-07-20
+weight: 1
+chapter: false
+pre: " <b> 3.1. </b> "
+---
 
-Managing database credentials securely is an important requirement when building serverless applications. Hardcoding usernames and passwords inside AWS Lambda functions increases security risks and makes credential management difficult. AWS Secrets Manager provides a secure solution for storing, retrieving, and automatically rotating database credentials.
+# AWS DEEPRACER GIỜ ĐÂY ĐÃ CÓ THỂ CÀI ĐẶT HỆ ĐIỀU HÀNH TÙY CHỈNH
 
-## Overview
+Trong quá trình tìm hiểu các bài viết mới trên AWS Blog, tôi đọc được một cập nhật khá thú vị liên quan đến **AWS DeepRacer**.
 
-AWS Secrets Manager enables applications to retrieve database credentials only when they are needed. Instead of embedding sensitive information inside source code or environment variables, Lambda securely requests the secret during runtime, reducing the risk of credential exposure.
+Trước đây, tôi chỉ biết AWS DeepRacer là một chiếc xe tự hành có tỷ lệ 1/18, được sử dụng để học Machine Learning và Reinforcement Learning. Người dùng có thể huấn luyện mô hình trên môi trường đám mây, sau đó đưa mô hình xuống thiết bị để thử nghiệm trên đường đua.
 
-## Solution Architecture
+Tuy nhiên, sau khi đọc bài viết này, tôi mới biết rằng các thiết bị DeepRacer trước đây chủ yếu khởi động những hệ điều hành được AWS ký xác thực, bao gồm Ubuntu 16.04 và Ubuntu 20.04. Khi những phiên bản này không còn được hỗ trợ, việc cài đặt phần mềm mới và tiếp tục nghiên cứu trên thiết bị sẽ gặp nhiều hạn chế.
 
-The solution integrates several AWS services:
+## Developer Bootloader
 
-- Amazon API Gateway receives client requests.
-- AWS Lambda processes application logic.
-- AWS Secrets Manager stores database credentials securely.
-- Amazon RDS provides the backend database.
+Điểm tôi thấy đáng chú ý nhất là AWS đã phát hành **Developer Bootloader**, cho phép nhà phát triển cài đặt hệ điều hành tùy chỉnh hoặc bản phân phối Linux của bên thứ ba trên thiết bị AWS DeepRacer.
 
-This architecture keeps sensitive information outside the application source code while allowing Lambda to access credentials securely.
+Developer Bootloader được xây dựng dựa trên dự án mã nguồn mở `shim`. Khi chữ ký mặc định không được xác thực, Bootloader sẽ kiểm tra chứng chỉ do nhà phát triển cung cấp trong thư mục:
 
-## Implementation Workflow
+```text
+/EFI/DEVELOPER/certs/
+```
 
-The solution follows four main steps.
+Nhờ đó, người dùng có thể tự quản lý chứng chỉ bằng các công cụ như OpenSSL và `sbsign`, đồng thời vẫn duy trì cơ chế kiểm tra tính toàn vẹn trong quá trình khởi động.
 
-### Step 1 – Store Credentials
+## Dấu hiệu nhận biết Developer Mode
 
-Create a secret in AWS Secrets Manager containing the Amazon RDS username and password.
+Khi thiết bị sử dụng chứng chỉ của nhà phát triển, hệ thống sẽ hiển thị những cảnh báo rõ ràng:
 
-### Step 2 – Configure AWS Lambda
+- Hiển thị thông báo Developer Mode qua màn hình HDMI.
+- Đèn trên xe nhấp nháy thông điệp “DEVELOPER MODE” bằng mã Morse.
+- Thêm thời gian chờ trong quá trình khởi động để người dùng nhận biết chế độ đang hoạt động.
 
-Grant Lambda permission to retrieve the secret using an IAM Role.
+Theo tôi, đây là một thiết kế hợp lý vì người dùng có quyền tùy chỉnh thiết bị nhưng vẫn biết rõ trạng thái bảo mật hiện tại.
 
-### Step 3 – Retrieve the Secret
+## Các phương án cài đặt
 
-When Lambda executes, it requests the database credentials from AWS Secrets Manager and establishes a secure connection to Amazon RDS.
+AWS giới thiệu ba phương án chính để sử dụng Developer Bootloader.
 
-### Step 4 – Enable Automatic Rotation
+### 1. Sử dụng bản phân phối của cộng đồng
 
-AWS Secrets Manager automatically rotates database credentials based on a predefined schedule without requiring application changes.
+Cộng đồng AWS DeepRacer đã xây dựng một bản phân phối mới dựa trên Ubuntu 24.04 và ROS2 Jazzy. Bản phân phối này đã tích hợp sẵn Developer Bootloader, giúp người dùng bắt đầu nhanh hơn mà không cần tự cấu hình toàn bộ quá trình khởi động Linux.
 
-## Benefits
+### 2. Cài đặt bản Linux của bên thứ ba
 
-Using AWS Secrets Manager provides several advantages:
+Người dùng có thể cài đặt Ubuntu hoặc một bản Linux khác, sau đó thay tệp `BOOTX64.EFI` bằng Developer Shim và bổ sung chứng chỉ phù hợp.
 
-- Removes hardcoded passwords from source code.
-- Protects sensitive credentials securely.
-- Supports automatic credential rotation.
-- Simplifies credential management.
-- Improves security for serverless applications.
-- Integrates seamlessly with AWS services.
+Phương án này phù hợp với những người muốn kiểm soát phiên bản hệ điều hành, thư viện, Driver và các công cụ được cài đặt trên thiết bị.
 
-## Conclusion
+### 3. Tự xây dựng hệ điều hành
 
-AWS Secrets Manager is an effective solution for managing database credentials in serverless applications. By combining API Gateway, Lambda, Secrets Manager, and Amazon RDS, developers can improve security, reduce operational overhead, and simplify credential management.
+Đối với những nhà phát triển muốn tùy chỉnh sâu hơn, AWS cũng cho phép tự xây dựng hệ điều hành dành cho DeepRacer.
+
+Developer Shim được đặt tại:
+
+```text
+EFI/BOOT/BOOTX64.EFI
+```
+
+Kernel hoặc Bootloader của hệ điều hành được đặt tại:
+
+```text
+EFI/BOOT/GRUBX64.EFI
+```
+
+Chứng chỉ công khai được lưu trong thư mục `DEVELOPER/certs` để xác thực trước khi khởi động.
+
+## Điều tôi rút ra
+
+Sau khi tìm hiểu bài viết, tôi nhận thấy cập nhật này không chỉ giúp cài một phiên bản Ubuntu mới hơn mà còn mở rộng đáng kể khả năng sử dụng của AWS DeepRacer.
+
+Người dùng có thể:
+
+- Cài đặt các hệ điều hành Linux hiện đại.
+- Thử nghiệm các gói ROS2 mới.
+- Bổ sung Driver cho phần cứng tùy chỉnh.
+- Phát triển thuật toán điều khiển xe.
+- Xây dựng các dự án Machine Learning và Robotics.
+- Kéo dài thời gian sử dụng của thiết bị DeepRacer.
+
+Một điểm quan trọng khác là quá trình này có thể đảo ngược. Khi cần thiết, người dùng vẫn có thể khôi phục thiết bị về cấu hình ban đầu của AWS.
+
+## Kết luận
+
+Qua bài viết này, tôi hiểu rõ hơn cách AWS mở rộng khả năng phát triển trên thiết bị DeepRacer bằng Developer Bootloader.
+
+Thay vì chỉ sử dụng DeepRacer để học Reinforcement Learning và tham gia các cuộc đua, nhà phát triển giờ đây có thể kiểm soát hệ điều hành, phần mềm và môi trường phát triển trên thiết bị.
+
+Theo tôi, đây là một cập nhật hữu ích đối với cộng đồng AWS DeepRacer vì vừa kéo dài vòng đời phần cứng, vừa tạo thêm nhiều cơ hội nghiên cứu về Machine Learning, ROS2 và Robotics.
 
 <p align="center">
-<img src="https://dinhtruong24.github.io/aws-training-report-NguyenDinhTruong/images/3-BlogsPosted/blog1-architecture.png" width="700" alt="AWS Secrets Manager Architecture">
+  <img
+    src="https://dinhtruong24.github.io/aws-training-report-NguyenDinhTruong/images/3-BlogsPosted/blog1-deepracer.png"
+    width="700"
+    alt="AWS DeepRacer Custom OS">
 </p>
 
 <p align="center">
-<i>Figure 1. Architecture for securely managing Amazon RDS database credentials using AWS Secrets Manager.</i>
+  <em>Hình 1. Cài đặt hệ điều hành tùy chỉnh trên thiết bị AWS DeepRacer.</em>
 </p>
 
 <p align="center">
-<strong>Reference Article:</strong>
-<a href="https://aws.amazon.com/blogs/security/how-to-securely-provide-database-credentials-to-lambda-functions-by-using-aws-secrets-manager/">
-AWS Security Blog
-</a>
-</p>
-
-<p align="center">
-<strong>Community Post:</strong>
-<a href="https://www.facebook.com/groups/awsstudygroupfcj/posts/2187144322050528">
-AWS Study Group – Facebook
-</a>
+  <strong>Bài viết tham khảo:</strong>
+  <a href="https://aws.amazon.com/vi/blogs/machine-learning/custom-os-installation-now-available-on-aws-deepracer-devices/" target="_blank">
+    AWS Artificial Intelligence Blog
+  </a>
 </p>
