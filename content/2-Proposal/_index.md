@@ -8,7 +8,6 @@ pre: " <b> 2. </b> "
 
 In this section, the document summarizes the core contents of the "Deployment of Delivery Management System on AWS" project, which the development team plans to build and deploy. It is structured to seamlessly integrate into the workshop hands-on template.
 
-# AWS Delivery Management System
 ## Multi-Tier Cloud Infrastructure Architecture & Business Process Automation on AWS
 
 ### 1. Executive Summary
@@ -27,7 +26,9 @@ The Auto Scaling Group (ASG) architecture automatically adjusts server capacity 
 ### 3. Solution Architecture
 The platform is deployed in the AWS Region `ap-southeast-1` (Singapore) using a Multi-Availability Zone (Multi-AZ) distributed network design to ensure high availability.
 
-![Architecture](/images/2-Proposal/Picture1.png)
+<p align="center">
+  <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/Workshop.png" width="900">
+</p>
 
 *AWS Services & Core Technologies*
 - *AWS IAM & Security*: Access management via IAM Roles for EC2/Lambda and credential security using AWS Secrets Manager.

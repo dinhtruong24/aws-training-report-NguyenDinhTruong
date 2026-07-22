@@ -8,7 +8,6 @@ pre: " <b> 2. </b> "
 
 Tại phần này, tài liệu tóm tắt các nội dung cốt lõi của dự án Triển khai Hệ thống Quản lý Giao hàng trên AWS mà đội ngũ phát triển dự tính sẽ xây dựng và triển khai, phù hợp để tích hợp vào mẫu giao diện xưởng thực hành (workshop template) đang được cấu trúc.
 
-# AWS Delivery Management System
 ## Kiến trúc hạ tầng đám mây đa tầng & Tự động hóa quy trình nghiệp vụ trên AWS
 
 ### 1. Tóm tắt điều hành 
@@ -27,7 +26,9 @@ Kiến trúc Auto Scaling Group (ASG) giúp tự động điều chỉnh lượn
 ### 3. Kiến trúc giải pháp 
 Nền tảng được triển khai trên AWS Region `ap-southeast-1` (Singapore) với thiết kế mạng phân tán trên hai Availability Zones (Multi-AZ) để đảm bảo tính sẵn sàng cao.
 
-![Architecture](/images/2-Proposal/Picture1.png)
+<p align="center">
+  <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/Workshop.png" width="900">
+</p>
 
 *Dịch vụ AWS và Công nghệ cốt lõi* 
 - *AWS IAM & Security*: Quản lý quyền truy cập bằng IAM Roles cho EC2/Lambda và bảo vệ thông tin bằng AWS Secrets Manager.
