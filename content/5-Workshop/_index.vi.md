@@ -8,25 +8,31 @@ pre: " <b> 5. </b> "
 
 #### Tổng quan
 
-Workshop này hướng dẫn triển khai **VietAI Scholar Assistant** – một nền tảng hỗ trợ nghiên cứu học thuật được xây dựng trên nền tảng điện toán đám mây AWS và ứng dụng các mô hình Trí tuệ nhân tạo (AI) hiện đại. Hệ thống cho phép người dùng tải lên một hoặc nhiều tài liệu PDF để tự động phân tích nội dung, dịch thuật, tóm tắt, đặt câu hỏi theo ngữ cảnh và tạo bộ câu hỏi ôn tập dựa trên tài liệu.
+Workshop này hướng dẫn triển khai **hệ thống quản lý giao hàng trên AWS** với kiến trúc nhiều tầng, bảo mật và có khả năng mở rộng.
 
-Trong workshop, người học sẽ từng bước xây dựng toàn bộ quy trình xử lý tài liệu, từ lưu trữ dữ liệu, trích xuất nội dung, xử lý bằng Large Language Models (LLMs), tạo dữ liệu Embedding, xây dựng hệ thống Retrieval-Augmented Generation (RAG) cho đến triển khai các AI Agents trên Amazon Bedrock để tự động hóa quá trình xử lý.
+Trong workshop, người học sẽ lần lượt xây dựng hạ tầng mạng, cấu hình bảo mật, triển khai cơ sở dữ liệu, lưu trữ dữ liệu trên Amazon S3, xử lý sự kiện bằng Amazon SQS và AWS Lambda, gửi email bằng Amazon SES, tích hợp Amazon Location Service và triển khai ứng dụng trên Amazon EC2 phía sau Application Load Balancer.
 
-Bên cạnh đó, workshop còn giới thiệu cách kết hợp nhiều dịch vụ AWS theo kiến trúc Serverless nhằm tối ưu khả năng mở rộng, tăng hiệu năng xử lý và giảm chi phí vận hành. Toàn bộ quy trình đều được triển khai trên nền tảng AWS và có thể mở rộng để phục vụ các hệ thống AI trong thực tế.
+Hệ thống được thiết kế theo mô hình phân tầng gồm public subnet, private application subnet và private database subnet. Application Load Balancer tiếp nhận lưu lượng từ Internet, Amazon EC2 chạy ứng dụng trong private subnet và Amazon RDS MySQL lưu trữ dữ liệu trong database subnet.
+
+Ngoài ra, workshop còn hướng dẫn triển khai ứng dụng bằng symbolic link, kiểm tra health check, rollback khi release mới gặp lỗi, kiểm thử toàn bộ hệ thống và dọn dẹp tài nguyên sau khi hoàn thành.
 
 ---
 
 #### Điểm nổi bật về kiến trúc
 
-- **Frontend:** Giao diện người dùng được xây dựng bằng React, cho phép tải lên tài liệu PDF, xem kết quả xử lý và tương tác với hệ thống AI.
-- **Document Storage:** Amazon S3 được sử dụng để lưu trữ tài liệu gốc, kết quả xử lý và các tệp trung gian trong toàn bộ quy trình.
-- **Backend:** Amazon API Gateway kết hợp AWS Lambda tiếp nhận yêu cầu từ người dùng và điều phối toàn bộ luồng xử lý của hệ thống.
-- **AI Processing:** Amazon Bedrock cùng các AI Agents thực hiện phân tích tài liệu, dịch thuật, tóm tắt và trả lời câu hỏi dựa trên nội dung tài liệu.
-- **OCR & Document Understanding:** Hệ thống hỗ trợ xử lý các tài liệu có bố cục phức tạp, hình ảnh và công thức nhằm đảm bảo kết quả phân tích đầy đủ và chính xác.
-- **Retrieval-Augmented Generation (RAG):** Dữ liệu sau khi xử lý được chuyển thành Embedding và sử dụng để xây dựng hệ thống tìm kiếm ngữ nghĩa, giúp AI trả lời các câu hỏi theo đúng nội dung tài liệu.
-- **Database:** Amazon DynamoDB lưu trữ trạng thái xử lý, metadata của tài liệu và các thông tin phục vụ quá trình truy xuất.
-- **Security:** AWS IAM và Amazon Cognito quản lý quyền truy cập, xác thực người dùng và bảo vệ tài nguyên AWS.
-- **Automation:** Toàn bộ quy trình xử lý được tự động kích hoạt thông qua các sự kiện của Amazon S3 và AWS Lambda.
+- **Networking:** Amazon VPC được chia thành public subnets, private application subnets và private database subnets trên nhiều Availability Zones.
+- **Load Balancing:** Application Load Balancer tiếp nhận lưu lượng từ Internet và chuyển tiếp yêu cầu đến Target Group.
+- **Compute:** Amazon EC2 chạy ứng dụng quản lý giao hàng và được quản lý bởi Auto Scaling Group.
+- **Database:** Amazon RDS for MySQL lưu trữ dữ liệu nghiệp vụ trong private database subnets.
+- **Secrets Management:** AWS Secrets Manager lưu thông tin kết nối cơ sở dữ liệu và giúp ứng dụng không phải lưu credential trực tiếp trong source code.
+- **Storage:** Amazon S3 lưu trữ ảnh POD, chữ ký tài xế, minh chứng giao hàng thất bại và các gói triển khai ứng dụng.
+- **Messaging:** Amazon SQS tiếp nhận các sự kiện đơn hàng và hỗ trợ xử lý bất đồng bộ.
+- **Serverless Processing:** AWS Lambda xử lý các sự kiện từ SQS và thực hiện các tác vụ nền.
+- **Email:** Amazon SES được sử dụng để gửi email thông báo.
+- **Location Services:** Amazon Location Service hỗ trợ tìm kiếm địa điểm và xử lý dữ liệu vị trí.
+- **Security:** AWS IAM, Security Groups và Instance Profiles kiểm soát quyền truy cập giữa các tài nguyên.
+- **Deployment:** Ứng dụng được triển khai trên EC2 bằng release directory và symbolic link để hỗ trợ chuyển phiên bản và rollback.
+- **High Availability:** Application Load Balancer và Auto Scaling Group giúp tăng tính sẵn sàng và khả năng mở rộng của hệ thống.
 
 ---
 
@@ -34,10 +40,15 @@ Bên cạnh đó, workshop còn giới thiệu cách kết hợp nhiều dịch 
 
 1. [Tổng quan về workshop](5.1-Workshop-overview/)
 2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+3. [Lab 1: Network Infrastructure](5.3/)
+4. [Lab 2: Security Groups và IAM](5.4/)
+5. [Lab 3: Storage với Amazon S3](5.5/)
+6. [Lab 4: Database và các dịch vụ liên quan](5.6/)
+7. [Lab 5: Events, Lambda và Email](5.7/)
+8. [Lab 6: Amazon Location Service](5.8/)
+9. [Lab 7: Compute & Deployment](5.9/)
+10. [End-to-End Testing](5.10/)
+11. [Cleanup](5.11/)
 
 ---
 
@@ -45,13 +56,21 @@ Bên cạnh đó, workshop còn giới thiệu cách kết hợp nhiều dịch 
 
 Sau khi hoàn thành workshop, người học có thể:
 
-- Hiểu quy trình xây dựng một hệ thống AI xử lý tài liệu trên nền tảng AWS.
-- Triển khai hệ thống lưu trữ tài liệu bằng Amazon S3.
-- Sử dụng Amazon Bedrock để xây dựng các AI Agents phục vụ phân tích tài liệu.
-- Xây dựng hệ thống Retrieval-Augmented Generation (RAG) để hỗ trợ hỏi đáp theo ngữ cảnh.
-- Quản lý dữ liệu và trạng thái xử lý bằng Amazon DynamoDB.
-- Áp dụng các dịch vụ bảo mật của AWS để bảo vệ hệ thống.
-- Hiểu quy trình triển khai một ứng dụng AI hiện đại trên kiến trúc Serverless.
+- Thiết kế VPC với public, private application và private database subnets.
+- Cấu hình Internet Gateway, Route Tables và NAT Gateway.
+- Xây dựng chuỗi Security Group cho Application Load Balancer, Amazon EC2 và Amazon RDS.
+- Tạo IAM Role và Instance Profile cho EC2 theo nguyên tắc quyền tối thiểu.
+- Lưu trữ dữ liệu ứng dụng trên Amazon S3.
+- Triển khai Amazon RDS for MySQL trong private database subnets.
+- Sử dụng AWS Secrets Manager để quản lý thông tin kết nối cơ sở dữ liệu.
+- Cấu hình Amazon SQS và AWS Lambda để xử lý sự kiện đơn hàng.
+- Gửi email thông báo bằng Amazon SES.
+- Tích hợp Amazon Location Service vào ứng dụng.
+- Tạo Launch Template, Target Group, Application Load Balancer và Auto Scaling Group.
+- Triển khai release ứng dụng từ Amazon S3 bằng symbolic link.
+- Thực hiện health check và rollback khi release mới gặp lỗi.
+- Kiểm thử toàn bộ hệ thống từ người dùng đến ứng dụng và cơ sở dữ liệu.
+- Dọn dẹp các tài nguyên AWS để tránh phát sinh chi phí không cần thiết.
 
 ---
 

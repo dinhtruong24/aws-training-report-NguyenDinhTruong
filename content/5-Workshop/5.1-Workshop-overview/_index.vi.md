@@ -8,11 +8,13 @@ pre : " <b> 5.1. </b> "
 
 ## Giới thiệu
 
-Trong workshop này, chúng ta sẽ triển khai **VietAI Scholar Assistant** – một hệ thống hỗ trợ nghiên cứu học thuật được xây dựng trên nền tảng điện toán đám mây AWS kết hợp với các công nghệ Trí tuệ nhân tạo (Artificial Intelligence - AI). Mục tiêu của dự án là xây dựng một nền tảng có khả năng tự động phân tích tài liệu học thuật, hỗ trợ dịch thuật, tóm tắt nội dung, trả lời câu hỏi theo ngữ cảnh và hỗ trợ người học tiếp cận tài liệu một cách nhanh chóng và hiệu quả.
+Trong workshop này, chúng ta sẽ triển khai **hệ thống quản lý giao hàng trên AWS** bằng kiến trúc nhiều tầng, bảo mật và có khả năng mở rộng.
 
-Hệ thống được thiết kế để tiếp nhận một hoặc nhiều tài liệu PDF từ người dùng. Sau khi tài liệu được tải lên, hệ thống sẽ tự động thực hiện quá trình phân tích, xử lý và lưu trữ dữ liệu. Kết quả cuối cùng bao gồm bản tóm tắt nội dung, bản dịch, khả năng hỏi đáp theo nội dung tài liệu và các thông tin hỗ trợ học tập khác.
+Hệ thống hỗ trợ quản lý các nghiệp vụ giao hàng, lưu trữ thông tin đơn hàng, người dùng, trung tâm phân phối, trạng thái vận chuyển, ảnh Proof of Delivery (POD), chữ ký tài xế và minh chứng giao hàng thất bại.
 
-Toàn bộ quy trình xử lý được triển khai trên nền tảng AWS theo kiến trúc Serverless nhằm giảm chi phí vận hành, tăng khả năng mở rộng và đơn giản hóa quá trình quản lý hạ tầng.
+Ứng dụng được triển khai trên **Amazon EC2** phía sau **Application Load Balancer**. Các EC2 instances chạy trong private application subnets, trong khi cơ sở dữ liệu **Amazon RDS for MySQL** được đặt trong private database subnets để hạn chế truy cập trực tiếp từ Internet.
+
+Ngoài ra, hệ thống sử dụng Amazon S3 để lưu trữ tệp và hình ảnh, Amazon SQS để truyền sự kiện đơn hàng, AWS Lambda để xử lý tác vụ nền, Amazon SES để gửi email thông báo và Amazon Location Service để hỗ trợ tìm kiếm địa điểm và xử lý dữ liệu vị trí.
 
 ---
 
@@ -20,25 +22,69 @@ Toàn bộ quy trình xử lý được triển khai trên nền tảng AWS theo
 
 Sau khi hoàn thành workshop này, người thực hiện có thể:
 
-- Hiểu được quy trình xây dựng một hệ thống AI xử lý tài liệu học thuật trên nền tảng AWS.
-- Triển khai hệ thống lưu trữ tài liệu bằng Amazon S3.
-- Xây dựng quy trình xử lý tài liệu bằng AWS Lambda và Amazon Bedrock.
-- Hiểu cách hoạt động của mô hình Multi-Agent trong việc xử lý tài liệu.
-- Xây dựng hệ thống Retrieval-Augmented Generation (RAG) phục vụ tìm kiếm và hỏi đáp theo ngữ cảnh.
-- Quản lý dữ liệu và trạng thái xử lý bằng Amazon DynamoDB.
-- Áp dụng các dịch vụ bảo mật của AWS để bảo vệ tài nguyên và dữ liệu người dùng.
+- Thiết kế một Amazon VPC với public subnets, private application subnets và private database subnets.
+- Cấu hình Internet Gateway, NAT Gateway và Route Tables.
+- Xây dựng chuỗi Security Group cho Application Load Balancer, Amazon EC2 và Amazon RDS.
+- Tạo IAM Role và Instance Profile cho EC2 theo nguyên tắc quyền tối thiểu.
+- Triển khai Amazon RDS for MySQL trong private database subnets.
+- Sử dụng AWS Secrets Manager để quản lý thông tin kết nối cơ sở dữ liệu.
+- Lưu trữ ảnh POD, chữ ký và minh chứng giao hàng trên Amazon S3.
+- Sử dụng Amazon SQS và AWS Lambda để xử lý sự kiện bất đồng bộ.
+- Gửi email thông báo bằng Amazon SES.
+- Tích hợp Amazon Location Service vào ứng dụng.
+- Tạo Launch Template, Target Group, Application Load Balancer và Auto Scaling Group.
+- Triển khai release ứng dụng bằng symbolic link.
+- Thực hiện health check, rollback và kiểm thử toàn bộ hệ thống.
 
 ---
 
 ## Kiến trúc hệ thống
 
-Dự án sử dụng kiến trúc Serverless kết hợp với các dịch vụ AI của AWS để xây dựng một hệ thống xử lý tài liệu học thuật hoàn chỉnh.
+Hệ thống được xây dựng theo kiến trúc nhiều tầng trên AWS.
 
-Người dùng truy cập ứng dụng Web để tải lên tài liệu PDF. Sau khi tài liệu được lưu vào Amazon S3, sự kiện tải lên sẽ kích hoạt AWS Lambda thực hiện toàn bộ quy trình xử lý.
+Người dùng gửi yêu cầu đến **Application Load Balancer** thông qua Internet. Load Balancer tiếp nhận lưu lượng và chuyển tiếp yêu cầu đến các Amazon EC2 instances đang ở trạng thái healthy trong Target Group.
 
-AWS Lambda đóng vai trò điều phối, gửi yêu cầu đến Amazon Bedrock để thực hiện phân tích nội dung tài liệu. Trong quá trình này, hệ thống sử dụng nhiều AI Agent nhằm xử lý các nhiệm vụ khác nhau như phân tích nội dung, dịch thuật, tóm tắt tài liệu và trả lời câu hỏi theo ngữ cảnh.
+Các EC2 instances chạy ứng dụng trong private application subnets và không cần public IP. Việc quản trị instance được thực hiện thông qua **AWS Systems Manager Session Manager** thay vì mở SSH trực tiếp từ Internet.
 
-Sau khi hoàn thành xử lý, kết quả sẽ được lưu trở lại Amazon S3, đồng thời trạng thái xử lý và thông tin của tài liệu được lưu trong Amazon DynamoDB để phục vụ việc truy xuất và quản lý.
+Ứng dụng lấy thông tin kết nối cơ sở dữ liệu từ **AWS Secrets Manager** và truy cập **Amazon RDS for MySQL** trong private database subnets.
+
+Các tệp như ảnh POD, chữ ký tài xế, minh chứng giao hàng thất bại và gói triển khai được lưu trong **Amazon S3**. Khi trạng thái đơn hàng thay đổi, ứng dụng gửi sự kiện đến **Amazon SQS**. AWS Lambda xử lý message từ queue và có thể gửi email thông báo thông qua **Amazon SES**.
+
+Amazon Location Service được sử dụng để hỗ trợ tìm kiếm địa điểm, geocoding và reverse geocoding trong ứng dụng.
+
+---
+
+## Luồng xử lý chính
+
+```text
+User
+  │
+  ▼
+Application Load Balancer
+  │
+  ▼
+Target Group
+  │
+  ▼
+Amazon EC2
+  │
+  ├── AWS Secrets Manager
+  │        │
+  │        ▼
+  │   Amazon RDS MySQL
+  │
+  ├── Amazon S3
+  │
+  ├── Amazon SQS
+  │        │
+  │        ▼
+  │    AWS Lambda
+  │        │
+  │        ▼
+  │    Amazon SES
+  │
+  └── Amazon Location Service
+```
 
 ---
 
@@ -46,17 +92,24 @@ Sau khi hoàn thành xử lý, kết quả sẽ được lưu trở lại Amazon
 
 Workshop sử dụng các dịch vụ AWS sau:
 
+- Amazon VPC
+- Internet Gateway
+- NAT Gateway
+- Amazon EC2
+- Amazon EC2 Auto Scaling
+- Application Load Balancer
+- Amazon RDS for MySQL
+- AWS Secrets Manager
 - Amazon S3
-- Amazon API Gateway
+- Amazon SQS
 - AWS Lambda
-- Amazon Bedrock
-- Amazon DynamoDB
-- Amazon Cognito
+- Amazon SES
+- Amazon Location Service
 - AWS IAM
-- Amazon CloudFront
+- AWS Systems Manager
 - AWS KMS
 
-Mỗi dịch vụ đảm nhận một vai trò riêng trong hệ thống nhằm đảm bảo khả năng mở rộng, bảo mật và tự động hóa toàn bộ quy trình xử lý tài liệu.
+Mỗi dịch vụ đảm nhận một vai trò riêng nhằm đảm bảo hệ thống có khả năng mở rộng, bảo mật, lưu trữ dữ liệu an toàn và xử lý các tác vụ theo kiến trúc phù hợp.
 
 ---
 
@@ -64,13 +117,20 @@ Mỗi dịch vụ đảm nhận một vai trò riêng trong hệ thống nhằm 
 
 Sau khi hoàn thành workshop, người học sẽ nắm được:
 
-- Kiến trúc Serverless trên AWS.
-- Quy trình lưu trữ và xử lý tài liệu bằng Amazon S3.
-- Cách sử dụng AWS Lambda để điều phối quy trình xử lý.
-- Cách triển khai AI Agent trên Amazon Bedrock.
-- Quy trình xây dựng hệ thống Retrieval-Augmented Generation (RAG).
-- Cách quản lý dữ liệu bằng Amazon DynamoDB.
-- Các cơ chế bảo mật cơ bản trên AWS.
+- Cách thiết kế kiến trúc mạng nhiều tầng trên Amazon VPC.
+- Cách phân chia public, private application và private database subnets.
+- Cách sử dụng Security Groups để kiểm soát luồng ALB → EC2 → RDS.
+- Cách sử dụng IAM Role thay cho access key tĩnh.
+- Cách triển khai ứng dụng trên Amazon EC2 trong private subnet.
+- Cách lưu trữ dữ liệu và tệp ứng dụng trên Amazon S3.
+- Cách sử dụng Amazon RDS for MySQL và AWS Secrets Manager.
+- Cách xử lý sự kiện đơn hàng bằng Amazon SQS và AWS Lambda.
+- Cách gửi email bằng Amazon SES.
+- Cách tích hợp Amazon Location Service.
+- Cách triển khai ứng dụng phía sau Application Load Balancer.
+- Cách cấu hình Auto Scaling Group.
+- Cách triển khai release bằng symlink và rollback khi có lỗi.
+- Cách thực hiện End-to-End Testing và Cleanup tài nguyên AWS.
 
 ---
 
@@ -81,9 +141,9 @@ Sau khi hoàn thành workshop, người học sẽ nắm được:
 </p>
 
 <p align="center">
-<i>Hình 5.1. Kiến trúc tổng thể của hệ thống VietAI Scholar Assistant trên nền tảng AWS.</i>
+<i>Hình 5.1. Kiến trúc tổng thể của hệ thống quản lý giao hàng trên nền tảng AWS.</i>
 </p>
 
 ---
 
-Sau khi hoàn thành phần **Workshop Overview**, chúng ta sẽ tiếp tục chuẩn bị môi trường và các tài nguyên cần thiết trước khi triển khai hệ thống trong phần **Prerequisites**.
+Sau khi hoàn thành phần **Workshop Overview**, chúng ta sẽ tiếp tục chuẩn bị tài khoản AWS, quyền truy cập, công cụ và các điều kiện cần thiết trong phần **Prerequisites**.

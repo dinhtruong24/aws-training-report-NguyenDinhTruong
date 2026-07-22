@@ -8,50 +8,69 @@ pre: " <b> 5. </b> "
 
 #### Overview
 
-This workshop provides a step-by-step guide to building **VietAI Scholar Assistant**, an AI-powered academic assistant developed on the AWS Cloud platform. The system enables users to upload one or multiple PDF documents for automatic analysis, translation, summarization, context-aware question answering, and knowledge assessment based on the uploaded content.
+This workshop guides you through deploying a **Delivery Management System on AWS** using a secure, scalable, and highly available cloud architecture.
 
-Throughout this workshop, participants will learn how to develop an end-to-end document processing workflow, including document storage, content extraction, Large Language Model (LLM) processing, embedding generation, Retrieval-Augmented Generation (RAG), and AI agent orchestration using Amazon Bedrock.
+Throughout the workshop, you will build the complete infrastructure step by step, including networking, security configuration, database deployment, Amazon S3 storage, event processing with Amazon SQS and AWS Lambda, email notification with Amazon SES, integration with Amazon Location Service, and application deployment on Amazon EC2 behind an Application Load Balancer.
 
-In addition, the workshop demonstrates how multiple AWS services can be integrated within a serverless architecture to provide scalability, reliability, and cost efficiency. The entire solution is designed on AWS and can be extended to support various real-world AI-powered document processing applications.
+The system follows a multi-tier architecture consisting of public subnets, private application subnets, and private database subnets. The Application Load Balancer receives incoming traffic from the Internet, Amazon EC2 instances host the application within private subnets, and Amazon RDS for MySQL stores application data inside private database subnets.
+
+In addition, this workshop demonstrates how to deploy applications using symbolic links, perform health checks, roll back failed releases, execute end-to-end testing, and clean up AWS resources after the deployment is complete.
 
 ---
 
 #### Architecture Highlights
 
-- **Frontend:** A React-based web application that allows users to upload PDF documents, view processing results, and interact with the AI assistant.
-- **Document Storage:** Amazon S3 is used to securely store uploaded documents, generated outputs, and intermediate processing files.
-- **Backend:** Amazon API Gateway and AWS Lambda receive user requests and orchestrate the entire document processing workflow.
-- **AI Processing:** Amazon Bedrock and AI Agents perform document analysis, translation, summarization, and context-aware question answering.
-- **OCR & Document Understanding:** The system supports processing complex documents containing scanned pages, mathematical formulas, charts, and images to ensure accurate document understanding.
-- **Retrieval-Augmented Generation (RAG):** Processed documents are converted into embeddings and indexed to provide semantic search and document-based question answering.
-- **Database:** Amazon DynamoDB stores document metadata, processing status, and application information required during execution.
-- **Security:** AWS IAM and Amazon Cognito provide identity management, authentication, and secure access to AWS resources.
-- **Automation:** The complete workflow is automatically triggered through Amazon S3 events and AWS Lambda, minimizing manual operations.
+- **Networking:** Amazon VPC is divided into public subnets, private application subnets, and private database subnets across multiple Availability Zones.
+- **Load Balancing:** An Application Load Balancer receives Internet traffic and forwards requests to the Target Group.
+- **Compute:** Amazon EC2 hosts the delivery management application and is managed by an Auto Scaling Group.
+- **Database:** Amazon RDS for MySQL stores application data within private database subnets.
+- **Secrets Management:** AWS Secrets Manager securely stores database credentials, eliminating the need to hard-code sensitive information in the application.
+- **Storage:** Amazon S3 stores Proof of Delivery (POD) images, driver signatures, failed delivery evidence, and application deployment packages.
+- **Messaging:** Amazon SQS receives order-related events and supports asynchronous message processing.
+- **Serverless Processing:** AWS Lambda processes SQS events and executes background tasks.
+- **Email:** Amazon SES is used to send email notifications.
+- **Location Services:** Amazon Location Service provides geolocation and location search capabilities.
+- **Security:** AWS IAM, Security Groups, and IAM Instance Profiles manage access control and secure AWS resources.
+- **Deployment:** The application is deployed on Amazon EC2 using release directories and symbolic links, enabling fast deployments and rollback.
+- **High Availability:** Application Load Balancer and Auto Scaling Group improve system availability and scalability.
 
 ---
 
-#### Content
+#### Contents
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [Workshop Overview](5.1-Workshop-overview/)
+2. [Prerequisites](5.2-Prerequiste/)
+3. [Lab 1: Network Infrastructure](5.3/)
+4. [Lab 2: Security Groups and IAM](5.4/)
+5. [Lab 3: Storage with Amazon S3](5.5/)
+6. [Lab 4: Database and Related Services](5.6/)
+7. [Lab 5: Events, Lambda, and Email](5.7/)
+8. [Lab 6: Amazon Location Service](5.8/)
+9. [Lab 7: Compute & Deployment](5.9/)
+10. [End-to-End Testing](5.10/)
+11. [Cleanup](5.11/)
 
 ---
 
 ## Learning Objectives
 
-After completing this workshop, participants will be able to:
+After completing this workshop, you will be able to:
 
-- Understand the architecture of an AI-powered document processing system built on AWS.
-- Deploy a document storage solution using Amazon S3.
-- Build AI Agents with Amazon Bedrock for document analysis and intelligent interaction.
-- Develop a Retrieval-Augmented Generation (RAG) pipeline for context-aware question answering.
-- Manage document metadata and processing status using Amazon DynamoDB.
-- Apply AWS security services to protect cloud resources and user data.
-- Gain practical experience in deploying modern AI applications using a serverless architecture on AWS.
+- Design an Amazon VPC with public subnets, private application subnets, and private database subnets.
+- Configure Internet Gateway, Route Tables, and NAT Gateway.
+- Build a Security Group architecture for the Application Load Balancer, Amazon EC2, and Amazon RDS.
+- Create IAM Roles and Instance Profiles for Amazon EC2 following the principle of least privilege.
+- Store application data using Amazon S3.
+- Deploy Amazon RDS for MySQL in private database subnets.
+- Use AWS Secrets Manager to manage database credentials securely.
+- Configure Amazon SQS and AWS Lambda for asynchronous event processing.
+- Send email notifications using Amazon SES.
+- Integrate Amazon Location Service into the application.
+- Create a Launch Template, Target Group, Application Load Balancer, and Auto Scaling Group.
+- Deploy application releases from Amazon S3 using symbolic links.
+- Perform health checks and roll back failed deployments.
+- Validate the complete system through end-to-end testing.
+- Clean up AWS resources to avoid unnecessary charges.
 
 ---
 
