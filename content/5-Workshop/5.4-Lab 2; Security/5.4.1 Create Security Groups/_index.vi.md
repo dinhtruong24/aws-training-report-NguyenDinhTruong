@@ -1,58 +1,150 @@
 ---
-title : "Chuẩn bị tài nguyên"
+title : "Tạo Security Groups"
 date : 2024-01-01
 weight : 1
 chapter : false
-pre : " <b> 5.4.1 </b> "
+pre : " <b>5.4.1. </b> "
 ---
 
-Để chuẩn bị cho phần này của workshop, bạn sẽ cần phải:
-+ Triển khai CloudFormation stack
-+ Sửa đổi bảng định tuyến VPC.
+Trong phần này, chúng ta sẽ tạo các **Security Groups** để kiểm soát lưu lượng mạng giữa các thành phần của hệ thống.
 
-Các thành phần này hoạt động cùng nhau để mô phỏng DNS forwarding và name resolution.
+Ba Security Groups sẽ được tạo gồm:
 
-#### Triển khai CloudFormation stack
+- Security Group cho Application Load Balancer.
+- Security Group cho EC2 Application Server.
+- Security Group cho Amazon RDS.
 
-Mẫu CloudFormation sẽ tạo các dịch vụ bổ sung để hỗ trợ mô phỏng môi trường truyền thống:
-+ Một Route 53 Private Hosted Zone lưu trữ các bản ghi Bí danh (Alias records) cho điểm cuối PrivateLink S3
-+ Một Route 53 Inbound Resolver endpoint cho phép "VPC Cloud" giải quyết các yêu cầu resolve DNS gửi đến Private Hosted Zone
-+ Một Route 53 Outbound Resolver endpoint cho phép "VPC On-prem" chuyển tiếp các yêu cầu DNS cho S3 sang "VPC Cloud"
+Việc tách riêng Security Groups giúp tăng cường bảo mật và chỉ cho phép các kết nối cần thiết giữa các thành phần.
 
-![route 53 diagram](/images/5-Workshop/5.4-S3-onprem/route53.png)
+---
 
-1. Click link sau để mở [AWS CloudFormation console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/reinvent-endpoints-builders-session/R53CF.yaml&stackName=PLOnpremSetup). Mẫu yêu cầu sẽ được tải sẵn vào menu. Chấp nhận tất cả mặc định và nhấp vào Tạo stack.
+## Bước 1. Tạo Security Group cho Application Load Balancer
 
-![Create stack](/images/5-Workshop/5.4-S3-onprem/create-stack.png)
+Đăng nhập **AWS Management Console**, mở dịch vụ **EC2**, sau đó:
 
-![Button](/images/5-Workshop/5.4-S3-onprem/create-stack-button.png)
+1. Chọn **Security Groups**.
+2. Chọn **Create security group**.
+3. Nhập:
 
-Có thể mất vài phút để triển khai stack hoàn tất. Bạn có thể tiếp tục với bước tiếp theo mà không cần đợi quá trình triển khai kết thúc.
+```text
+Security group name:
+delivery-alb-sg
+```
 
-####  Cập nhật bảng định tuyến private on-premise 
+4. Description:
 
-Workshop này sử dụng StrongSwan VPN chạy trên EC2 instance để mô phỏng khả năng kết nối giữa trung tâm dữ liệu truyền thống và môi trường cloud AWS. Hầu hết các thành phần bắt buộc đều được cung cấp trước khi bạn bắt đầu. Để hoàn tất cấu hình VPN, bạn sẽ sửa đổi bảng định tuyến "VPC on-prem" để hướng lưu lượng đến cloud đi qua StrongSwan VPN instance.
+```text
+Security Group for Application Load Balancer
+```
 
-1. Mở Amazon EC2 console 
+5. Chọn VPC:
 
-2. Chọn instance tên infra-vpngw-test. Từ Details tab, copy Instance ID và paste vào text editor của bạn để sử dụng ở những bước tiếp theo
+```text
+delivery-dev-vpc
+```
 
-![ec2 id](/images/5-Workshop/5.4-S3-onprem/ec2-onprem-id.png)
+6. Thêm Inbound Rules:
 
-3. Đi đến VPC menu bằng cách gõ "VPC" vào Search box
+| Type | Port | Source |
+|------|------|--------|
+| HTTP | 80 | 0.0.0.0/0 |
+| HTTPS | 443 | 0.0.0.0/0 |
 
-4. Click vào Route Tables, chọn RT Private On-prem route table, chọn Routes tab, và click Edit Routes.
+7. Chọn **Create security group**.
 
-![rt](/images/5-Workshop/5.4-S3-onprem/rt.png)
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.4-lab2/5.4.1-create-alb-security-group.png" width="900">
+</p>
 
-5. Click Add route.
-+ Destination: CIDR block của Cloud VPC
-+ Target: ID của infra-vpngw-test instance (bạn đã lưu lại ở bước trên)
+<p align="center">
+<i>Hình 5.4.1. Tạo Security Group cho Application Load Balancer.</i>
+</p>
 
-![add route](/images/5-Workshop/5.4-S3-onprem/add-route.png)
+---
 
-6. Click Save changes
+## Bước 2. Tạo Security Group cho EC2
 
+Tiếp tục tạo Security Group mới.
 
+Nhập:
 
+```text
+delivery-ec2-sg
+```
 
+Description:
+
+```text
+Security Group for EC2
+```
+
+Chọn cùng VPC:
+
+```text
+delivery-dev-vpc
+```
+
+Cấu hình Inbound Rules:
+
+| Type | Port | Source |
+|------|------|--------|
+| HTTP | 80 | delivery-alb-sg |
+| HTTPS | 443 | delivery-alb-sg |
+
+Điều này đảm bảo chỉ Application Load Balancer mới có thể truy cập EC2.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.4-lab2/5.4.1-create-ec2-security-group.png" width="900">
+</p>
+
+<p align="center">
+<i>Hình 5.4.2. Tạo Security Group cho EC2.</i>
+</p>
+
+---
+
+## Bước 3. Tạo Security Group cho Amazon RDS
+
+Tiếp tục tạo Security Group cuối cùng.
+
+Tên:
+
+```text
+delivery-rds-sg
+```
+
+Description:
+
+```text
+Security Group for Amazon RDS
+```
+
+Inbound Rule:
+
+| Type | Port | Source |
+|------|------|--------|
+| MySQL/Aurora | 3306 | delivery-ec2-sg |
+
+Nhờ đó chỉ EC2 Application Server mới có quyền kết nối tới cơ sở dữ liệu.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.4-lab2/5.4.1-create-rds-security-group.png" width="900">
+</p>
+
+<p align="center">
+<i>Hình 5.4.3. Tạo Security Group cho Amazon RDS.</i>
+</p>
+
+---
+
+## Kết quả đạt được
+
+Sau khi hoàn thành phần này, bạn đã:
+
+- Tạo Security Group cho Application Load Balancer.
+- Tạo Security Group cho EC2 Application Server.
+- Tạo Security Group cho Amazon RDS.
+- Thiết lập quy tắc truy cập giữa các thành phần của hệ thống.
+- Hoàn thành cấu hình Security Groups cho Lab 2.
+
+Trong phần tiếp theo, chúng ta sẽ thực hiện **5.4.2 – Cấu hình IAM Role và IAM Policy**.

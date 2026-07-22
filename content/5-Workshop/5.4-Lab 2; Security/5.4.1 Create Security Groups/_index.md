@@ -1,57 +1,149 @@
 ---
-title : "Prepare the environment"
+title : "Create Security Groups"
 date : 2024-01-01
 weight : 1
 chapter : false
-pre : " <b> 5.4.1 </b> "
+pre : " <b>5.4.1. </b> "
 ---
 
-To prepare for this part of the workshop you will need to:
-+ Deploying a CloudFormation stack 
-+ Modifying a VPC route table. 
+In this section, we will create **Security Groups** to control network traffic between the different components of the system.
 
-These components work together to simulate on-premises DNS forwarding and name resolution.
+Three Security Groups will be created:
 
-#### Deploy the CloudFormation stack
+- A Security Group for the Application Load Balancer.
+- A Security Group for the EC2 Application Server.
+- A Security Group for Amazon RDS.
 
-The CloudFormation template will create additional services to support an on-premises simulation:
-+ One Route 53 Private Hosted Zone that hosts Alias records for the PrivateLink S3 endpoint
-+ One Route 53 Inbound Resolver endpoint that enables "VPC Cloud" to resolve inbound DNS resolution requests to the Private Hosted Zone
-+ One Route 53 Outbound Resolver endpoint that enables "VPC On-prem" to forward DNS requests for S3 to "VPC Cloud"
+Separating Security Groups for each component improves security by allowing only the required communication between system resources.
 
-![route 53 diagram](/images/5-Workshop/5.4-S3-onprem/route53.png)
+---
 
-1. Click the following link to open the [AWS CloudFormation console](https://us-east-1.console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/quickcreate?templateURL=https://s3.amazonaws.com/reinvent-endpoints-builders-session/R53CF.yaml&stackName=PLOnpremSetup). The required template will be pre-loaded into the menu. Accept all default and click Create stack.
+## Step 1. Create a Security Group for the Application Load Balancer
 
-![Create stack](/images/5-Workshop/5.4-S3-onprem/create-stack.png)
+Sign in to the **AWS Management Console**, open the **EC2** service, and perform the following steps:
 
-![Button](/images/5-Workshop/5.4-S3-onprem/create-stack-button.png)
+1. Select **Security Groups**.
+2. Click **Create security group**.
+3. Enter the following Security Group name:
 
-It may take a few minutes for stack deployment to complete. You can continue with the next step without waiting for the deployemnt to finish.
+```text
+delivery-alb-sg
+```
 
-#### Update on-premise private route table
+4. Description:
 
-This workshop uses a strongSwan VPN running on an EC2 instance to simulate connectivty between an on-premises datacenter and the AWS cloud. Most of the required components are provisioned before your start. To finalize the VPN configuration, you will modify the "VPC On-prem" routing table to direct traffic destined for the cloud to the strongSwan VPN instance.
+```text
+Security Group for Application Load Balancer
+```
 
-1. Open the Amazon EC2 console 
+5. Select the VPC:
 
-2. Select the instance named infra-vpngw-test. From the Details tab, copy the Instance ID and paste this into your text editor
+```text
+delivery-dev-vpc
+```
 
-![ec2 id](/images/5-Workshop/5.4-S3-onprem/ec2-onprem-id.png)
+6. Configure the following Inbound Rules:
 
-3. Navigate to the VPC menu by using the Search box at the top of the browser window.
+| Type | Port | Source |
+|------|------|--------|
+| HTTP | 80 | 0.0.0.0/0 |
+| HTTPS | 443 | 0.0.0.0/0 |
 
-4. Click on Route Tables, select the RT Private On-prem route table, select the Routes tab, and click Edit Routes.
+7. Click **Create security group**.
 
-![rt](/images/5-Workshop/5.4-S3-onprem/rt.png)
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.4-lab2/5.4.1-create-alb-security-group.png" width="900">
+</p>
 
-5. Click Add route.
-+ Destination: your Cloud VPC cidr range
-+ Target: ID of your infra-vpngw-test instance (you saved in your editor at step 1)
+<p align="center">
+<i>Figure 5.4.1. Creating the Security Group for the Application Load Balancer.</i>
+</p>
 
-![add route](/images/5-Workshop/5.4-S3-onprem/add-route.png)
+---
 
-6. Click Save changes
+## Step 2. Create a Security Group for the EC2 Instance
 
+Create another Security Group.
 
+Enter the following name:
 
+```text
+delivery-ec2-sg
+```
+
+Description:
+
+```text
+Security Group for EC2
+```
+
+Select the same VPC:
+
+```text
+delivery-dev-vpc
+```
+
+Configure the following Inbound Rules:
+
+| Type | Port | Source |
+|------|------|--------|
+| HTTP | 80 | delivery-alb-sg |
+| HTTPS | 443 | delivery-alb-sg |
+
+This configuration ensures that only the Application Load Balancer can communicate with the EC2 application server.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.4-lab2/5.4.1-create-ec2-security-group.png" width="900">
+</p>
+
+<p align="center">
+<i>Figure 5.4.2. Creating the Security Group for the EC2 application server.</i>
+</p>
+
+---
+
+## Step 3. Create a Security Group for Amazon RDS
+
+Create the final Security Group.
+
+Enter the following name:
+
+```text
+delivery-rds-sg
+```
+
+Description:
+
+```text
+Security Group for Amazon RDS
+```
+
+Configure the following Inbound Rule:
+
+| Type | Port | Source |
+|------|------|--------|
+| MySQL/Aurora | 3306 | delivery-ec2-sg |
+
+This rule ensures that only the EC2 application server is allowed to connect to the Amazon RDS database.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.4-lab2/5.4.1-create-rds-security-group.png" width="900">
+</p>
+
+<p align="center">
+<i>Figure 5.4.3. Creating the Security Group for Amazon RDS.</i>
+</p>
+
+---
+
+## Result
+
+After completing this section, you have successfully:
+
+- Created the Security Group for the Application Load Balancer.
+- Created the Security Group for the EC2 application server.
+- Created the Security Group for Amazon RDS.
+- Configured network access rules between the system components.
+- Completed the Security Group configuration for Lab 2.
+
+In the next section, we will continue with **5.4.2 – Configure IAM Role and IAM Policy**.
