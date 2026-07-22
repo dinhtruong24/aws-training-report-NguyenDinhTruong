@@ -5,21 +5,32 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-# Secure Hybrid Access to S3 using VPC Endpoints
-
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+This workshop focuses on building the **VietAI Scholar Assistant**, an AI-powered academic assistant that leverages Large Language Models (LLMs) and AWS Cloud services. The platform enables users to upload one or multiple PDF documents, automatically translate, summarize, analyze academic papers, and interact with the documents through Retrieval-Augmented Generation (RAG).
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+During the workshop, participants learn how to integrate modern AWS services to develop a complete AI application, covering document storage, serverless orchestration, AI processing pipelines, vector search, and multi-agent collaboration using Amazon Bedrock.
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
+In addition to text processing, the system is capable of understanding mathematical formulas, charts, and images, then exporting the processed content into Markdown or HTML. This significantly improves the efficiency of studying and researching academic materials.
+
+#### Architecture Highlights
+
+- **Frontend:** Built with React, hosted on Amazon S3, and globally distributed through Amazon CloudFront.
+- **Backend:** Amazon API Gateway and AWS Lambda are used to receive requests and orchestrate the serverless processing workflow.
+- **AI Processing:** Amazon Bedrock Agents coordinate the Supervisor Agent, Document Agent, and Researcher Agent for intelligent document analysis.
+- **Multimodal Processing:** Claude 3.5 Sonnet extracts text, translates content, recognizes mathematical formulas, and interprets diagrams.
+- **OCR Backup:** Amazon Textract is utilized when scanned documents or low-quality PDFs require OCR processing.
+- **Retrieval-Augmented Generation (RAG):** Titan Text Embeddings together with Amazon S3 Vectors provide semantic search and document-based question answering.
+- **Storage:** Amazon S3 stores original PDF files, Markdown/HTML outputs, and vector data, while Amazon DynamoDB manages metadata and processing status.
+- **Security:** AWS IAM, Amazon Cognito, Amazon S3 Bucket Policies, and AWS KMS protect user data and control system access.
+- **Automation:** Amazon S3 Event Notifications automatically trigger AWS Lambda whenever a new document is uploaded.
+
+#### System Workflow
+
+Users upload one or more PDF documents through the React-based web interface. The application requests a presigned URL from Amazon API Gateway and uploads the files directly to Amazon S3.
+Once a document is uploaded, Amazon S3 Event Notification automatically invokes the AWS Lambda Orchestrator. Lambda forwards the document information to the Supervisor Agent running on Amazon Bedrock, which determines the appropriate processing workflow.
+For standard PDF documents, the Document Agent uses Claude 3.5 Sonnet to extract text, interpret formulas, analyze images, and understand document structure. If the uploaded file is a scanned document with poor quality, Amazon Textract is used as an OCR fallback service.
+After processing is completed, the extracted information is formatted into structured JSON, converted into Markdown or HTML, stored back in Amazon S3, and the processing status is updated in Amazon DynamoDB. Finally, the generated result is returned to users through REST APIs or WebSocket connections.
 
 #### Content
 
@@ -29,3 +40,10 @@ You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoi
 4. [Access S3 from On-premises](5.4-S3-onprem/)
 5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
 6. [Clean up](5.6-Cleanup/)
+
+<p align="center">
+  <img
+    src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/Workshop.png"
+    width="850"
+    alt="VietAI Scholar Assistant Workshop Architecture">
+</p>
