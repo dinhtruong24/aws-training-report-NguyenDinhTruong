@@ -6,8 +6,6 @@ chapter : false
 pre : " <b>5.3.3. </b> "
 ---
 
-# CẤU HÌNH INTERNET GATEWAY
-
 Trong phần này, chúng ta sẽ tạo một **Internet Gateway** và gắn nó vào VPC `delivery-dev-vpc`.
 
 Internet Gateway là thành phần cho phép các tài nguyên trong Public Subnets giao tiếp với Internet khi Route Table được cấu hình phù hợp. Đây là bước cần thiết trước khi thiết lập đường định tuyến mặc định cho các Public Subnets.

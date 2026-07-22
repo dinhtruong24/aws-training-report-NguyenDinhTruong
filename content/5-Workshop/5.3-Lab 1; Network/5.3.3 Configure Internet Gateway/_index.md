@@ -6,8 +6,6 @@ chapter : false
 pre : " <b>5.3.3. </b> "
 ---
 
-# CONFIGURE INTERNET GATEWAY
-
 In this section, we will create an **Internet Gateway** and attach it to the `delivery-dev-vpc`.
 
 An Internet Gateway enables resources in the Public Subnets to communicate with the Internet when the Route Table is configured correctly. This is an essential step before configuring the default route for the Public Subnets.
