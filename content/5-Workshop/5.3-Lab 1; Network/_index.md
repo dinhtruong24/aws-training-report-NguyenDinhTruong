@@ -11,7 +11,7 @@ The first lab focuses on building the network infrastructure for the entire syst
 In this lab, we will deploy an **Amazon Virtual Private Cloud (VPC)** using a multi-tier architecture. The environment includes Public Subnets and Private Subnets distributed across two Availability Zones to improve system availability and fault tolerance.
 
 <p align="center">
-    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-network/5.3-network-plan.png" width="900">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-document-storage/5.3-network-plan.png" width="900">
 </p>
 
 <p align="center">
