@@ -38,17 +38,17 @@ In addition, this workshop demonstrates how to deploy applications using symboli
 
 #### Contents
 
-1. [Workshop Overview](5.1-Workshop-overview/)
-2. [Prerequisites](5.2-Prerequiste/)
-3. [Lab 1: Network Infrastructure](5.3/)
-4. [Lab 2: Security Groups and IAM](5.4/)
-5. [Lab 3: Storage with Amazon S3](5.5/)
-6. [Lab 4: Database and Related Services](5.6/)
-7. [Lab 5: Events, Lambda, and Email](5.7/)
-8. [Lab 6: Amazon Location Service](5.8/)
-9. [Lab 7: Compute & Deployment](5.9/)
-10. [End-to-End Testing](5.10/)
-11. [Cleanup](5.11/)
+1. [Workshop Overview]({{< relref "5.1-Workshop-overview" >}})
+2. [Prerequisites]({{< relref "5.2-Prerequisite" >}})
+3. [Lab 1: Network Infrastructure]({{< relref "5.3-Lab 1; Network" >}})
+4. [Lab 2: Security Groups and IAM]({{< relref "5.4-Lab 2; Security" >}})
+5. [Lab 3: Storage with Amazon S3]({{< relref "5.5-Lab 3; Storage" >}})
+6. [Lab 4: Database and Related Services]({{< relref "5.6-Lab 4; Database" >}})
+7. [Lab 5: Events, Lambda, and Email]({{< relref "5.7-Lab 5; Event-Driven Services" >}})
+8. [Lab 6: Amazon Location Service]({{< relref "5.8-Lab 6; Amazon Location Service" >}})
+9. [Lab 7: Compute & Deployment]({{< relref "5.9-Lab 7; Compute & Deployment" >}})
+10. [End-to-End Testing]({{< relref "5.10-End-to-End Testing" >}})
+11. [Cleanup]({{< relref "5.11-Cleanup" >}})
 
 ---
 

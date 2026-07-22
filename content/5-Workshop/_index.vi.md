@@ -38,17 +38,17 @@ Ngoài ra, workshop còn hướng dẫn triển khai ứng dụng bằng symboli
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Lab 1: Network Infrastructure](5.3/)
-4. [Lab 2: Security Groups và IAM](5.4/)
-5. [Lab 3: Storage với Amazon S3](5.5/)
-6. [Lab 4: Database và các dịch vụ liên quan](5.6/)
-7. [Lab 5: Events, Lambda và Email](5.7/)
-8. [Lab 6: Amazon Location Service](5.8/)
-9. [Lab 7: Compute & Deployment](5.9/)
-10. [End-to-End Testing](5.10/)
-11. [Cleanup](5.11/)
+1. [Tổng quan về workshop]({{< relref "5.1-Workshop-overview" >}})
+2. [Điều kiện tiên quyết]({{< relref "5.2-Prerequisite" >}})
+3. [Lab 1: Network Infrastructure]({{< relref "5.3-Lab 1; Network" >}})
+4. [Lab 2: Security Groups và IAM]({{< relref "5.4-Lab 2; Security" >}})
+5. [Lab 3: Storage với Amazon S3]({{< relref "5.5-Lab 3; Storage" >}})
+6. [Lab 4: Database và các dịch vụ liên quan]({{< relref "5.6-Lab 4; Database" >}})
+7. [Lab 5: Events, Lambda và Email]({{< relref "5.7-Lab 5; Event-Driven Services" >}})
+8. [Lab 6: Amazon Location Service]({{< relref "5.8-Lab 6; Amazon Location Service" >}})
+9. [Lab 7: Compute & Deployment]({{< relref "5.9-Lab 7; Compute & Deployment" >}})
+10. [End-to-End Testing]({{< relref "5.10-End-to-End Testing" >}})
+11. [Cleanup]({{< relref "5.11-Cleanup" >}})
 
 ---
 
