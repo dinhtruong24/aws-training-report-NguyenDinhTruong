@@ -6,9 +6,9 @@ chapter : false
 pre : " <b>5.9.2. </b> "
 ---
 
-In this section, we will create a **Target Group** to manage the Amazon EC2 instances that receive traffic from the **Application Load Balancer (ALB)**.
+In this section, we will create a **Target Group** named `delivery-app-tg` to receive traffic from the Application Load Balancer and forward requests to the Amazon EC2 instances running the application.
 
-A Target Group acts as the connection between the Load Balancer and the EC2 instances. It maintains a list of registered targets and performs **Health Checks** to ensure that only healthy instances receive incoming requests.
+According to the workshop configuration, the application listens on **HTTP port 5000**. The Target Group performs health checks to ensure that only healthy EC2 instances receive incoming traffic.
 
 ---
 
@@ -21,33 +21,34 @@ Perform the following steps:
 1. Open the **Amazon EC2** service.
 2. In the navigation pane, select **Target Groups**.
 3. Click **Create target group**.
-
-<p align="center">
-    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.9-lab7/5.9.2-create-target-group.png" width="900">
-</p>
-
-<p align="center">
-<i>Figure 5.9.3. Creating a Target Group.</i>
-</p>
+4. Choose the appropriate target type for the EC2 instances.
 
 ---
 
 ## Step 2. Configure the Target Group
 
-On the **Create target group** page, perform the following steps:
+Configure the Target Group with the following settings:
 
-1. Select **Instances** as the target type.
-2. Enter the Target Group name.
-3. Configure the **Protocol** and **Port**.
-4. Select the appropriate **VPC**.
-5. Configure the **Health Check** settings.
-6. Click **Next** to continue.
+| Property | Value |
+|---|---|
+| Target Group Name | `delivery-app-tg` |
+| Protocol | HTTP |
+| Port | `5000` |
+| Target Type | EC2 Instances |
+| Health Check Protocol | HTTP |
+| Health Check Path | `/` or a dedicated health endpoint |
 
-Example:
+The Target Group uses **HTTP port 5000**, which matches the listening port of the application running on the EC2 instances.
 
-```text
-delivery-target-group
-```
+The health check can use the root path (`/`) or a dedicated health endpoint provided by the application. The selected endpoint must return a successful HTTP response so that the instance is marked as **Healthy**.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.9-lab7/5.9.1-verify-email-identity.png" width="900">
+</p>
+
+<p align="center">
+<i>Figure 5.9.2. Target Group <b>delivery-app-tg</b> on HTTP port 5000.</i>
+</p>
 
 ---
 
@@ -55,30 +56,59 @@ delivery-target-group
 
 After configuring the Target Group:
 
-1. Select the EC2 instances to register.
-2. Click **Include as pending below**.
-3. Click **Create target group**.
+1. Select the EC2 instances running the application.
+2. Register the instances with `delivery-app-tg`.
+3. Confirm that the traffic port is `5000`.
+4. Complete the Target Group creation process.
 
-After the Target Group has been created successfully:
-
-- Open the **Target Groups** list.
-- Verify that the Target Group has been created.
-- Check the Health Check status of the registered EC2 instances.
-- Confirm that the Target Group is ready to be associated with the Application Load Balancer.
+The EC2 instances are launched from the `delivery-ec2-lt` Launch Template and run in the private application subnets.
 
 ---
 
-## Configuration Summary
+## Step 4. Verify Health Checks
 
-| Property | Value |
-|---|---|
-| AWS Service | Amazon EC2 |
-| Resource | Target Group |
-| Target Type | Instances |
-| Protocol | HTTP |
-| Port | 80 |
-| Health Check | Enabled |
-| Status | Healthy |
+After the Target Group has been created:
+
+- Open the `delivery-app-tg` Target Group.
+- Select the **Targets** tab.
+- Verify that the EC2 instances are registered.
+- Confirm that the health check uses port `5000`.
+- Check the health status of each instance.
+
+Expected status:
+
+```text
+Healthy
+```
+
+If an instance is not healthy, verify the following:
+
+- The `delivery.service` service is running.
+- The application is listening on port `5000`.
+- The `delivery-ec2-sg` security group allows traffic from `delivery-alb-sg`.
+- The configured health check path returns a successful HTTP response.
+
+---
+
+## Traffic Flow
+
+The Target Group sits between the Application Load Balancer and the EC2 instances.
+
+```text
+Application Load Balancer
+            │
+            ▼
+delivery-app-tg
+HTTP:5000
+            │
+            ▼
+Amazon EC2 Instances
+            │
+            ▼
+delivery.service
+```
+
+The Application Load Balancer forwards requests only to EC2 instances that are reported as **Healthy** by the Target Group.
 
 ---
 
@@ -86,9 +116,8 @@ After the Target Group has been created successfully:
 
 After completing this section, you have successfully:
 
-- Created a Target Group.
-- Configured Health Check settings.
-- Registered EC2 instances.
+- Created the `delivery-app-tg` Target Group.
+- Configured HTTP traffic on port `5000`.
+- Configured application health checks.
+- Registered the EC2 instances with the Target Group.
 - Prepared the Target Group for integration with the Application Load Balancer.
-
-In the next section, we will continue with **5.9.3 – Create Application Load Balancer**.
