@@ -1,95 +1,113 @@
 ---
-title : "VPC Endpoint Policies"
+title : "Lab 3: Amazon S3 Storage"
 date : 2024-01-01
 weight : 5
 chapter : false
-pre : " <b> 5.5 </b> "
+pre : " <b>5.5. </b> "
 ---
 
-Khi bạn tạo một Interface Endpoint  hoặc cổng, bạn có thể đính kèm một chính sách điểm cuối để kiểm soát quyền truy cập vào dịch vụ mà bạn đang kết nối. Chính sách VPC Endpoint là chính sách tài nguyên IAM mà bạn đính kèm vào điểm cuối. Nếu bạn không đính kèm chính sách khi tạo điểm cuối, thì AWS sẽ đính kèm chính sách mặc định cho bạn để cho phép toàn quyền truy cập vào dịch vụ thông qua điểm cuối.
+Trong Lab này, chúng ta sẽ triển khai dịch vụ **Amazon Simple Storage Service (Amazon S3)** để lưu trữ dữ liệu của hệ thống.
 
-Bạn có thể tạo chính sách chỉ hạn chế quyền truy cập vào các S3 bucket cụ thể. Điều này hữu ích nếu bạn chỉ muốn một số Bộ chứa S3 nhất định có thể truy cập được thông qua điểm cuối.
+Amazon S3 là dịch vụ lưu trữ đối tượng có độ bền cao, khả năng mở rộng gần như không giới hạn và tích hợp với nhiều dịch vụ AWS khác. Trong hệ thống này, Amazon S3 được sử dụng để lưu trữ tài liệu, hình ảnh và các tệp do người dùng tải lên.
 
-Trong phần này, bạn sẽ tạo chính sách VPC Endpoint hạn chế quyền truy cập vào S3 bucket được chỉ định trong chính sách VPC Endpoint.
+Bên cạnh việc tạo S3 Bucket và cấu trúc thư mục, chúng ta cũng sẽ cấu hình **S3 Gateway Endpoint** để các tài nguyên trong VPC có thể truy cập Amazon S3 mà không cần đi qua Internet, giúp tăng tính bảo mật và tối ưu chi phí truyền dữ liệu.
 
-![endpoint diagram](/images/5-Workshop/5.5-Policy/s3-bucket-policy.png)
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.5-lab3/5.5.1-create-s3-bucket.png" width="900">
+</p>
 
-#### Kết nối tới EC2 và xác minh kết nối tới S3. 
+<p align="center">
+<i>Hình 5.5.1. Tạo Amazon S3 Bucket cho hệ thống.</i>
+</p>
 
-1. Bắt đầu một phiên AWS Session Manager mới trên máy chủ có tên là Test-Gateway-Endpoint. Từ phiên này, xác minh rằng bạn có thể liệt kê nội dung của bucket mà bạn đã tạo trong Phần 1: Truy cập S3 từ VPC.
+---
 
-```
-aws s3 ls s3://<your-bucket-name>
-```
-![test](/images/5-Workshop/5.5-Policy/test1.png)
+## Mục tiêu của Lab
 
-Nội dung của bucket bao gồm hai tệp có dung lượng 1GB đã được tải lên trước đó.
+Sau khi hoàn thành Lab này, bạn sẽ thực hiện được các nội dung sau:
 
-2. Tạo một bucket S3 mới; tuân thủ mẫu đặt tên mà bạn đã sử dụng trong Phần 1, nhưng thêm '-2' vào tên. Để các trường khác là mặc định và nhấp vào **Create**.
+- Tạo Amazon S3 Bucket.
+- Thiết lập cấu trúc thư mục lưu trữ.
+- Quản lý dữ liệu trong Amazon S3.
+- Cấu hình S3 Gateway Endpoint.
+- Cho phép EC2 truy cập Amazon S3 thông qua mạng nội bộ AWS.
+- Giảm lưu lượng Internet bằng Gateway Endpoint.
+- Chuẩn bị môi trường lưu trữ cho các Lab tiếp theo.
 
-![create bucket](/images/5-Workshop/5.5-Policy/create-bucket.png)
+---
 
-3. Tạo bucket thành công.
+## Kiến trúc lưu trữ
 
-![Success](/images/5-Workshop/5.5-Policy/create-bucket-success.png)
+Trong Lab này, hệ thống lưu trữ được tổ chức như sau:
 
-Policy mặc định cho phép truy cập vào tất cả các S3 Buckets thông qua VPC endpoint.
-
-4. Trong giao diện **Edit Policy**, sao chép và dán theo policy sau, thay thế yourbucketname-2 với tên bucket thứ hai của bạn. Policy này sẽ cho phép truy cập đến bucket mới thông qua VPC endpoint, nhưng không cho phép truy cập đến các bucket còn lại. Chọn **Save** để kích hoạt policy.
-
-
-```
-{
-  "Id": "Policy1631305502445",
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "Stmt1631305501021",
-      "Action": "s3:*",
-      "Effect": "Allow",
-      "Resource": [
-      				"arn:aws:s3:::yourbucketname-2",
-       				"arn:aws:s3:::yourbucketname-2/*"
-       ],
-      "Principal": "*"
-    }
-  ]
-}
+```text
+Application
+      │
+      ▼
+Amazon S3 Bucket
+      │
+      ├── documents/
+      ├── uploads/
+      └── backups/
 ```
 
-![custom policy](/images/5-Workshop/5.5-Policy/policy2.png)
+Các EC2 Instance sẽ truy cập trực tiếp vào Amazon S3 thông qua **S3 Gateway Endpoint** mà không cần sử dụng Internet Gateway hoặc NAT Gateway.
 
-Cấu hình policy thành công.
+---
 
-![success](/images/5-Workshop/5.5-Policy/success.png)
+## Thành phần chính
 
-5. Từ session của bạn trên Test-Gateway-Endpoint instance, kiểm tra truy cập đến S3 bucket bạn tạo ở bước đầu
+Lab này sử dụng các thành phần sau:
 
-```
-aws s3 ls s3://<yourbucketname>
-```
+| Thành phần | Mô tả |
+|---|---|
+| Amazon S3 | Lưu trữ dữ liệu của hệ thống |
+| S3 Bucket | Bucket chứa toàn bộ dữ liệu |
+| Folder Structure | Tổ chức dữ liệu theo từng thư mục |
+| S3 Gateway Endpoint | Truy cập Amazon S3 từ VPC |
 
-Câu lệnh trả về lỗi bởi vì truy cập vào S3 bucket không có quyền trong VPC endpoint policy.
+---
 
-![error](/images/5-Workshop/5.5-Policy/error.png)
+## Nội dung của Lab
 
-6. Trở lại home directory của bạn trên EC2 instance ```cd~```
+Lab 3 được chia thành ba phần:
 
-+ Tạo file ```fallocate -l 1G test-bucket2.xyz ```
-+ Sao chép file lên bucket thứ  2 ```aws s3 cp test-bucket2.xyz s3://<your-2nd-bucket-name>```
+### 5.5.1 Tạo Amazon S3 Bucket
 
-![success](/images/5-Workshop/5.5-Policy/test2.png)
+Trong phần này, chúng ta sẽ:
 
-Thao tác này được cho phép bởi VPC endpoint policy.
+- Tạo Bucket mới.
+- Cấu hình Region.
+- Thiết lập các tùy chọn cơ bản.
+- Kiểm tra Bucket sau khi tạo.
 
-![success](/images/5-Workshop/5.5-Policy/test2-success.png)
+### 5.5.2 Tạo cấu trúc thư mục
 
-Sau đó chúng ta kiểm tra truy cập vào S3 bucket đầu tiên
+Trong phần này, chúng ta sẽ:
 
- ```aws s3 cp test-bucket2.xyz s3://<your-1st-bucket-name>```
+- Tạo các thư mục trong Bucket.
+- Chuẩn bị nơi lưu trữ dữ liệu.
+- Kiểm tra cấu trúc thư mục.
 
- ![fail](/images/5-Workshop/5.5-Policy/test2-fail.png)
+### 5.5.3 Cấu hình S3 Gateway Endpoint
 
- Câu lệnh xảy ra lỗi bởi vì bucket không có quyền truy cập bởi VPC endpoint policy.
+Trong phần này, chúng ta sẽ:
 
-Trong phần này, bạn đã tạo chính sách VPC Endpoint cho Amazon S3 và sử dụng AWS CLI để kiểm tra chính sách. Các hoạt động AWS CLI liên quan đến bucket S3 ban đầu của bạn thất bại vì bạn áp dụng một chính sách chỉ cho phép truy cập đến bucket thứ hai mà bạn đã tạo. Các hoạt động AWS CLI nhắm vào bucket thứ hai của bạn thành công vì chính sách cho phép chúng. Những chính sách này có thể hữu ích trong các tình huống khi bạn cần kiểm soát quyền truy cập vào tài nguyên thông qua VPC Endpoint.
+- Tạo S3 Gateway Endpoint.
+- Liên kết Endpoint với Route Table.
+- Cho phép EC2 truy cập Amazon S3 thông qua mạng nội bộ AWS.
+- Kiểm tra kết nối giữa EC2 và Amazon S3.
+
+---
+
+## Kết quả mong đợi
+
+Sau khi hoàn thành Lab 3:
+
+- Amazon S3 Bucket đã được tạo thành công.
+- Cấu trúc thư mục trong Bucket đã được thiết lập.
+- S3 Gateway Endpoint đã được cấu hình.
+- EC2 có thể truy cập Amazon S3 mà không cần Internet.
+- Hệ thống đã có môi trường lưu trữ dữ liệu an toàn và hiệu quả.
+
+Sau khi hoàn thành Lab 3, hệ thống sẽ sẵn sàng cho **Lab 4 – CloudWatch Monitoring**.
