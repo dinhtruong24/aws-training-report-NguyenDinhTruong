@@ -6,8 +6,6 @@ chapter : false
 pre : " <b>5.3.1. </b> "
 ---
 
-# CONFIGURE VPC
-
 In this section, we will create an **Amazon Virtual Private Cloud (VPC)** as the dedicated network foundation for the entire delivery management system on AWS.
 
 The VPC uses the IPv4 CIDR block **10.0.0.0/16**, providing a sufficiently large address space to create Public Subnets, Private Application Subnets, and Private Database Subnets in the following steps.

@@ -6,8 +6,6 @@ chapter : false
 pre : " <b>5.3. </b> "
 ---
 
-# LAB 1: NETWORK INFRASTRUCTURE
-
 The first lab focuses on building the network infrastructure for the entire system on AWS. This is a fundamental step to establish a secure, isolated, and scalable networking environment for all application components.
 
 In this lab, we will deploy an **Amazon Virtual Private Cloud (VPC)** using a multi-tier architecture. The environment includes Public Subnets and Private Subnets distributed across two Availability Zones to improve system availability and fault tolerance.

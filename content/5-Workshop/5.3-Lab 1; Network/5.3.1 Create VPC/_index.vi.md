@@ -6,8 +6,6 @@ chapter : false
 pre : " <b>5.3.1. </b> "
 ---
 
-# CẤU HÌNH VPC
-
 Trong phần này, chúng ta sẽ tạo một **Amazon Virtual Private Cloud (VPC)** làm nền tảng mạng riêng cho toàn bộ hệ thống quản lý giao hàng trên AWS.
 
 VPC sử dụng dải địa chỉ IPv4 `10.0.0.0/16`, cung cấp không gian địa chỉ đủ lớn để phân chia thành các Public Subnets, Private Application Subnets và Private Database Subnets trong các bước tiếp theo.

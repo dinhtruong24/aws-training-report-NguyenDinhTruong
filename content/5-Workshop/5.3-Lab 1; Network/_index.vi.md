@@ -6,8 +6,6 @@ chapter : false
 pre : " <b>5.3. </b> "
 ---
 
-# LAB 1: XÂY DỰNG NỀN TẢNG MẠNG
-
 Lab đầu tiên tập trung vào việc xây dựng hạ tầng mạng cho toàn bộ hệ thống trên AWS. Đây là bước quan trọng nhằm tạo ra một môi trường mạng riêng biệt, an toàn và có khả năng mở rộng cho các thành phần của ứng dụng.
 
 Trong Lab này, chúng ta sẽ triển khai một **Amazon Virtual Private Cloud (VPC)** với kiến trúc nhiều lớp, bao gồm các Public Subnets và Private Subnets được phân bố trên hai Availability Zones nhằm tăng tính sẵn sàng và khả năng chịu lỗi của hệ thống.
