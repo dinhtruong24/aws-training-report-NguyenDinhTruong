@@ -1,37 +1,92 @@
 ---
-title : "Dọn dẹp tài nguyên"
+title : "Lab 6: Amazon Location Service"
 date : 2024-01-01
-weight : 6
+weight : 8
 chapter : false
-pre : " <b> 5.6. </b> "
+pre : " <b>5.8. </b> "
 ---
 
-#### Dọn dẹp tài nguyên
+Trong Lab này, chúng ta sẽ làm quen với **Amazon Location Service**, một dịch vụ của AWS cho phép tích hợp các chức năng bản đồ, tìm kiếm địa điểm, theo dõi vị trí và định tuyến vào ứng dụng.
 
-Xin chúc mừng bạn đã hoàn thành xong lab này!
-Trong lab này, bạn đã học về các mô hình kiến trúc để truy cập Amazon S3 mà không sử dụng Public Internet.
+Amazon Location Service cung cấp các API và SDK giúp xây dựng các ứng dụng có khả năng hiển thị bản đồ, tìm kiếm địa điểm và quản lý dữ liệu vị trí một cách an toàn và dễ dàng.
 
-+ Bằng cách tạo Gateway endpoint, bạn đã cho phép giao tiếp trực tiếp giữa các tài nguyên EC2 và Amazon S3, mà không đi qua Internet Gateway.
-Bằng cách tạo Interface endpoint, bạn đã mở rộng kết nối S3 đến các tài nguyên chạy trên trung tâm dữ liệu trên chỗ của bạn thông qua AWS Site-to-Site VPN hoặc Direct Connect.
+Trong Lab này, chúng ta sẽ cấu hình Amazon Location Service và kiểm tra các thành phần cần thiết để chuẩn bị cho việc tích hợp dịch vụ định vị vào ứng dụng.
 
-#### Dọn dẹp
-1. Điều hướng đến Hosted Zones trên phía trái của bảng điều khiển Route 53. Nhấp vào tên của  s3.us-east-1.amazonaws.com zone. Nhấp vào Delete và xác nhận việc xóa bằng cách nhập từ khóa "delete".
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.8-lab6/5.8.1-configure-amazon-location.png" width="900">
+</p>
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+<p align="center">
+<i>Hình 5.8.1. Cấu hình Amazon Location Service.</i>
+</p>
 
-2. Disassociate Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+---
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
+## Mục tiêu của Lab
 
-4.Mở console của CloudFormation và xóa hai stack CloudFormation mà bạn đã tạo cho bài thực hành này:
-+ PLOnpremSetup
-+ PLCloudSetup
+Sau khi hoàn thành Lab này, bạn sẽ thực hiện được các nội dung sau:
 
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
+- Truy cập Amazon Location Service.
+- Cấu hình các thành phần của Amazon Location.
+- Làm quen với giao diện quản lý dịch vụ.
+- Chuẩn bị môi trường để tích hợp chức năng bản đồ và định vị.
 
-5. Xóa các S3 bucket
+---
 
-+ Mở bảng điều khiển S3
-+ Chọn bucket chúng ta đã tạo cho lab, nhấp chuột và xác nhận là empty. Nhấp Delete và xác nhận delete.
-+ 
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+## Kiến trúc dịch vụ
+
+Trong Lab này, Amazon Location Service được sử dụng theo mô hình sau:
+
+```text
+Application
+      │
+      ▼
+Amazon Location Service
+      │
+      ├── Maps
+      ├── Places
+      ├── Routes
+      └── Trackers
+```
+
+Amazon Location Service cung cấp các dịch vụ định vị để hỗ trợ ứng dụng hiển thị bản đồ, tìm kiếm địa điểm và xử lý dữ liệu vị trí.
+
+---
+
+## Thành phần chính
+
+Lab này sử dụng các thành phần sau:
+
+| Thành phần | Mô tả |
+|---|---|
+| Amazon Location Service | Dịch vụ định vị của AWS |
+| Maps | Hiển thị bản đồ |
+| Places | Tìm kiếm địa điểm |
+| Routes | Tính toán tuyến đường |
+| Trackers | Theo dõi vị trí thiết bị |
+
+---
+
+## Nội dung của Lab
+
+Lab 6 gồm một phần duy nhất:
+
+### 5.8.1 Configure Amazon Location
+
+Trong phần này, chúng ta sẽ:
+
+- Truy cập Amazon Location Service.
+- Cấu hình các tài nguyên cần thiết.
+- Kiểm tra cấu hình sau khi hoàn tất.
+
+---
+
+## Kết quả mong đợi
+
+Sau khi hoàn thành Lab 6:
+
+- Amazon Location Service đã được cấu hình.
+- Các thành phần của dịch vụ đã sẵn sàng sử dụng.
+- Môi trường đã được chuẩn bị để tích hợp chức năng bản đồ và định vị vào ứng dụng.
+
+Sau khi hoàn thành Lab 6, chúng ta sẽ tiếp tục với **Lab 7**.

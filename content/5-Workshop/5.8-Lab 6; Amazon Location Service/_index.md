@@ -1,32 +1,92 @@
 ---
-title : "Clean up"
+title : "Lab 6: Amazon Location Service"
 date : 2024-01-01
-weight : 6
+weight : 8
 chapter : false
-pre : " <b> 5.6. </b> "
+pre : " <b>5.8. </b> "
 ---
-Congratulations on completing this workshop! 
-In this workshop, you learned architecture patterns for accessing Amazon S3 without using the Public Internet. 
-+ By creating a gateway endpoint, you enabled direct communication between EC2 resources and Amazon S3, without traversing an Internet Gateway. 
-+ By creating an interface endpoint you extended S3 connectivity to resources running in your on-premises data center via AWS Site-to-Site VPN or Direct Connect. 
 
-#### clean up
-1. Navigate to Hosted Zones on the left side of Route 53 console. Click the name of *s3.us-east-1.amazonaws.com* zone. Click Delete and confirm deletion by typing delete. 
+In this lab, we will explore **Amazon Location Service**, an AWS service that enables applications to integrate maps, place search, routing, and location tracking capabilities.
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/delete-zone.png)
+Amazon Location Service provides APIs and SDKs that allow developers to build location-aware applications with secure access to mapping, geocoding, routing, and tracking services. It simplifies the implementation of geospatial features while integrating seamlessly with other AWS services.
 
-2. Disassociate the Route 53 Resolver Rule - myS3Rule from "VPC Onprem" and Delete it. 
+In this lab, we will configure Amazon Location Service and verify the required resources to prepare the environment for integrating location-based features into the application.
 
-![hosted zone](/images/5-Workshop/5.6-Cleanup/vpc.png)
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.8-lab6/5.8.1-configure-amazon-location.png" width="900">
+</p>
 
-4. Open the CloudFormation console  and delete the two CloudFormation Stacks that you created for this lab:
-+ PLOnpremSetup
-+ PLCloudSetup
+<p align="center">
+<i>Figure 5.8.1. Configuring Amazon Location Service.</i>
+</p>
 
-![delete stack](/images/5-Workshop/5.6-Cleanup/delete-stack.png)
+---
 
-5. Delete S3 buckets
-+ Open S3 console
-+ Choose the bucket we created for the lab, click and confirm empty. Click delete and confirm delete.
+## Lab Objectives
 
-![delete s3](/images/5-Workshop/5.6-Cleanup/delete-s3.png)
+After completing this lab, you will be able to:
+
+- Access Amazon Location Service.
+- Configure Amazon Location resources.
+- Explore the Amazon Location management console.
+- Prepare the environment for integrating maps and location services into an application.
+
+---
+
+## Service Architecture
+
+In this lab, Amazon Location Service is organized as follows:
+
+```text
+Application
+      │
+      ▼
+Amazon Location Service
+      │
+      ├── Maps
+      ├── Places
+      ├── Routes
+      └── Trackers
+```
+
+Amazon Location Service provides location-based capabilities that enable applications to display maps, search for places, calculate routes, and manage location tracking.
+
+---
+
+## Main Components
+
+This lab uses the following components:
+
+| Component | Description |
+|---|---|
+| Amazon Location Service | AWS location service |
+| Maps | Map visualization |
+| Places | Place search |
+| Routes | Route calculation |
+| Trackers | Device location tracking |
+
+---
+
+## Lab Contents
+
+Lab 6 consists of one section:
+
+### 5.8.1 Configure Amazon Location
+
+In this section, we will:
+
+- Access Amazon Location Service.
+- Configure the required resources.
+- Verify the configuration after deployment.
+
+---
+
+## Expected Results
+
+After completing Lab 6:
+
+- Amazon Location Service has been configured successfully.
+- The required location resources are ready for use.
+- The environment is prepared for integrating maps and location-based features into the application.
+
+After completing Lab 6, we will continue with **Lab 7**.
