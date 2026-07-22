@@ -39,7 +39,7 @@ Ngoài ra, workshop còn hướng dẫn triển khai ứng dụng bằng symboli
 #### Nội dung
 
 1. [Tổng quan về workshop]({{< relref "5.1-Workshop-overview" >}})
-2. [Điều kiện tiên quyết]({{< relref "5.2-Prerequisite" >}})
+2. [Điều kiện tiên quyết]({{< relref "/5-Workshop/5.2-Prerequisite/_index.vi.md" >}})
 3. [Lab 1: Network Infrastructure]({{< relref "5.3-Lab 1; Network" >}})
 4. [Lab 2: Security Groups và IAM]({{< relref "5.4-Lab 2; Security" >}})
 5. [Lab 3: Storage với Amazon S3]({{< relref "5.5-Lab 3; Storage" >}})
