@@ -11,11 +11,11 @@ Lab đầu tiên tập trung vào việc xây dựng hạ tầng mạng cho toà
 Trong Lab này, chúng ta sẽ triển khai một **Amazon Virtual Private Cloud (VPC)** với kiến trúc nhiều lớp, bao gồm các Public Subnets và Private Subnets được phân bố trên hai Availability Zones nhằm tăng tính sẵn sàng và khả năng chịu lỗi của hệ thống.
 
 <p align="center">
-    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-network/5.3.1-network-plan.png" width="900">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-network/5.3-network-plan.png" width="900">
 </p>
 
 <p align="center">
-<i>Hình 5.3.1. Kiến trúc mạng và kế hoạch phân chia CIDR của hệ thống.</i>
+<i>Hình 5.3. Kiến trúc mạng và kế hoạch phân chia CIDR của hệ thống.</i>
 </p>
 
 ---
