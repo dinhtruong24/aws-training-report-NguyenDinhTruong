@@ -46,7 +46,7 @@ In addition, this workshop demonstrates how to deploy applications using symboli
 6. [Lab 4: Database and Related Services](5.6-lab-4-database/)
 7. [Lab 5: Events, Lambda, and Email](5.7-lab-5-event-driven-services/)
 8. [Lab 6: Amazon Location Service](5.8-lab-6-amazon-location-service/)
-9. [Lab 7: Compute & Deployment](5.9-lab-7-compute-deployment/)
+9. [Lab 7: Compute & Deployment](5.9-lab-7-compute--deployment/)
 10. [End-to-End Testing](5.10-end-to-end-testing/)
 11. [Cleanup](5.11-cleanup/)
 
