@@ -6,8 +6,6 @@ chapter : false
 pre : " <b>5.3.4. </b> "
 ---
 
-# CONFIGURE ROUTE TABLES
-
 In this section, we will create and configure **Route Tables** for the three network layers of the system:
 
 - Public Subnets
