@@ -1,63 +1,118 @@
 ---
-title : "Create an Amazon S3 Bucket"
+title : "Configure VPC"
 date : 2024-01-01
 weight : 1
 chapter : false
 pre : " <b>5.3.1. </b> "
 ---
 
-# CREATE AN AMAZON S3 BUCKET
+# CONFIGURE VPC
 
-In this section, we will create an **Amazon S3 Bucket** to store PDF documents for the **VietAI Scholar Assistant** system. The bucket will serve as the storage location for input documents, processed data, and AI-generated outputs used throughout the following labs.
+In this section, we will create an **Amazon Virtual Private Cloud (VPC)** as the dedicated network foundation for the entire delivery management system on AWS.
 
----
-
-## Step 1. Create an Amazon S3 Bucket
-
-Sign in to the **AWS Management Console**, search for the **Amazon S3** service, and select **Create bucket**.
-
-Enter a unique bucket name that follows Amazon S3 naming conventions, choose the **Asia Pacific (Singapore) – ap-southeast-1** Region, keep the default settings for **Object Ownership**, **Block Public Access**, and **Default Encryption**, then click **Create bucket** to complete the bucket creation process.
-
-<p align="center">
-    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-document-storage/5.3.1-create-s3-bucket.png" width="900">
-</p>
-
-<p align="center">
-<i>Figure 5.3.1. Creating an Amazon S3 Bucket in the AWS Management Console.</i>
-</p>
+The VPC uses the IPv4 CIDR block **10.0.0.0/16**, providing a sufficiently large address space to create Public Subnets, Private Application Subnets, and Private Database Subnets in the following steps.
 
 ---
 
-## Step 2. Create the document storage structure
+## Step 1. Create an Amazon VPC
 
-After the bucket has been created successfully, open the newly created bucket and select **Create folder** to create the folders required by the system.
-
-For the **VietAI Scholar Assistant** project, create the following three folders:
+Sign in to the **AWS Management Console** and verify that the selected Region is:
 
 ```text
-uploads/
-processed/
-outputs/
+Asia Pacific (Singapore) – ap-southeast-1
 ```
 
-Where:
+Search for and open the **VPC** service, then perform the following steps:
 
-- **uploads/**: Stores PDF documents uploaded by users.
-- **processed/**: Stores data after OCR and other preprocessing steps have been completed.
-- **outputs/**: Stores the final results, such as summaries, translations, and AI-generated content.
+1. Select **Your VPCs** from the left navigation pane.
+2. Click **Create VPC**.
+3. Choose **VPC only**.
+4. Enter the following Name tag:
+
+```text
+delivery-dev-vpc
+```
+
+5. Enter the IPv4 CIDR block:
+
+```text
+10.0.0.0/16
+```
+
+6. Keep the remaining settings as default and click **Create VPC**.
 
 <p align="center">
-    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-document-storage/5.3.1-create-folder.png" width="900">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-document-storage/5.3.1-create-vpc.png" width="900">
 </p>
 
 <p align="center">
-<i>Figure 5.3.2. Creating logical folders inside the Amazon S3 Bucket.</i>
+<i>Figure 5.3.2. Creating the VPC with the IPv4 CIDR block 10.0.0.0/16.</i>
 </p>
 
 ---
 
-## Expected Result
+## Step 2. Verify the VPC
 
-After completing this section, the system will have an **Amazon S3 Bucket** configured in the correct AWS Region together with the initial document storage structure. This storage environment will provide the foundation for AI services to access and process documents in the subsequent labs.
+After the VPC has been created successfully, return to **Your VPCs** and select the newly created VPC.
 
-Next, we will proceed to **5.3.2 – Configure Document Upload** to configure the document upload workflow from the application to Amazon S3.
+Verify the following information:
+
+- **Name:** `delivery-dev-vpc`
+- **IPv4 CIDR:** `10.0.0.0/16`
+- **State:** `Available`
+- **Region:** `ap-southeast-1`
+
+Record the **VPC ID**, as it will be required when creating Subnets, Route Tables, Internet Gateways, and other networking resources.
+
+Next, select **Actions** and choose **Edit VPC settings** to configure the DNS options.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-document-storage/5.3.1-verify-vpc.png" width="900">
+</p>
+
+<p align="center">
+<i>Figure 5.3.3. Verifying the VPC and opening the DNS configuration settings.</i>
+</p>
+
+---
+
+## Step 3. Enable DNS Resolution and DNS Hostnames
+
+In the VPC DNS settings, enable the following options:
+
+```text
+Enable DNS resolution
+Enable DNS hostnames
+```
+
+Then click **Save changes**.
+
+- **DNS Resolution** allows resources inside the VPC to resolve domain names using the Amazon-provided DNS server.
+- **DNS Hostnames** enables EC2 instances to receive DNS hostnames when the required networking conditions are met.
+
+These settings are essential for allowing AWS resources within the VPC to communicate with each other and access AWS services using domain names instead of IP addresses.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-document-storage/5.3.1-enable-dns.png" width="900">
+</p>
+
+<p align="center">
+<i>Figure 5.3.4. Enabling DNS Resolution and DNS Hostnames for the VPC.</i>
+</p>
+
+---
+
+## Result
+
+After completing this section, you have successfully:
+
+- Created the **delivery-dev-vpc** Amazon VPC.
+- Configured the IPv4 CIDR block **10.0.0.0/16**.
+- Verified that the VPC status is **Available**.
+- Recorded the VPC ID for use in the following configuration steps.
+- Enabled **DNS Resolution**.
+- Enabled **DNS Hostnames**.
+
+The VPC is now ready to be divided into multiple network layers in the next section.
+
+In the following section, we will continue with **5.3.2 – Create Subnets**.

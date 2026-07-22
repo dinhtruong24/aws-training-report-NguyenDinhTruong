@@ -1,34 +1,69 @@
 ---
-title : "Lab 1: Document Storage & Upload"
+title : "Lab 1: Network Infrastructure"
 date : 2024-01-01
 weight : 3
 chapter : false
-pre : " <b> 5.3. </b> "
+pre : " <b>5.3. </b> "
 ---
 
-Welcome to **Lab 1** of this workshop. In this lab, we will build the document storage foundation for the **VietAI Scholar Assistant** system by deploying AWS storage services. This is the first and most important step that enables the AI components to access and process documents in the following labs.
+# LAB 1: NETWORK INFRASTRUCTURE
 
-All academic documents will be uploaded by users through the application. After being stored in Amazon S3, the documents will be ready for OCR, content analysis, summarization, translation, and AI-powered question answering.
+The first lab focuses on building the network infrastructure for the entire system on AWS. This is a fundamental step to establish a secure, isolated, and scalable networking environment for all application components.
 
-## Lab 1 Architecture
+In this lab, we will deploy an **Amazon Virtual Private Cloud (VPC)** using a multi-tier architecture. The environment includes Public Subnets and Private Subnets distributed across two Availability Zones to improve system availability and fault tolerance.
 
-In this lab, we will focus on the following components:
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-network/5.3.1-network-plan.png" width="900">
+</p>
 
-1. **Amazon S3:** Create a bucket to store PDF documents and input data.
-2. **Document Upload:** Configure the document upload process from the application to Amazon S3.
-3. **Storage Verification:** Verify that the uploaded documents are stored correctly on AWS.
-
-## Step-by-Step Instructions
-
-Lab 1 is divided into the following steps. Please complete them in order:
-
-- **5.3.1 Create Amazon S3 Bucket:** Create a bucket for storing documents.
-- **5.3.2 Configure Document Upload:** Configure the document upload process to Amazon S3.
-- **5.3.3 Store Documents:** Verify and manage the stored documents.
-- **5.3.4 Test Upload Workflow:** Test the complete document upload workflow.
+<p align="center">
+<i>Figure 5.3.1. Network architecture and CIDR planning for the system.</i>
+</p>
 
 ---
 
-Are you ready?
+## Lab Objectives
 
-Let's begin with the first step: **Create Amazon S3 Bucket**.
+After completing this lab, you will be able to:
+
+- Create an Amazon VPC for the system.
+- Configure DNS Resolution and DNS Hostnames.
+- Create Public Subnets and Private Subnets.
+- Configure an Internet Gateway.
+- Create Route Tables for different network layers.
+- Deploy a NAT Gateway to provide Internet access for Private Subnets.
+- Verify the complete network configuration before deploying additional AWS services.
+
+---
+
+## Lab Contents
+
+This lab is divided into the following sections:
+
+1. **5.3.1 Configure VPC**
+   - Create an Amazon VPC.
+   - Verify the VPC configuration.
+   - Enable DNS Resolution and DNS Hostnames.
+
+2. **5.3.2 Create Subnets**
+   - Create Public Subnets.
+   - Create Private Application Subnets.
+   - Create Private Database Subnets.
+
+3. **5.3.3 Configure Internet Gateway**
+   - Create an Internet Gateway.
+   - Attach the Internet Gateway to the VPC.
+
+4. **5.3.4 Configure Route Tables**
+   - Create a Public Route Table.
+   - Create a Private Application Route Table.
+   - Create a Database Route Table.
+   - Associate Route Tables with the corresponding Subnets.
+
+5. **5.3.5 Create NAT Gateway**
+   - Create a NAT Gateway.
+   - Verify Internet connectivity for the Private Subnets.
+
+---
+
+After completing Lab 1, the network infrastructure will be fully prepared for deploying the security, storage, database, event-driven, location, and compute components in the following labs.

@@ -1,59 +1,69 @@
 ---
-title : "Tạo Amazon S3 Bucket"
+title : "Lab 1: Xây dựng nền tảng mạng"
 date : 2024-01-01
-weight : 1
+weight : 3
 chapter : false
-pre : " <b>5.3.1. </b> "
+pre : " <b>5.3. </b> "
 ---
 
-# TẠO AMAZON S3 BUCKET
+# LAB 1: XÂY DỰNG NỀN TẢNG MẠNG
 
-Trong phần này, chúng ta sẽ tạo một **Amazon S3 Bucket** để lưu trữ các tài liệu PDF của hệ thống **VietAI Scholar Assistant**. Bucket sẽ là nơi lưu trữ dữ liệu đầu vào, dữ liệu đã xử lý và kết quả sinh ra từ các dịch vụ AI trong các bước tiếp theo.
+Lab đầu tiên tập trung vào việc xây dựng hạ tầng mạng cho toàn bộ hệ thống trên AWS. Đây là bước quan trọng nhằm tạo ra một môi trường mạng riêng biệt, an toàn và có khả năng mở rộng cho các thành phần của ứng dụng.
 
----
-
-## Bước 1. Tạo Amazon S3 Bucket
-
-Đăng nhập vào **AWS Management Console**, tìm kiếm dịch vụ **Amazon S3** và chọn **Create bucket**.
-
-Nhập tên Bucket theo quy tắc đặt tên của Amazon S3, chọn **Region: Asia Pacific (Singapore) – ap-southeast-1**, giữ nguyên các thiết lập mặc định về **Object Ownership**, **Block Public Access** và **Default Encryption**, sau đó nhấn **Create bucket** để hoàn tất quá trình tạo Bucket.
-
-![](/images/5-Workshop/5.3-document-storage/5.3.1-create-s3-bucket.png)
+Trong Lab này, chúng ta sẽ triển khai một **Amazon Virtual Private Cloud (VPC)** với kiến trúc nhiều lớp, bao gồm các Public Subnets và Private Subnets được phân bố trên hai Availability Zones nhằm tăng tính sẵn sàng và khả năng chịu lỗi của hệ thống.
 
 <p align="center">
-<i>Hình 5.3.1. Tạo Amazon S3 Bucket trên AWS Management Console.</i>
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-network/5.3.1-network-plan.png" width="900">
+</p>
+
+<p align="center">
+<i>Hình 5.3.1. Kiến trúc mạng và kế hoạch phân chia CIDR của hệ thống.</i>
 </p>
 
 ---
 
-## Bước 2. Tạo cấu trúc lưu trữ tài liệu
+## Mục tiêu của Lab
 
-Sau khi Bucket được tạo thành công, mở Bucket vừa tạo và chọn **Create folder** để tạo các thư mục phục vụ cho hệ thống.
+Sau khi hoàn thành Lab này, bạn sẽ thực hiện được các nội dung sau:
 
-Đối với dự án **VietAI Scholar Assistant**, tạo ba thư mục sau:
-
-```text
-uploads/
-processed/
-outputs/
-```
-
-Trong đó:
-
-- **uploads/**: Lưu các tài liệu PDF được người dùng tải lên.
-- **processed/**: Lưu dữ liệu sau khi OCR hoặc các bước tiền xử lý hoàn tất.
-- **outputs/**: Lưu kết quả cuối cùng như bản tóm tắt, bản dịch và nội dung được AI sinh ra.
-
-![](/images/5-Workshop/5.3-document-storage/5.3.1-create-folder.png)
-
-<p align="center">
-<i>Hình 5.3.2. Tạo các thư mục logic trong Amazon S3 Bucket.</i>
-</p>
+- Tạo Amazon VPC cho hệ thống.
+- Cấu hình DNS Resolution và DNS Hostnames.
+- Tạo các Public Subnets và Private Subnets.
+- Cấu hình Internet Gateway.
+- Tạo các Route Tables cho từng tầng mạng.
+- Triển khai NAT Gateway để các Private Subnets có thể truy cập Internet.
+- Kiểm tra toàn bộ cấu hình mạng trước khi triển khai các dịch vụ AWS tiếp theo.
 
 ---
 
-## Kết quả đạt được
+## Nội dung của Lab
 
-Sau khi hoàn thành bước này, hệ thống đã có một **Amazon S3 Bucket** được cấu hình đúng Region cùng với cấu trúc lưu trữ tài liệu ban đầu. Đây sẽ là nền tảng để các dịch vụ AI truy cập và xử lý dữ liệu trong các Lab tiếp theo.
+Lab được chia thành các phần nhỏ theo trình tự sau:
 
-Tiếp theo, chúng ta sẽ thực hiện **5.3.2 – Configure Document Upload** để cấu hình quy trình tải tài liệu từ ứng dụng lên Amazon S3.
+1. **5.3.1 Configure VPC**
+   - Tạo VPC.
+   - Kiểm tra cấu hình VPC.
+   - Bật DNS Resolution và DNS Hostnames.
+
+2. **5.3.2 Create Subnets**
+   - Tạo Public Subnets.
+   - Tạo Private Application Subnets.
+   - Tạo Private Database Subnets.
+
+3. **5.3.3 Configure Internet Gateway**
+   - Tạo Internet Gateway.
+   - Gắn Internet Gateway vào VPC.
+
+4. **5.3.4 Configure Route Tables**
+   - Tạo Public Route Table.
+   - Tạo Private Application Route Table.
+   - Tạo Database Route Table.
+   - Associate Route Tables với các Subnets.
+
+5. **5.3.5 Create NAT Gateway**
+   - Tạo NAT Gateway.
+   - Kiểm tra kết nối Internet cho Private Subnets.
+
+---
+
+Sau khi hoàn thành Lab 1, toàn bộ hạ tầng mạng sẽ sẵn sàng để triển khai các thành phần bảo mật, lưu trữ và tính toán trong các Lab tiếp theo.

@@ -1,63 +1,118 @@
 ---
-title : "Tạo Amazon S3 Bucket"
+title : "Cấu hình VPC"
 date : 2024-01-01
 weight : 1
 chapter : false
 pre : " <b>5.3.1. </b> "
 ---
 
-# TẠO AMAZON S3 BUCKET
+# CẤU HÌNH VPC
 
-Trong phần này, chúng ta sẽ tạo một **Amazon S3 Bucket** để lưu trữ các tài liệu PDF của hệ thống **VietAI Scholar Assistant**. Bucket sẽ là nơi lưu trữ dữ liệu đầu vào, dữ liệu đã xử lý và kết quả sinh ra từ các dịch vụ AI trong các bước tiếp theo.
+Trong phần này, chúng ta sẽ tạo một **Amazon Virtual Private Cloud (VPC)** làm nền tảng mạng riêng cho toàn bộ hệ thống quản lý giao hàng trên AWS.
 
----
-
-## Bước 1. Tạo Amazon S3 Bucket
-
-Đăng nhập vào **AWS Management Console**, tìm kiếm dịch vụ **Amazon S3** và chọn **Create bucket**.
-
-Nhập tên Bucket theo quy tắc đặt tên của Amazon S3, chọn **Region: Asia Pacific (Singapore) – ap-southeast-1**, giữ nguyên các thiết lập mặc định về **Object Ownership**, **Block Public Access** và **Default Encryption**, sau đó nhấn **Create bucket** để hoàn tất quá trình tạo Bucket.
-
-<p align="center">
-    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-document-storage/5.3.1-create-s3-bucket.png" width="900">
-</p>
-
-<p align="center">
-<i>Hình 5.3.1. Tạo Amazon S3 Bucket trên AWS Management Console.</i>
-</p>
+VPC sử dụng dải địa chỉ IPv4 `10.0.0.0/16`, cung cấp không gian địa chỉ đủ lớn để phân chia thành các Public Subnets, Private Application Subnets và Private Database Subnets trong các bước tiếp theo.
 
 ---
 
-## Bước 2. Tạo cấu trúc lưu trữ tài liệu
+## Bước 1. Tạo Amazon VPC
 
-Sau khi Bucket được tạo thành công, mở Bucket vừa tạo và chọn **Create folder** để tạo các thư mục phục vụ cho hệ thống.
-
-Đối với dự án **VietAI Scholar Assistant**, tạo ba thư mục sau:
+Đăng nhập vào **AWS Management Console** và kiểm tra Region hiện tại là:
 
 ```text
-uploads/
-processed/
-outputs/
+Asia Pacific (Singapore) – ap-southeast-1
 ```
 
-Trong đó:
+Tìm kiếm và mở dịch vụ **VPC**, sau đó thực hiện:
 
-- **uploads/**: Lưu các tài liệu PDF được người dùng tải lên.
-- **processed/**: Lưu dữ liệu sau khi OCR hoặc các bước tiền xử lý hoàn tất.
-- **outputs/**: Lưu kết quả cuối cùng như bản tóm tắt, bản dịch và nội dung được AI sinh ra.
+1. Chọn **Your VPCs** trong menu bên trái.
+2. Chọn **Create VPC**.
+3. Chọn tùy chọn **VPC only**.
+4. Nhập Name tag:
+
+```text
+delivery-dev-vpc
+```
+
+5. Nhập IPv4 CIDR:
+
+```text
+10.0.0.0/16
+```
+
+6. Giữ nguyên các cấu hình còn lại và chọn **Create VPC**.
 
 <p align="center">
-    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-document-storage/5.3.1-create-folder.png" width="900">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-document-storage/5.3.1-create-vpc.png" width="900">
 </p>
 
 <p align="center">
-<i>Hình 5.3.2. Tạo các thư mục logic trong Amazon S3 Bucket.</i>
+<i>Hình 5.3.2. Tạo VPC và khai báo dải CIDR 10.0.0.0/16.</i>
+</p>
+
+---
+
+## Bước 2. Kiểm tra VPC
+
+Sau khi quá trình tạo hoàn tất, quay lại danh sách **Your VPCs** và chọn VPC vừa tạo.
+
+Kiểm tra các thông tin sau:
+
+- **Name:** `delivery-dev-vpc`
+- **IPv4 CIDR:** `10.0.0.0/16`
+- **State:** `Available`
+- **Region:** `ap-southeast-1`
+
+Ghi lại **VPC ID** để sử dụng khi tạo Subnet, Route Table, Internet Gateway và các tài nguyên mạng khác.
+
+Tiếp theo, chọn **Actions** và mở phần **Edit VPC settings** để cấu hình thuộc tính DNS.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-document-storage/5.3.1-verify-vpc.png" width="900">
+</p>
+
+<p align="center">
+<i>Hình 5.3.3. Kiểm tra VPC và mở phần chỉnh sửa thuộc tính DNS.</i>
+</p>
+
+---
+
+## Bước 3. Bật DNS Resolution và DNS Hostnames
+
+Trong phần cấu hình DNS của VPC, bật hai tùy chọn:
+
+```text
+Enable DNS resolution
+Enable DNS hostnames
+```
+
+Sau đó chọn **Save changes** để lưu cấu hình.
+
+- **DNS Resolution** cho phép các tài nguyên trong VPC phân giải tên miền thông qua DNS do AWS cung cấp.
+- **DNS Hostnames** cho phép các EC2 Instance nhận DNS hostname khi đáp ứng điều kiện cấu hình mạng.
+
+Hai thuộc tính này cần thiết để các tài nguyên trong hệ thống có thể giao tiếp với nhau và truy cập các dịch vụ AWS bằng tên miền thay vì chỉ sử dụng địa chỉ IP.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/5.3-document-storage/5.3.1-enable-dns.png" width="900">
+</p>
+
+<p align="center">
+<i>Hình 5.3.4. Bật DNS Resolution và DNS Hostnames cho VPC.</i>
 </p>
 
 ---
 
 ## Kết quả đạt được
 
-Sau khi hoàn thành bước này, hệ thống đã có một **Amazon S3 Bucket** được cấu hình đúng Region cùng với cấu trúc lưu trữ tài liệu ban đầu. Đây sẽ là nền tảng để các dịch vụ AI truy cập và xử lý dữ liệu trong các Lab tiếp theo.
+Sau khi hoàn thành phần này, bạn đã:
 
-Tiếp theo, chúng ta sẽ thực hiện **5.3.2 – Configure Document Upload** để cấu hình quy trình tải tài liệu từ ứng dụng lên Amazon S3.
+- Tạo thành công VPC `delivery-dev-vpc`.
+- Cấu hình dải IPv4 CIDR `10.0.0.0/16`.
+- Xác nhận VPC ở trạng thái `Available`.
+- Ghi nhận VPC ID để sử dụng trong các bước tiếp theo.
+- Bật DNS Resolution.
+- Bật DNS Hostnames.
+
+VPC hiện đã sẵn sàng để phân chia thành các lớp mạng khác nhau.
+
+Trong phần tiếp theo, chúng ta sẽ thực hiện **5.3.2 – Tạo các Subnet** trên hai Availability Zones.
