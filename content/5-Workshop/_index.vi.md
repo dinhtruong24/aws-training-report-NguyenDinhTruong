@@ -1,5 +1,5 @@
 ---
-title: "Workshop"
+title: "Hội Thảo"
 date: 2024-01-01
 weight: 5
 chapter: false
@@ -8,30 +8,27 @@ pre: " <b> 5. </b> "
 
 #### Tổng quan
 
-Hội thảo này hướng dẫn xây dựng **VietAI Scholar Assistant** – một nền tảng hỗ trợ nghiên cứu học thuật ứng dụng Trí tuệ nhân tạo (AI) và các dịch vụ điện toán đám mây của AWS. Hệ thống cho phép người dùng tải lên một hoặc nhiều tài liệu PDF để tự động phân tích, dịch thuật, tóm tắt nội dung và đặt câu hỏi trực tiếp với tài liệu thông qua mô hình Retrieval-Augmented Generation (RAG).
+Workshop này hướng dẫn triển khai **VietAI Scholar Assistant** – một nền tảng hỗ trợ nghiên cứu học thuật được xây dựng trên nền tảng điện toán đám mây AWS và ứng dụng các mô hình Trí tuệ nhân tạo (AI) hiện đại. Hệ thống cho phép người dùng tải lên một hoặc nhiều tài liệu PDF để tự động phân tích nội dung, dịch thuật, tóm tắt, đặt câu hỏi theo ngữ cảnh và tạo bộ câu hỏi ôn tập dựa trên tài liệu.
 
-Trong quá trình triển khai, người thực hiện sẽ tìm hiểu cách kết hợp nhiều dịch vụ AWS hiện đại để xây dựng một ứng dụng AI hoàn chỉnh, từ lưu trữ dữ liệu, xử lý tài liệu, điều phối quy trình bằng kiến trúc Serverless đến triển khai hệ thống Multi-Agent AI trên Amazon Bedrock.
+Trong workshop, người học sẽ từng bước xây dựng toàn bộ quy trình xử lý tài liệu, từ lưu trữ dữ liệu, trích xuất nội dung, xử lý bằng Large Language Models (LLMs), tạo dữ liệu Embedding, xây dựng hệ thống Retrieval-Augmented Generation (RAG) cho đến triển khai các AI Agents trên Amazon Bedrock để tự động hóa quá trình xử lý.
 
-Ngoài việc xử lý văn bản, hệ thống còn hỗ trợ nhận diện công thức toán học, mô tả biểu đồ, xử lý hình ảnh và xuất kết quả dưới định dạng Markdown hoặc HTML, giúp người học và nhà nghiên cứu tiếp cận tài liệu chuyên ngành thuận tiện hơn. :contentReference[oaicite:0]{index=0}
+Bên cạnh đó, workshop còn giới thiệu cách kết hợp nhiều dịch vụ AWS theo kiến trúc Serverless nhằm tối ưu khả năng mở rộng, tăng hiệu năng xử lý và giảm chi phí vận hành. Toàn bộ quy trình đều được triển khai trên nền tảng AWS và có thể mở rộng để phục vụ các hệ thống AI trong thực tế.
+
+---
 
 #### Điểm nổi bật về kiến trúc
 
-- **Giao diện người dùng:** Được xây dựng bằng React, lưu trữ trên Amazon S3 và phân phối qua Amazon CloudFront.
-- **Backend:** Amazon API Gateway kết hợp AWS Lambda để tiếp nhận yêu cầu và điều phối luồng xử lý theo kiến trúc Serverless.
-- **AI Processing:** Amazon Bedrock Agents điều phối Supervisor Agent, Document Agent và Researcher Agent để xử lý tài liệu học thuật.
-- **Xử lý đa phương thức:** Claude 3.5 Sonnet hỗ trợ trích xuất văn bản, dịch ngữ cảnh, nhận diện công thức toán học và mô tả biểu đồ.
-- **OCR dự phòng:** Amazon Textract được sử dụng khi tài liệu là bản scan chất lượng thấp hoặc có bố cục phức tạp.
-- **Retrieval-Augmented Generation:** Titan Text Embeddings kết hợp Amazon S3 Vectors hỗ trợ tìm kiếm ngữ nghĩa và hỏi đáp theo nội dung tài liệu.
-- **Lưu trữ:** Amazon S3 lưu PDF gốc, kết quả Markdown/HTML và dữ liệu vector; Amazon DynamoDB lưu metadata và trạng thái xử lý.
-- **Bảo mật:** AWS IAM, Amazon Cognito, S3 Bucket Policy và AWS KMS giúp kiểm soát quyền truy cập và mã hóa dữ liệu.
-- **Tự động hóa:** S3 Event Notifications kích hoạt Lambda Orchestrator ngay sau khi người dùng tải tài liệu lên. :contentReference[oaicite:1]{index=1} :contentReference[oaicite:2]{index=2}
+- **Frontend:** Giao diện người dùng được xây dựng bằng React, cho phép tải lên tài liệu PDF, xem kết quả xử lý và tương tác với hệ thống AI.
+- **Document Storage:** Amazon S3 được sử dụng để lưu trữ tài liệu gốc, kết quả xử lý và các tệp trung gian trong toàn bộ quy trình.
+- **Backend:** Amazon API Gateway kết hợp AWS Lambda tiếp nhận yêu cầu từ người dùng và điều phối toàn bộ luồng xử lý của hệ thống.
+- **AI Processing:** Amazon Bedrock cùng các AI Agents thực hiện phân tích tài liệu, dịch thuật, tóm tắt và trả lời câu hỏi dựa trên nội dung tài liệu.
+- **OCR & Document Understanding:** Hệ thống hỗ trợ xử lý các tài liệu có bố cục phức tạp, hình ảnh và công thức nhằm đảm bảo kết quả phân tích đầy đủ và chính xác.
+- **Retrieval-Augmented Generation (RAG):** Dữ liệu sau khi xử lý được chuyển thành Embedding và sử dụng để xây dựng hệ thống tìm kiếm ngữ nghĩa, giúp AI trả lời các câu hỏi theo đúng nội dung tài liệu.
+- **Database:** Amazon DynamoDB lưu trữ trạng thái xử lý, metadata của tài liệu và các thông tin phục vụ quá trình truy xuất.
+- **Security:** AWS IAM và Amazon Cognito quản lý quyền truy cập, xác thực người dùng và bảo vệ tài nguyên AWS.
+- **Automation:** Toàn bộ quy trình xử lý được tự động kích hoạt thông qua các sự kiện của Amazon S3 và AWS Lambda.
 
-#### Quy trình hoạt động tổng quát
-
-Người dùng tải tài liệu PDF lên giao diện React. Ứng dụng gọi Amazon API Gateway để nhận presigned URL, sau đó tải tệp trực tiếp lên Amazon S3.
-Khi tệp mới được tạo, S3 Event Notification kích hoạt AWS Lambda Orchestrator. Lambda gửi thông tin tài liệu đến Supervisor Agent trên Amazon Bedrock để đánh giá độ phức tạp và lựa chọn luồng xử lý phù hợp.
-Đối với tài liệu thông thường, Document Agent sử dụng Claude 3.5 Sonnet để xử lý văn bản, bảng biểu, công thức toán học và hình ảnh. Đối với tài liệu scan chất lượng thấp, Supervisor Agent gọi Amazon Textract làm phương án dự phòng.
-Sau khi xử lý, kết quả được đóng gói dưới dạng JSON, chuyển về Lambda Orchestrator, lưu thành tệp Markdown hoặc HTML trên Amazon S3 và cập nhật trạng thái xử lý trong Amazon DynamoDB. Kết quả được gửi về giao diện thông qua WebSocket hoặc REST API. :contentReference[oaicite:3]{index=3} :contentReference[oaicite:4]{index=4}
+---
 
 #### Nội dung
 
@@ -42,9 +39,24 @@ Sau khi xử lý, kết quả được đóng gói dưới dạng JSON, chuyển
 5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
 6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
 
+---
+
+## Mục tiêu đạt được
+
+Sau khi hoàn thành workshop, người học có thể:
+
+- Hiểu quy trình xây dựng một hệ thống AI xử lý tài liệu trên nền tảng AWS.
+- Triển khai hệ thống lưu trữ tài liệu bằng Amazon S3.
+- Sử dụng Amazon Bedrock để xây dựng các AI Agents phục vụ phân tích tài liệu.
+- Xây dựng hệ thống Retrieval-Augmented Generation (RAG) để hỗ trợ hỏi đáp theo ngữ cảnh.
+- Quản lý dữ liệu và trạng thái xử lý bằng Amazon DynamoDB.
+- Áp dụng các dịch vụ bảo mật của AWS để bảo vệ hệ thống.
+- Hiểu quy trình triển khai một ứng dụng AI hiện đại trên kiến trúc Serverless.
+
+---
+
+## Kiến trúc hệ thống
+
 <p align="center">
-  <img
-    src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/Workshop.png"
-    width="850"
-    alt="Kiến trúc VietAI Scholar Assistant trên AWS">
+  <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/Workshop.png" width="900">
 </p>

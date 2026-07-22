@@ -5,32 +5,30 @@ weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
+
 #### Overview
 
-This workshop focuses on building the **VietAI Scholar Assistant**, an AI-powered academic assistant that leverages Large Language Models (LLMs) and AWS Cloud services. The platform enables users to upload one or multiple PDF documents, automatically translate, summarize, analyze academic papers, and interact with the documents through Retrieval-Augmented Generation (RAG).
+This workshop provides a step-by-step guide to building **VietAI Scholar Assistant**, an AI-powered academic assistant developed on the AWS Cloud platform. The system enables users to upload one or multiple PDF documents for automatic analysis, translation, summarization, context-aware question answering, and knowledge assessment based on the uploaded content.
 
-During the workshop, participants learn how to integrate modern AWS services to develop a complete AI application, covering document storage, serverless orchestration, AI processing pipelines, vector search, and multi-agent collaboration using Amazon Bedrock.
+Throughout this workshop, participants will learn how to develop an end-to-end document processing workflow, including document storage, content extraction, Large Language Model (LLM) processing, embedding generation, Retrieval-Augmented Generation (RAG), and AI agent orchestration using Amazon Bedrock.
 
-In addition to text processing, the system is capable of understanding mathematical formulas, charts, and images, then exporting the processed content into Markdown or HTML. This significantly improves the efficiency of studying and researching academic materials.
+In addition, the workshop demonstrates how multiple AWS services can be integrated within a serverless architecture to provide scalability, reliability, and cost efficiency. The entire solution is designed on AWS and can be extended to support various real-world AI-powered document processing applications.
+
+---
 
 #### Architecture Highlights
 
-- **Frontend:** Built with React, hosted on Amazon S3, and globally distributed through Amazon CloudFront.
-- **Backend:** Amazon API Gateway and AWS Lambda are used to receive requests and orchestrate the serverless processing workflow.
-- **AI Processing:** Amazon Bedrock Agents coordinate the Supervisor Agent, Document Agent, and Researcher Agent for intelligent document analysis.
-- **Multimodal Processing:** Claude 3.5 Sonnet extracts text, translates content, recognizes mathematical formulas, and interprets diagrams.
-- **OCR Backup:** Amazon Textract is utilized when scanned documents or low-quality PDFs require OCR processing.
-- **Retrieval-Augmented Generation (RAG):** Titan Text Embeddings together with Amazon S3 Vectors provide semantic search and document-based question answering.
-- **Storage:** Amazon S3 stores original PDF files, Markdown/HTML outputs, and vector data, while Amazon DynamoDB manages metadata and processing status.
-- **Security:** AWS IAM, Amazon Cognito, Amazon S3 Bucket Policies, and AWS KMS protect user data and control system access.
-- **Automation:** Amazon S3 Event Notifications automatically trigger AWS Lambda whenever a new document is uploaded.
+- **Frontend:** A React-based web application that allows users to upload PDF documents, view processing results, and interact with the AI assistant.
+- **Document Storage:** Amazon S3 is used to securely store uploaded documents, generated outputs, and intermediate processing files.
+- **Backend:** Amazon API Gateway and AWS Lambda receive user requests and orchestrate the entire document processing workflow.
+- **AI Processing:** Amazon Bedrock and AI Agents perform document analysis, translation, summarization, and context-aware question answering.
+- **OCR & Document Understanding:** The system supports processing complex documents containing scanned pages, mathematical formulas, charts, and images to ensure accurate document understanding.
+- **Retrieval-Augmented Generation (RAG):** Processed documents are converted into embeddings and indexed to provide semantic search and document-based question answering.
+- **Database:** Amazon DynamoDB stores document metadata, processing status, and application information required during execution.
+- **Security:** AWS IAM and Amazon Cognito provide identity management, authentication, and secure access to AWS resources.
+- **Automation:** The complete workflow is automatically triggered through Amazon S3 events and AWS Lambda, minimizing manual operations.
 
-#### System Workflow
-
-Users upload one or more PDF documents through the React-based web interface. The application requests a presigned URL from Amazon API Gateway and uploads the files directly to Amazon S3.
-Once a document is uploaded, Amazon S3 Event Notification automatically invokes the AWS Lambda Orchestrator. Lambda forwards the document information to the Supervisor Agent running on Amazon Bedrock, which determines the appropriate processing workflow.
-For standard PDF documents, the Document Agent uses Claude 3.5 Sonnet to extract text, interpret formulas, analyze images, and understand document structure. If the uploaded file is a scanned document with poor quality, Amazon Textract is used as an OCR fallback service.
-After processing is completed, the extracted information is formatted into structured JSON, converted into Markdown or HTML, stored back in Amazon S3, and the processing status is updated in Amazon DynamoDB. Finally, the generated result is returned to users through REST APIs or WebSocket connections.
+---
 
 #### Content
 
@@ -41,9 +39,24 @@ After processing is completed, the extracted information is formatted into struc
 5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
 6. [Clean up](5.6-Cleanup/)
 
+---
+
+## Learning Objectives
+
+After completing this workshop, participants will be able to:
+
+- Understand the architecture of an AI-powered document processing system built on AWS.
+- Deploy a document storage solution using Amazon S3.
+- Build AI Agents with Amazon Bedrock for document analysis and intelligent interaction.
+- Develop a Retrieval-Augmented Generation (RAG) pipeline for context-aware question answering.
+- Manage document metadata and processing status using Amazon DynamoDB.
+- Apply AWS security services to protect cloud resources and user data.
+- Gain practical experience in deploying modern AI applications using a serverless architecture on AWS.
+
+---
+
+## System Architecture
+
 <p align="center">
-  <img
-    src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/Workshop.png"
-    width="850"
-    alt="VietAI Scholar Assistant Workshop Architecture">
+  <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/Workshop.png" width="900">
 </p>
