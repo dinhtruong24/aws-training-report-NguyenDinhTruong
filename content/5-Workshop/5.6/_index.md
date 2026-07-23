@@ -18,6 +18,14 @@ Create a bucket `delivery-dev-pod-<unique-suffix>` in `ap-southeast-1`, enable B
 | Failed Delivery Evidence | failed-evidence/{orderId}/{guid}.png |
 | Deployment Package | deployments/{release}.tar.gz |
 
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image25.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image26.png" width="900">
+</p>
+
 5.6.2. S3 Gateway VPC Endpoint
 Create a Gateway Endpoint `com.amazonaws.ap-southeast-1.s3` and associate it with `delivery-app-rt`. Private EC2 instances access S3 without routing S3 traffic through NAT.
 Route check: The endpoint must be attached to the correct application route table; bucket policies/KMS policies still must allow the respective IAM Role.

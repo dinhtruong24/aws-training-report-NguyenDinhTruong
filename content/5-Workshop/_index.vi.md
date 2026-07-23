@@ -78,5 +78,5 @@ Sau khi hoàn thành workshop, người học có thể:
 ## Kiến trúc hệ thống
 
 <p align="center">
-  <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/Workshop.png" width="900">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image1.png" width="900">
 </p>

@@ -13,7 +13,11 @@ Backend dùng package `AWSSDK.GeoPlaces` và IAM Role để gọi SearchText/Rev
 Trình duyệt chỉ gọi API nội bộ `/api/location/search` và `/api/location/reverse`; không nhận AWS credential.
 API trả model ổn định gồm `displayName`, `title`, `latitude`, `longitude` để UI không phụ thuộc trực tiếp SDK response.
 Không fallback âm thầm về Nominatim sau cutover; nếu cần rollback phải dùng feature flag rõ ràng và log provider.
-![Hinh39](/workshop-website/images/5-Workshop/image39.png)
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image39.png" width="900">
+</p>
+
 5.8.2. IAM và biến môi trường
 ```env
 AmazonLocation__Region=ap-southeast-1

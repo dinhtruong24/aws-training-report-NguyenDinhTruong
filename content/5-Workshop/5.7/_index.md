@@ -19,6 +19,14 @@ The event pipeline is integrated only after the database and media flows are sta
 | Encryption | SQS-managed SSE or KMS per scope |
 | maxReceiveCount | 3 |
 
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image31.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image32.png" width="900">
+</p>
+
 5.7.2. Event Contract
 ```json
 {
@@ -47,12 +55,38 @@ Payloads should only contain metadata needed by the consumer; media should be re
 Critical criteria: Manual `SendMessage` only proves the queue infrastructure works. Integration is only complete when a real order action from the app creates a message matching the contract.
 
 5.7.4. Lambda Consumer
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image33.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image34.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image35.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image36.png" width="900">
+</p>
+
 The Lambda role needs ReceiveMessage, DeleteMessage, ChangeMessageVisibility, GetQueueAttributes, and the required SES permissions.
 The handler must check `eventId` for idempotent processing because SQS can deliver messages more than once.
 Only delete messages after successful processing. Errors must be thrown so SQS/Lambda retries and forwards to the DLQ after reaching the limit.
 Upon first rollout, you can leave the trigger Disabled, test the handler with a sample payload, and then Enable it.
 
 5.7.5. Amazon SES
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image37.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image38.png" width="900">
+</p>
+
 ```env
 SES_FROM_ADDRESS=<VERIFIED_SENDER>
 SES_REPLY_TO=<OPTIONAL_REPLY_TO>

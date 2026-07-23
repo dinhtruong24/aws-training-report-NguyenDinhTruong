@@ -78,5 +78,5 @@ After completing this workshop, you will be able to:
 ## System Architecture
 
 <p align="center">
-  <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/Workshop.png" width="900">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image1.png" width="900">
 </p>

@@ -10,9 +10,19 @@ Database được tích hợp ngay sau khi runtime ổn định vì toàn bộ n
 
 5.5.1. DB subnet group và RDS
 Tạo `delivery-dev-db-subnet-group` từ hai database subnets ở hai Availability Zones. RDS MySQL 8.4 dùng private access, Single-AZ cho workshop và `delivery-rds-sg`.
-![Hinh28](/workshop-website/images/5-Workshop/image28.png)
-![Hinh29](/workshop-website/images/5-Workshop/image29.png)
-![Hinh30](/workshop-website/images/5-Workshop/image30.png)
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image28.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image29.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image30.png" width="900">
+</p>
+
 Phạm vi: Single-AZ là lựa chọn giảm chi phí cho workshop; không trình bày như Multi-AZ production nếu chưa bật thật.
 
 5.5.2. Secret contract
