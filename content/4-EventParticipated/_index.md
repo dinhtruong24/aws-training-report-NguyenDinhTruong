@@ -23,6 +23,7 @@ During my internship, I participated in three events. Each one was a memorable e
 - **Date:** May 30, 2026
 - **Location:** AWS Vietnam Office
 - **Role:** Participant
+- **Main Topics:** AWS Cloud Services, Serverless Architecture, Generative AI, Career Opportunities in Cloud Computing, Technical Sharing, and Hands-on Practice.
 
 ---
 
@@ -33,3 +34,15 @@ During my internship, I participated in three events. Each one was a memorable e
 - **Location:** AWS Vietnam Office
 - **Role:** Participant
 - **Main Topics:** Cloud Architecture, Cloud Career Trends, AI in Enterprise, Networking, and career development for future Cloud professionals.
+
+---
+
+## Overall Reflection
+
+Participating in the three internship events provided me with valuable practical experience and broadened my understanding of AWS Cloud technologies and modern IT trends.
+
+Through technical presentations, hands-on workshops, and networking activities, I gained deeper knowledge of cloud architecture, artificial intelligence, modern software development practices, and career opportunities in the information technology industry.
+
+In addition to technical knowledge, I had the opportunity to interact with AWS professionals, instructors, and fellow students who share similar career interests. These interactions helped me expand my professional network, improve my communication and teamwork skills, and gain practical insights from real-world experiences.
+
+Overall, these events strengthened both my technical knowledge and professional skills. They also motivated me to continue learning, improving my expertise, and pursuing a future career in Cloud Computing.

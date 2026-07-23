@@ -23,6 +23,7 @@ Trong quá trình thực tập, em đã tham gia 3 events, với mỗi event là
 - **Thời gian:** 30 Tháng Năm 2026
 - **Địa điểm:** Văn phòng AWS Việt Nam, TP. Hồ Chí Minh
 - **Vai trò trong sự kiện:** Đối tượng tham gia
+- **Chủ đề chính:** Dịch vụ AWS Cloud, Serverless Computing, Generative AI, chia sẻ kinh nghiệm thực tế, phát triển nghề nghiệp trong lĩnh vực Cloud và các hoạt động thực hành.
 
 ---
 
@@ -33,3 +34,15 @@ Trong quá trình thực tập, em đã tham gia 3 events, với mỗi event là
 - **Vị trí:** Văn phòng AWS Việt Nam
 - **Vai trò:** Đối tượng tham gia
 - **Chủ đề chính:** Kiến trúc đám mây, xu hướng nghề nghiệp Cloud, AI trong doanh nghiệp, kết nối mạng và định hướng phát triển cho các chuyên gia điện toán đám mây.
+
+---
+
+## Cảm nhận tổng thể
+
+Việc tham gia ba sự kiện trong chương trình thực tập đã mang lại cho tôi nhiều trải nghiệm thực tế và kiến thức bổ ích về điện toán đám mây AWS cũng như các xu hướng công nghệ hiện đại.
+
+Thông qua các buổi chia sẻ, workshop thực hành và hoạt động giao lưu, tôi có cơ hội hiểu rõ hơn về kiến trúc Cloud, Trí tuệ nhân tạo (AI), phương pháp phát triển phần mềm hiện đại và định hướng nghề nghiệp trong lĩnh vực Công nghệ thông tin.
+
+Bên cạnh việc tiếp thu kiến thức chuyên môn, tôi còn được gặp gỡ các chuyên gia AWS, giảng viên và các bạn sinh viên có cùng định hướng nghề nghiệp. Điều này giúp tôi mở rộng mạng lưới kết nối, nâng cao kỹ năng giao tiếp, làm việc nhóm và học hỏi thêm nhiều kinh nghiệm thực tế.
+
+Nhìn chung, các sự kiện không chỉ giúp củng cố những kiến thức đã học trong chương trình thực tập mà còn tạo thêm động lực để tôi tiếp tục nghiên cứu, phát triển kỹ năng và theo đuổi con đường trở thành một kỹ sư Cloud trong tương lai.
