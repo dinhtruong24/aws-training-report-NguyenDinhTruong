@@ -27,7 +27,7 @@ The Auto Scaling Group (ASG) architecture automatically adjusts server capacity 
 The platform is deployed in the AWS Region `ap-southeast-1` (Singapore) using a Multi-Availability Zone (Multi-AZ) distributed network design to ensure high availability.
 
 <p align="center">
-  <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/Workshop.png" width="900">
+    <img src="/aws-training-report-NguyenDinhTruong/images/2-Proposal/image1.png" width="900">
 </p>
 
 *AWS Services & Core Technologies*

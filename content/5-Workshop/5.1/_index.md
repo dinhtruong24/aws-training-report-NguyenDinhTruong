@@ -62,6 +62,10 @@ Request and Data Flow
 
 Architecture Diagram
 
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image1.png" width="900">
+</p>
+
 *Figure 1. The current architecture diagram of NightFury Express is kept as the target architecture.*
 
 How to read the diagram: The diagram remains unchanged as requested. However, the presence of CloudFront, WAF, Auto Scaling, or monitoring in the diagram does not mean these components are completed. The actual status must be cross-referenced with the status table and evidence in each section.

@@ -10,6 +10,17 @@ This section retains the current network baseline of the project. The goal is to
 
 5.3.1. VPC Overview
 Create VPC `delivery-dev-vpc` with CIDR `10.0.0.0/16`, enable DNS resolution and DNS hostnames. The VPC is divided into public, private application, and private database subnets.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image2.png" width="900">
+</p>
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image3.png" width="900">
+</p>
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image4.png" width="900">
+</p>
+
 Success condition: VPC is in Available state; DNS resolution and DNS hostnames are both Enabled.
 
 5.3.2. Subnets
@@ -23,15 +34,62 @@ Success condition: VPC is in Available state; DNS resolution and DNS hostnames a
 | delivery-db-a | ap-southeast-1a | 10.0.21.0/24 | Disable |
 | delivery-db-b | ap-southeast-1b | 10.0.22.0/24 | Disable |
 
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image5.png" width="900">
+</p>
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image6.png" width="900">
+</p>
+
 Cost/HA note: The workshop uses two Availability Zones but may use only one NAT Gateway to save costs. This is a demo choice; production architectures should consider NAT Gateways per AZ to avoid cross-AZ dependencies.
 
 5.3.3. Route Tables
 Create three separate route tables: `delivery-public-rt`, `delivery-app-rt`, and `delivery-db-rt`. The database route table only has local routes; the application route table routes outbound traffic through NAT.
 
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image9.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image10.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image11.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image12.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image13.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image14.png" width="900">
+</p>>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image15.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image16.png" width="900">
+</p>
+
 5.3.4. Internet Gateway
 1. Create `delivery-dev-igw`.
 2. Attach the Internet Gateway to `delivery-dev-vpc`.
 3. Add `0.0.0.0/0 → delivery-dev-igw` in `delivery-public-rt`.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image7.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image8.png" width="900">
+</p>
 
 5.3.5. NAT Gateway
 1. Create `delivery-nat-a` in `delivery-public-a` and allocate an Elastic IP.
@@ -39,6 +97,10 @@ Create three separate route tables: `delivery-public-rt`, `delivery-app-rt`, and
 3. Add `0.0.0.0/0 → NAT Gateway` in `delivery-app-rt`.
 4. Do not add a NAT route to the database route table.
 Check: Do not leave routes pointing to deleted NATs; after cleanup, release the Elastic IP separately.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image17.png" width="900">
+</p>
 
 5.3.6. Security Groups
 
@@ -48,10 +110,38 @@ Check: Do not leave routes pointing to deleted NATs; after cleanup, release the 
 | delivery-ec2-sg | TCP 5000 | Only from delivery-alb-sg |
 | delivery-rds-sg | MySQL 3306 | Only from delivery-ec2-sg |
 
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image18.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image19.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image20.png" width="900">
+</p>
+
 Security: Do not open ports 5000 or 3306 from `0.0.0.0/0`. EC2 administration prefers Session Manager over public SSH.
 
 5.3.7. IAM Role for EC2
 Create `delivery-ec2-role` with trust principal `ec2.amazonaws.com`. Attach `AmazonSSMManagedInstanceCore`; application permissions for S3, SQS, Secrets Manager, KMS, and GeoPlaces are granted via customer-managed policies restricted by ARN.
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image21.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image22.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image23.png" width="900">
+</p>
+
+<p align="center">
+    <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/image24.png" width="900">
+</p>
 
 ```json
 {

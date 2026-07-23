@@ -27,7 +27,7 @@ Kiến trúc Auto Scaling Group (ASG) giúp tự động điều chỉnh lượn
 Nền tảng được triển khai trên AWS Region `ap-southeast-1` (Singapore) với thiết kế mạng phân tán trên hai Availability Zones (Multi-AZ) để đảm bảo tính sẵn sàng cao.
 
 <p align="center">
-  <img src="/aws-training-report-NguyenDinhTruong/images/5-Workshop/Workshop.png" width="900">
+    <img src="/aws-training-report-NguyenDinhTruong/images/2-Proposal/image1.png" width="900">
 </p>
 
 *Dịch vụ AWS và Công nghệ cốt lõi* 
