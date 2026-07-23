@@ -38,17 +38,18 @@ Ngoài ra, workshop còn hướng dẫn triển khai ứng dụng bằng symboli
 
 #### Nội dung
 
-1. [Tổng quan về Workshop](5.1-workshop-overview/)
-2. [Điều kiện tiên quyết](5.2-prerequiste/)
-3. [Lab 1: Network Infrastructure](5.3-lab-1-network/)
-4. [Lab 2: Security Groups và IAM](5.4-lab-2-security/)
-5. [Lab 3: Storage với Amazon S3](5.5-lab-3-storage/)
-6. [Lab 4: Database và các dịch vụ liên quan](5.6-lab-4-database/)
-7. [Lab 5: Events, Lambda và Email](5.7-lab-5-event-driven-services/)
-8. [Lab 6: Amazon Location Service](5.8-lab-6-amazon-location-service/)
-9. [Lab 7: Compute & Deployment](5.9-lab-7-compute--deployment/)
-10. [End-to-End Testing](5.10-end-to-end-testing/)
-11. [Cleanup](5.11-cleanup/)
+1. [Giới thiệu và kiến trúc giải pháp](5.1/)
+2. [Điều kiện tiên quyết và quy tắc đặt tên](5.2/)
+3. [Mạng, IAM và nền tảng bảo mật](5.3/)
+4. [Chuẩn hóa ứng dụng và Backend EC2 Runtime](5.4/)
+5. [RDS MySQL, Secrets Manager và migration](5.5/)
+6. [S3 cho POD, chữ ký và minh chứng](5.6/)
+7. [SQS, Lambda và SES](5.7/)
+8. [Amazon Location GeoPlaces V2](5.8/)
+9. [Deploy EC2, ALB, Target Group và kiểm thử end-to-end](5.9/)
+10. [CloudFront, WAF, Monitoring và quản trị](5.10/)
+11. [Dọn dẹp tài nguyên](5.11/)
+12. [Demo](5.12/)
 
 ---
 

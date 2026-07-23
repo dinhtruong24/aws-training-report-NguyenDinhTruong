@@ -38,17 +38,18 @@ In addition, this workshop demonstrates how to deploy applications using symboli
 
 #### Contents
 
-1. [Workshop Overview](5.1-workshop-overview/)
-2. [Prerequisites](5.2-prerequiste/)
-3. [Lab 1: Network Infrastructure](5.3-lab-1-network/)
-4. [Lab 2: Security Groups and IAM](5.4-lab-2-security/)
-5. [Lab 3: Storage with Amazon S3](5.5-lab-3-storage/)
-6. [Lab 4: Database and Related Services](5.6-lab-4-database/)
-7. [Lab 5: Events, Lambda, and Email](5.7-lab-5-event-driven-services/)
-8. [Lab 6: Amazon Location Service](5.8-lab-6-amazon-location-service/)
-9. [Lab 7: Compute & Deployment](5.9-lab-7-compute--deployment/)
-10. [End-to-End Testing](5.10-end-to-end-testing/)
-11. [Cleanup](5.11-cleanup/)
+1. [Introduction and Solution Architecture](5.1/)
+2. [Prerequisites and Naming Conventions](5.2/)
+3. [Networking, IAM, and Security Foundations](5.3/)
+4. [Application Containerization and Backend EC2 Runtime](5.4/)
+5. [RDS MySQL, Secrets Manager, and Migration](5.5/)
+6. [S3 for POD, Digital Signatures, and Proofs](5.6/)
+7. [SQS, Lambda, and SES](5.7/)
+8. [Amazon Location GeoPlaces V2](5.8/)
+9. [EC2 Deployment, ALB, Target Group, and End-to-End Testing](5.9/)
+10. [CloudFront, WAF, Monitoring, and Governance](5.10/)
+11. [Resource Cleanup](5.11/)
+12. [Demo](5.12/)
 
 ---
 
